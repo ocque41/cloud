@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { type CSSProperties, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -17,8 +17,15 @@ import { NavSheetContent } from "./nav";
 export function Header() {
   const [open, setOpen] = useState(false);
 
+  const headerStyles = {
+    "--header-h": "5rem",
+  } as CSSProperties;
+
   return (
-    <header className="sticky top-0 z-40 border-b border-[color:var(--muted)]/20 bg-[#171717]/90 backdrop-blur">
+    <header
+      className="sticky top-0 z-40 border-b border-[color:var(--muted)]/20 bg-[#171717]/90 backdrop-blur"
+      style={headerStyles}
+    >
       <div className="container flex items-center justify-between py-6">
         <Link href="/" className="text-xl font-semibold tracking-tight">
           Cumulus
@@ -49,7 +56,10 @@ export function Header() {
               </div>
             </SheetContent>
           </Sheet>
-          <Button asChild className="hidden text-sm uppercase tracking-wide xl:inline-flex">
+          <Button
+            asChild
+            className="hidden bg-[#DEDDD9] text-sm uppercase tracking-wide text-[#171717] transition hover:bg-[#cfcfc9] focus-visible:ring-2 focus-visible:ring-[#171717] focus-visible:ring-offset-2 focus-visible:ring-offset-[#171717] xl:inline-flex"
+          >
             <Link href="/contact">Request a Custom Build</Link>
           </Button>
           <Button

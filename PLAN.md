@@ -21,3 +21,12 @@
   1. `vercel.json` forces the framework preset to Next.js so Vercel provisions the correct runtime artifacts and no longer expects a static `public/` export.
   2. Documentation outlines how the framework override resolves the 404 and how to verify the fix (e.g., `npm run start`) so the team can confirm routing locally.
 - **Status:** ✅ Completed — Added the Next.js framework override and updated README guidance to cover verification via `npm start`.
+
+# Sprint 7 Plan
+## Item 1: Hero integration & layout fixes
+- **Description:** Implement the marketing shell updates from Sprint 7, including the interactive shader hero, global sidebar placement, and footer layout refinements for the marketing routes.
+- **Acceptance Criteria:**
+  1. `/src/components/interactive-shader-card/index.tsx` exposes the shader card as a client component with required CSS so that the hero can lazy-load it without SSR errors, including a reduced-motion fallback.
+  2. `src/components/site/hero.tsx` dynamically imports the shader within a 16:9 rounded container, provides accessible labeling, and renders a static gradient when `prefers-reduced-motion` is set.
+  3. `(marketing)/layout.tsx` renders a sticky, centered sidebar that keeps navigation active states synchronized via `useSelectedLayoutSegments()` and includes the spacious footer layout specified in Sprint 7.
+- **Status:** ✅ Completed — Shader wrapper, dynamic hero import, sticky sidebar, and footer updates shipped with passing lint/build.

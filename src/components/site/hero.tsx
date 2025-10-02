@@ -1,4 +1,22 @@
-import InteractiveShaderCard from "@/components/interactive-shader-card";
+"use client";
+
+import dynamic from "next/dynamic";
+
+const GrainyGradient = dynamic(
+  () =>
+    import("@/components/interactive-shader-card").then(
+      (mod) => mod.GrainyGradient
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        aria-hidden
+        className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(222,221,217,0.45),rgba(23,23,23,0.9))]"
+      />
+    ),
+  }
+);
 
 export function Hero() {
   const now = new Date();
@@ -27,9 +45,12 @@ export function Hero() {
         workflow, and compliance—then ship it as a dedicated, supported build.
       </p>
 
-      <div className="mt-12 overflow-hidden rounded-2xl">
-        <div className="aspect-[16/9]">
-          <InteractiveShaderCard aria-label="Cumulus interactive hero" />
+      <div className="mt-12">
+        <div className="aspect-[16/9] overflow-hidden rounded-2xl">
+          <GrainyGradient
+            aria-label="Cumulus interactive hero"
+            className="h-full w-full"
+          />
         </div>
       </div>
     </section>
