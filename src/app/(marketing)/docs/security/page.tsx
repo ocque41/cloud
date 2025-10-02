@@ -14,6 +14,7 @@ export default function SecurityDocPage() {
       eyebrow="Docs"
       copy="Understand how we align with your governance model and satisfy due diligence for regulated environments."
       className="pb-32"
+      headingLevel={1}
     >
       <div className="space-y-6 text-lg text-[color:var(--muted)]">
         <p>

@@ -22,6 +22,7 @@ export default function DocsPage() {
       eyebrow="Docs"
       copy="Centralize the material your engineers, security teams, and operators need to adopt a personalized build."
       className="pb-32"
+      headingLevel={1}
     >
       <ul className="space-y-6">
         {documents.map((doc) => (
@@ -30,7 +31,7 @@ export default function DocsPage() {
             <p className="mt-2 text-sm text-[color:var(--muted)]">{doc.description}</p>
             <Link
               href={doc.href}
-              className="mt-4 inline-flex items-center text-sm uppercase tracking-wide text-[color:var(--fg)]/80 hover:text-[color:var(--fg)]"
+              className="mt-4 inline-flex min-h-[44px] items-center text-sm uppercase tracking-wide text-[color:var(--fg)]/80 hover:text-[color:var(--fg)]"
             >
               View guide
             </Link>

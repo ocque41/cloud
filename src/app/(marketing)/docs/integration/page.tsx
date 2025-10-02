@@ -14,6 +14,7 @@ export default function IntegrationDocPage() {
       eyebrow="Docs"
       copy="Map the endpoints, services, and orchestration steps required to ship your tailored build into production."
       className="pb-32"
+      headingLevel={1}
     >
       <div className="space-y-6 text-lg text-[color:var(--muted)]">
         <p>

@@ -3,6 +3,7 @@ import Link from "next/link";
 const footerLinks = [
   { href: "/docs", label: "Docs" },
   { href: "/products", label: "Products" },
+  { href: "/process", label: "Process" },
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
 ];
@@ -16,7 +17,10 @@ export function Footer() {
           <ul className="flex flex-wrap items-center justify-center gap-6 text-xs uppercase tracking-[0.2em] text-[color:var(--muted)]">
             {footerLinks.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="transition hover:text-[color:var(--fg)]">
+                <Link
+                  href={link.href}
+                  className="inline-flex min-h-[44px] items-center transition hover:text-[color:var(--fg)]"
+                >
                   {link.label}
                 </Link>
               </li>

@@ -19,6 +19,7 @@ export function Header() {
 
   const headerStyles = {
     "--header-h": "5rem",
+    minHeight: "var(--header-h)",
   } as CSSProperties;
 
   return (
@@ -35,7 +36,7 @@ export function Header() {
             <SheetTrigger asChild>
               <button
                 type="button"
-                className="inline-flex items-center gap-2 rounded-full border border-[color:var(--muted)]/40 px-4 py-2 text-sm text-[color:var(--fg)] transition hover:border-[color:var(--fg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--fg)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)] xl:hidden"
+                className="inline-flex min-h-[44px] items-center gap-2 rounded-full border border-[color:var(--muted)]/40 px-5 text-sm text-[color:var(--fg)] transition hover:border-[color:var(--fg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--fg)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)] xl:hidden"
               >
                 Menu
               </button>

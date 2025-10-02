@@ -14,6 +14,7 @@ export default function SupportDocPage() {
       eyebrow="Docs"
       copy="Pick the partnership tier that pairs your team with the right mix of response speed, roadmap access, and SLAs."
       className="pb-32"
+      headingLevel={1}
     >
       <div className="space-y-6 text-lg text-[color:var(--muted)]">
         <p>
