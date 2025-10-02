@@ -1,8 +1,7 @@
-# Sprint 2 Plan
-
-## Item 1: Remove binary public assets
-- **Description:** Delete binary image files from the repository to satisfy the PR requirements and ensure no references remain.
+# Sprint 3 Plan
+## Item 1: Harden Vercel dependency installs
+- **Description:** Configure the project so that Vercel retries dependency downloads with higher timeouts to avoid transient npm registry network failures during deployment.
 - **Acceptance Criteria:**
-  1. All binary assets (e.g., SVGs) previously committed under `public/` are removed from version control.
-  2. Application routes and components build without referencing the deleted files, keeping `npm run build` passing.
-- **Status:** ✅ Completed — Binary files under `public/` removed and build verified via `npm run build`.
+  1. Repository includes npm configuration and/or Vercel settings that increase fetch retries/timeouts for dependency installs during `vercel build`.
+  2. README documents the deployment install behavior and how to verify the fix locally.
+- **Status:** ✅ Completed — Added `.npmrc` retry configuration, `vercel.json` install override, and README documentation.
