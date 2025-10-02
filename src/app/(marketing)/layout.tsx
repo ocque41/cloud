@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
-import { DesktopNav } from "@/components/site/nav";
+import { InlineNav, Sidebar } from "@/components/site/nav";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
@@ -30,11 +30,17 @@ export const viewport: Viewport = {
 
 export default function MarketingLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen">
+    <div className="flex min-h-screen flex-col">
+      <a className="skip-link" href="#main-content">
+        Skip to main content
+      </a>
       <Header />
-      <div className="mx-auto flex w-full max-w-[1400px] gap-12 px-4 pb-24 pt-12 lg:px-8">
-        <DesktopNav />
-        <main className="flex-1">{children}</main>
+      <div className="mx-auto flex w-full max-w-[1400px] flex-1 gap-12 px-4 pb-24 pt-12 lg:px-8">
+        <Sidebar />
+        <main className="flex-1" id="main-content" tabIndex={-1}>
+          <InlineNav />
+          {children}
+        </main>
       </div>
       <Footer />
       <Toaster />

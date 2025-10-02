@@ -34,6 +34,7 @@ export default function ProcessPage() {
       eyebrow="Method"
       copy="A proven flow that keeps your team in the loop while we tailor the product you selected."
       className="pb-32"
+      headingLevel={1}
     >
       <div className="space-y-10">
         {phases.map((phase, index) => (

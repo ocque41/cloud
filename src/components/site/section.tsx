@@ -9,6 +9,7 @@ interface SectionProps {
   children?: ReactNode;
   className?: string;
   as?: keyof JSX.IntrinsicElements;
+  headingLevel?: 1 | 2 | 3 | 4 | 5 | 6;
 }
 
 export function Section({
@@ -18,7 +19,19 @@ export function Section({
   children,
   className,
   as: Tag = "section",
+  headingLevel = 2,
 }: SectionProps) {
+  const headingTags = {
+    1: "h1",
+    2: "h2",
+    3: "h3",
+    4: "h4",
+    5: "h5",
+    6: "h6",
+  } as const;
+
+  const HeadingTag = headingTags[headingLevel];
+
   return (
     <Tag className={cn("container py-20", className)}>
       <div className="max-w-2xl">
@@ -27,9 +40,9 @@ export function Section({
             {eyebrow}
           </span>
         ) : null}
-        <h2 className="mt-3 text-3xl font-semibold leading-tight">
+        <HeadingTag className="mt-3 text-3xl font-semibold leading-tight">
           {title}
-        </h2>
+        </HeadingTag>
         {copy ? <p className="mt-4 text-[color:var(--muted)]">{copy}</p> : null}
       </div>
       {children ? <div className="mt-10">{children}</div> : null}
