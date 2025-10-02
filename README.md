@@ -25,9 +25,8 @@ npm run build
 npm start
 ```
 
-`npm run build` performs a production compilation. Use `npm start` to run the compiled app locally. The build expects the `public/`
-directory that ships with this repository (containing assets like `favicon.svg`); keep this folder in place when deploying so Next.js
-and Vercel can detect the output correctly.
+`npm run build` performs a production compilation. Use `npm start` to run the compiled app locally. The build expects the tracked `public/`
+directory (containing assets like `favicon.svg`); keep this folder in place so static asset references resolve correctly during runtime.
 
 ## Key Features
 
@@ -68,5 +67,9 @@ Deploy the project with any platform that supports Next.js 15 App Router builds 
   ```
 
   This mirrors the commands Vercel executes during `vercel build`.
-- Ensure the tracked `public/` directory (including `favicon.svg`) is present in deployments; Vercel expects this folder when
-  packaging the optimized build output.
+- `vercel.json` pins the framework preset to `nextjs`, ensuring Vercel provisions the App Router runtime instead of falling back to a
+  static-only deployment (which would surface `404: NOT_FOUND`).
+- Ensure the tracked `public/` directory (including `favicon.svg`) is present in deployments so static assets resolve when the Next.js
+  runtime serves pages.
+- After a production build, run `npm start` and load `http://localhost:3000` to confirm routing works end-to-end before promoting a
+  deployment.
