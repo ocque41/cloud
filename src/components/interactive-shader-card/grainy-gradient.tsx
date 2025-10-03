@@ -1,25 +1,33 @@
-"use client";
-
 import * as React from "react";
 
-interface InteractiveShaderCardProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface GrainyGradientProps
+  extends React.HTMLAttributes<HTMLDivElement> {
   "aria-label"?: string;
 }
 
-export default function InteractiveShaderCard({
-  className,
-  ...props
-}: InteractiveShaderCardProps) {
+export function GrainyGradient({ className, ...props }: GrainyGradientProps) {
   const canvasRef = React.useRef<HTMLCanvasElement | null>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = React.useState(true);
 
   React.useEffect(() => {
     if (typeof window === "undefined") return;
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setPrefersReducedMotion(query.matches);
+    const update = (event?: MediaQueryListEvent) =>
+      setPrefersReducedMotion(event?.matches ?? query.matches);
+
     update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
+
+    if (typeof query.addEventListener === "function") {
+      query.addEventListener("change", update);
+      return () => query.removeEventListener("change", update);
+    }
+
+    if (typeof query.addListener === "function") {
+      query.addListener(update);
+      return () => query.removeListener(update);
+    }
+
+    return undefined;
   }, []);
 
   React.useEffect(() => {
@@ -96,9 +104,9 @@ export default function InteractiveShaderCard({
       aria-hidden={props["aria-label"] ? undefined : true}
     >
       {prefersReducedMotion ? (
-        <div className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(222,221,217,0.45),rgba(23,23,23,0.9))]" />
+        <div className="grainy-gradient-fallback" />
       ) : (
-        <canvas ref={canvasRef} className="h-full w-full" />
+        <canvas ref={canvasRef} className="grainy-gradient-canvas" />
       )}
     </div>
   );

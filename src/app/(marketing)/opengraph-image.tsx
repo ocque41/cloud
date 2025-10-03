@@ -23,7 +23,7 @@ export default function OgImage() {
           padding: "80px",
         }}
       >
-        <span style={{ textTransform: "uppercase", letterSpacing: "0.4em", fontSize: 18, color: "#454443" }}>
+        <span style={{ textTransform: "uppercase", letterSpacing: "0.4em", fontSize: 18, color: "#b4b2ac" }}>
           Cumulus
         </span>
         <h1 style={{ fontSize: 82, lineHeight: 0.95, marginTop: 32 }}>

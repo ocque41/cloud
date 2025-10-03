@@ -1,4 +1,46 @@
-import InteractiveShaderCard from "@/components/interactive-shader-card";
+"use client";
+
+import dynamic from "next/dynamic";
+import { useEffect, useState } from "react";
+
+const GrainyGradient = dynamic(
+  () =>
+    import("@/components/interactive-shader-card").then(
+      (mod) => mod.GrainyGradient
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        aria-hidden
+        className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(222,221,217,0.45),rgba(23,23,23,0.9))]"
+      />
+    ),
+  }
+);
+
+function usePrefersReducedMotion() {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(true);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const query = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+    const update = () => setPrefersReducedMotion(query.matches);
+
+    update();
+
+    if (typeof query.addEventListener === "function") {
+      query.addEventListener("change", update);
+      return () => query.removeEventListener("change", update);
+    }
+
+    query.addListener(update);
+    return () => query.removeListener(update);
+  }, []);
+
+  return prefersReducedMotion;
+}
 
 export function Hero() {
   const now = new Date();
@@ -7,6 +49,7 @@ export function Hero() {
     day: "2-digit",
     year: "numeric",
   }).format(now);
+  const prefersReducedMotion = usePrefersReducedMotion();
 
   return (
     <section className="container pt-20 pb-12">
@@ -27,9 +70,20 @@ export function Hero() {
         workflow, and compliance—then ship it as a dedicated, supported build.
       </p>
 
-      <div className="mt-12 overflow-hidden rounded-2xl">
-        <div className="aspect-[16/9]">
-          <InteractiveShaderCard aria-label="Cumulus interactive hero" />
+      <div className="mt-12">
+        <div className="aspect-[16/9] overflow-hidden rounded-2xl">
+          {prefersReducedMotion ? (
+            <div
+              aria-label="Cumulus hero gradient"
+              role="img"
+              className="h-full w-full bg-[radial-gradient(circle_at_top,_rgba(222,221,217,0.45),rgba(23,23,23,0.9))]"
+            />
+          ) : (
+            <GrainyGradient
+              aria-label="Cumulus interactive hero"
+              className="h-full w-full"
+            />
+          )}
         </div>
       </div>
     </section>
