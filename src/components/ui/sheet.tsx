@@ -41,10 +41,11 @@ const SheetContent = React.forwardRef<
     <SheetPrimitive.Content
       ref={ref}
       className={cn(
-        "fixed z-50 flex h-full w-[320px] flex-col gap-6 border-l border-[color:var(--muted)]/30 bg-[#171717] p-6 text-[color:var(--fg)] shadow-xl outline-none",
-        side === "left" && "left-0 border-l-0 border-r",
-        side === "right" && "right-0",
-        side === "bottom" && "bottom-0 h-auto w-full border-t",
+        "fixed z-50 flex flex-col gap-6 border-[color:var(--muted)]/30 bg-[#171717] p-6 text-[color:var(--fg)] shadow-xl outline-none",
+        side === "left" && "inset-y-0 left-0 h-full w-[320px] border-r",
+        side === "right" && "inset-y-0 right-0 h-full w-[320px] border-l",
+        side === "bottom" && "inset-x-0 bottom-0 w-full border-t",
+        side === "top" && "inset-x-0 top-0 w-full border-b",
         className
       )}
       {...props}
