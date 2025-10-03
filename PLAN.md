@@ -1,3 +1,12 @@
+# Sprint 4 Plan
+
+## Item 1: Consolidate marketing routes under the marketing group
+- **Description:** Move the marketing pages (home, products, product detail, process, contact) fully under the `(marketing)` route group to resolve the duplicate path build failures.
+- **Acceptance Criteria:**
+  1. Only one page exists for each marketing route (`/`, `/products`, `/products/[slug]`, `/process`, `/contact`) so Next.js no longer reports duplicate paths during `npm run build`.
+  2. All updated routes continue to render correctly with shared layout, nav, and metadata via the `(marketing)` layout.
+- **Status:** ✅ Completed — marketing pages now live solely under the `(marketing)` route group and build succeeds.
+
 # Sprint 3 Plan
 
 ## Item 1: Restore mobile sheet navigation visibility

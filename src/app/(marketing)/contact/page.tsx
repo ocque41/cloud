@@ -15,7 +15,6 @@ export default function ContactPage() {
       eyebrow="Contact"
       copy="Tell us about your team, your stack, and the outcomes you’re aiming for. We’ll respond with next steps."
       className="pb-32"
-      headingLevel={1}
     >
       <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6 text-lg text-[color:var(--muted)]">

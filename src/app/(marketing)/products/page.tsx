@@ -27,7 +27,6 @@ export default function ProductsPage() {
       eyebrow="Portfolio"
       copy="Each option can be extended, integrated, and delivered as a dedicated build for your environment."
       className="pb-32"
-      headingLevel={1}
     >
       <div className="grid gap-6 md:grid-cols-2">
         {products.map((product) => (
