@@ -30,11 +30,15 @@ export const viewport: Viewport = {
 
 export default function MarketingLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="mx-auto flex w-full max-w-[1400px] gap-12 px-4 pb-24 pt-12 lg:px-8">
-        <DesktopNav />
-        <main className="flex-1">{children}</main>
+      <div className="mx-auto flex w-full max-w-[1400px] flex-1 gap-12 px-4 pb-24 pt-12 lg:px-8">
+        <div className="relative hidden xl:block">
+          <div className="sticky top-24 flex h-[calc(100vh-6rem-6rem)] items-center">
+            <DesktopNav />
+          </div>
+        </div>
+        <main className="flex-1 min-w-0">{children}</main>
       </div>
       <Footer />
       <Toaster />

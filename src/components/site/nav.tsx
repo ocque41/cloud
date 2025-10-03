@@ -9,7 +9,7 @@ const links = [
 
 export function DesktopNav() {
   return (
-    <aside className="sticky top-20 hidden h-min w-48 flex-col gap-4 text-sm text-[color:var(--muted)] xl:flex">
+    <aside className="hidden w-48 flex-col gap-4 text-sm text-[color:var(--muted)] xl:flex">
       <span className="uppercase tracking-[0.3em] text-[10px] text-[color:var(--muted)]">
         Navigate
       </span>

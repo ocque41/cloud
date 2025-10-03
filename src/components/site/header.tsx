@@ -49,14 +49,14 @@ export function Header() {
               </div>
             </SheetContent>
           </Sheet>
-          <Button asChild className="hidden text-sm uppercase tracking-wide xl:inline-flex">
-            <Link href="/contact">Request a Custom Build</Link>
+          <Button asChild className="hidden text-sm uppercase tracking-wide text-[#171717] xl:inline-flex">
+            <Link href="/contact">Request Build</Link>
           </Button>
           <Button
             asChild
             size="sm"
-            variant="muted"
-            className="text-xs uppercase tracking-wide xl:hidden"
+            variant="default"
+            className="text-xs uppercase tracking-wide text-[#171717] xl:hidden"
           >
             <Link href="/contact">Request Build</Link>
           </Button>
