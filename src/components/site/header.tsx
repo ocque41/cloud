@@ -52,7 +52,7 @@ export function Header() {
           <Button
             asChild
             variant="brand"
-            className="hidden bg-[#deddd9] text-sm uppercase tracking-wide text-[#171717] xl:inline-flex"
+            className="hidden text-sm uppercase tracking-wide xl:inline-flex"
           >
             <Link href="/contact">Request Build</Link>
           </Button>
@@ -60,7 +60,7 @@ export function Header() {
             asChild
             size="sm"
             variant="brand"
-            className="bg-[#deddd9] text-xs uppercase tracking-wide text-[#171717] xl:hidden"
+            className="text-xs uppercase tracking-wide xl:hidden"
           >
             <Link href="/contact">Request Build</Link>
           </Button>
