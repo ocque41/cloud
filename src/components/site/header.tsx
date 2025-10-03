@@ -60,7 +60,7 @@ export function Header() {
             asChild
             size="sm"
             variant="brand"
-            className="text-xs uppercase tracking-wide xl:hidden"
+            className="text-xs tracking-wide xl:hidden"
           >
             <Link href="/contact">Request Build</Link>
           </Button>
