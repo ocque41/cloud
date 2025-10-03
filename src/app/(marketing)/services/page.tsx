@@ -14,7 +14,7 @@ export default function ServicesPage() {
       eyebrow="Services"
       copy="Engage the platform team that architects, ships, and supports your tailored version end-to-end."
       className="pb-32"
-      headingLevel={1}
+      
     >
       <div className="space-y-6 text-lg text-[color:var(--muted)]">
         <p>

@@ -22,7 +22,7 @@ export default function DocsPage() {
       eyebrow="Docs"
       copy="Centralize the material your engineers, security teams, and operators need to adopt a personalized build."
       className="pb-32"
-      headingLevel={1}
+      
     >
       <ul className="space-y-6">
         {documents.map((doc) => (
