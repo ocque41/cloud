@@ -102,6 +102,8 @@ Pre-release checklist:
 - Load the homepage at desktop width to confirm the hero mounts with a static gradient placeholder that transitions into the interactive shader once the client bundle arrives.
 - Move the pointer across the hero to see the shader respond. Switch the operating system to “Reduce Motion” and reload; the hero should stay on the static gradient while the CTA button retains its light background (`#DEDDD9`) and dark text (`#171717`).
 - With reduced motion enabled, tab to the “Request a Custom Build” CTA and confirm the focus ring (`ring-2` with dark offset) remains visible against the muted palette.
+- In Safari 15 (or any browser that only exposes `MediaQueryList#addListener`), reload the homepage and confirm the shader mounts without console errors while continuing to respect the system motion preference.
+- When verifying fixes to the hero shader, finish with `npm run lint` and `CI=1 npm run build` to ensure the regression suite stays green.
 
 ### Responsive audit
 

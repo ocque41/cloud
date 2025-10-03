@@ -12,10 +12,22 @@ export function GrainyGradient({ className, ...props }: GrainyGradientProps) {
   React.useEffect(() => {
     if (typeof window === "undefined") return;
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setPrefersReducedMotion(query.matches);
+    const update = (event?: MediaQueryListEvent) =>
+      setPrefersReducedMotion(event?.matches ?? query.matches);
+
     update();
-    query.addEventListener("change", update);
-    return () => query.removeEventListener("change", update);
+
+    if (typeof query.addEventListener === "function") {
+      query.addEventListener("change", update);
+      return () => query.removeEventListener("change", update);
+    }
+
+    if (typeof query.addListener === "function") {
+      query.addListener(update);
+      return () => query.removeListener(update);
+    }
+
+    return undefined;
   }, []);
 
   React.useEffect(() => {

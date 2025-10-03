@@ -93,3 +93,11 @@
   1. `src/components/site/hero.tsx` lazy-loads the shader with `next/dynamic` and shows a static gradient fallback when users prefer reduced motion, while keeping the 16:9 rounded container and accessible labelling intact.
   2. Documentation (README) outlines how to verify the interactive shader, CTA styling, and reduced-motion fallback so teams can confirm Sprint 7 deliverables end to end.
 - **Status:** ✅ Completed — Hero now short-circuits to a static gradient when reduced motion is requested, retains the lazy-loaded shader for other users, and the README documents verification steps for the hero and CTA treatments.
+
+# Sprint 14 Plan
+## Item 1: Restore hero shader compatibility in legacy Safari
+- **Description:** Patch the interactive shader so it no longer throws when `MediaQueryList.addEventListener` is unavailable, ensuring the hero media renders as intended in Safari while maintaining reduced-motion support.
+- **Acceptance Criteria:**
+  1. `GrainyGradient` feature-detects `addEventListener`/`removeEventListener` and gracefully falls back to `addListener`/`removeListener`, preventing runtime errors in Safari.
+  2. README notes how to validate the hero shader on browsers lacking the newer media query APIs, including rerunning lint/build checks to confirm no regressions.
+- **Status:** ✅ Completed — GrainyGradient now guards the media-query listener APIs before attaching handlers, and the README includes Safari verification steps plus the lint/build regression commands.
