@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { buildMetadata } from "@/lib/metadata";
 import { getProductBySlug, products } from "@/lib/products";
+import InteractiveShaderCard from "@/components/interactive-shader-card";
 
 export function generateStaticParams() {
   return products.map((product) => ({ slug: product.slug }));
@@ -43,12 +44,16 @@ export default async function ProductDetailPage({
 
   return (
     <div className="container pb-24">
-      <div className="space-y-6">
+      <div className="flex flex-col items-center mb-12">
+        <InteractiveShaderCard className="mb-8" />
+      </div>
+
+      <div className="space-y-6 text-center">
         <Badge variant="subtle" className="uppercase tracking-wide text-[10px]">
           {product.tech.join(" • ")}
         </Badge>
-        <h1 className="display max-w-4xl">{product.name}</h1>
-        <p className="lead max-w-2xl">{product.short}</p>
+        <h1 className="display max-w-4xl mx-auto">{product.name}</h1>
+        <p className="lead max-w-2xl mx-auto">{product.short}</p>
       </div>
 
       <Separator className="my-12" />
