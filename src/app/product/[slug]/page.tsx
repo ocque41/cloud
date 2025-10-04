@@ -53,11 +53,9 @@ export default function ProductPage() {
             </Link>
           </div>
 
-          <div className="flex flex-col items-center">
-            <InteractiveShaderCard className="mb-8" />
-
-            <div className="text-center max-w-3xl">
-              <div className="flex justify-center gap-2 mb-4">
+          <div className="flex flex-col items-center text-center">
+            <div className="max-w-3xl">
+              <div className="mb-4 flex justify-center gap-2">
                 <Badge variant="subtle" className="text-sm">
                   {product.expertise}
                 </Badge>
@@ -66,25 +64,29 @@ export default function ProductPage() {
                 </Badge>
               </div>
 
-              <h1 className="text-5xl font-bold tracking-tight mb-4">
+              <h1 className="mb-4 text-5xl font-bold tracking-tight">
                 {product.name}
               </h1>
 
-              <p className="text-xl text-muted-foreground mb-8">
+              <p className="text-xl text-muted-foreground">
                 {product.short}
               </p>
-
-              <div className="flex justify-center gap-4">
-                <Button size="lg" onClick={handlePersonalize}>
-                  Personalize
-                </Button>
-                <Link href="/contact">
-                  <Button size="lg" variant="outline">
-                    Contact Us
-                  </Button>
-                </Link>
-              </div>
             </div>
+          </div>
+
+          <div className="mt-10 w-full">
+            <InteractiveShaderCard className="mx-auto aspect-[3/2] w-full max-w-4xl border border-[color:var(--muted)]/20 bg-[#1b1b1b] shadow-[0_35px_120px_rgba(0,0,0,0.35)]" />
+          </div>
+
+          <div className="mt-8 flex justify-center gap-4">
+            <Button size="lg" onClick={handlePersonalize}>
+              Personalize
+            </Button>
+            <Link href="/contact">
+              <Button size="lg" variant="outline">
+                Contact Us
+              </Button>
+            </Link>
           </div>
         </div>
       </section>

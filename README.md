@@ -31,7 +31,7 @@ npm start
 
 ### Linting
 
-Run this command to verify the viewport footer and DQuote catalog updates from Sprint 6.
+Run this command to verify the interactive product hero layout adjustments alongside the existing lint rules.
 
 ```bash
 npm run lint

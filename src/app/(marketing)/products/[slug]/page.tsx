@@ -44,16 +44,16 @@ export default async function ProductDetailPage({
 
   return (
     <div className="container pb-24">
-      <div className="flex flex-col items-center mb-12">
-        <InteractiveShaderCard className="mb-8" />
-      </div>
-
       <div className="space-y-6 text-center">
         <Badge variant="subtle" className="uppercase tracking-wide text-[10px]">
           {product.tech.join(" • ")}
         </Badge>
         <h1 className="display max-w-4xl mx-auto">{product.name}</h1>
         <p className="lead max-w-2xl mx-auto">{product.short}</p>
+      </div>
+
+      <div className="mt-12 flex justify-center">
+        <InteractiveShaderCard className="aspect-[3/2] w-full max-w-4xl border border-[color:var(--muted)]/20 bg-[#1b1b1b] shadow-[0_35px_120px_rgba(0,0,0,0.35)]" />
       </div>
 
       <Separator className="my-12" />

@@ -1,3 +1,13 @@
+# Sprint 8 Plan
+
+## Item 1: Reorder product hero shader card
+- **Description:** Move the interactive shader card below the product badge, title, and summary on every product hero while introducing rounded corners so the visual matches the refreshed layout guidance.
+- **Acceptance Criteria:**
+  1. The marketing product detail page (`/products/[slug]`) renders its badge, headline, and lead paragraph before the shader card, which immediately follows with consistent spacing.
+  2. The legacy product detail route (`/product/[slug]`) also shows its badge stack, headline, and summary copy ahead of the shader card, with the primary call-to-actions appearing beneath the card.
+  3. The interactive shader card surface uses rounded corners in each hero presentation.
+- **Status:** ✅ Completed — Product hero copy precedes the shader card on both routes and the card now renders with rounded corners.
+
 # Sprint 7 Plan
 
 ## Item 1: Rework global footer alignment

@@ -2,6 +2,8 @@
 
 import * as React from "react";
 
+import { cn } from "@/lib/utils";
+
 interface InteractiveShaderCardProps extends React.HTMLAttributes<HTMLDivElement> {
   "aria-label"?: string;
 }
@@ -90,7 +92,7 @@ export default function InteractiveShaderCard({
 
   return (
     <div
-      className={className}
+      className={cn("overflow-hidden rounded-3xl", className)}
       {...props}
       role="img"
       aria-hidden={props["aria-label"] ? undefined : true}
