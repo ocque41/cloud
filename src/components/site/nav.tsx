@@ -4,7 +4,7 @@ const links = [
   { href: "/products", label: "Products" },
   { href: "/services", label: "Services" },
   { href: "/process", label: "Process" },
-  { href: "/case-studies", label: "Case Studies", disabled: true },
+  { href: "/case-studies", label: "Case Studies" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -18,16 +18,12 @@ export function DesktopNav() {
         <ul className="flex flex-col gap-3">
           {links.map((link) => (
             <li key={link.href}>
-              {link.disabled ? (
-                <span className="text-[color:var(--muted)]/60">{link.label}</span>
-              ) : (
-                <Link
-                  href={link.href}
-                  className="transition hover:text-[color:var(--fg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--fg)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)]"
-                >
-                  {link.label}
-                </Link>
-              )}
+            <Link
+              href={link.href}
+              className="transition hover:text-[color:var(--fg)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--fg)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)]"
+            >
+              {link.label}
+            </Link>
             </li>
           ))}
         </ul>
@@ -54,13 +50,9 @@ export function NavSheetContent() {
       <ul className="flex flex-col gap-4 text-lg">
         {links.map((link) => (
           <li key={link.href}>
-            {link.disabled ? (
-              <span className="text-[color:var(--muted)]/60">{link.label}</span>
-            ) : (
-              <Link href={link.href} className="hover:text-[color:var(--fg)]">
-                {link.label}
-              </Link>
-            )}
+            <Link href={link.href} className="hover:text-[color:var(--fg)]">
+              {link.label}
+            </Link>
           </li>
         ))}
       </ul>

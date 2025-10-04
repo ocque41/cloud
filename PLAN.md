@@ -1,3 +1,12 @@
+# Sprint 11 Plan
+
+## Item 1: Refresh case studies page layout and navigation
+- **Description:** Align the Case Studies experience with the latest navigation and layout guidance, covering sidebar access, button styling, flagship model cards, API access journey, and specialized model stacking.
+- **Acceptance Criteria:**
+  1. The site sidebar includes a "Case Studies" link that routes to the case studies page.
+  2. The case studies page shows a black (#171717) "Contact Sales" button label, rectangular flagship cards with internal padding that act as full-card links, an API access journey laid out as five sequential steps using the existing interactive card pattern without the previous "How we tailor products" section, and vertically stacked specialized model cards sized appropriately for the content.
+- **Status:** ✅ Completed — Sidebar link enabled and case studies layout updated with refreshed cards, API journey, and stacked specialized models.
+
 # Sprint 10 Plan
 
 ## Item 1: Restore contact page build stability and selection defaults

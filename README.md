@@ -39,11 +39,12 @@ npm run lint
 
 ### Verification
 
-Run through these checks after updating catalog content or contact routing:
+Run through these checks after updating catalog content, case studies, or contact routing:
 
 1. `npm run build`
 2. Visit `http://localhost:3000/contact?product=micro-agents` and `http://localhost:3000/contact?product=software-applications` to confirm the request form auto-selects the matching option.
 3. Review `/products` to ensure every card blurb remains ten words or fewer.
+4. Visit `/case-studies` to confirm the sidebar link works, flagship cards are fully clickable, the API section shows the two-tab journey with five sequential steps, and specialized cards stack vertically.
 
 ## ✨ Key Features
 
