@@ -339,4 +339,5 @@ The site uses a dark color scheme:
 
 ## Version History
 
+- **v1.1** (2025-10-04): Verified and updated for restructured repository
 - **v1.0** (2025-10-03): Initial brand guidelines

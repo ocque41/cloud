@@ -18,27 +18,47 @@ npm run build
 # Start production server
 npm start
 
-# Note: Currently no test or lint scripts configured
+# Run ESLint
+npm run lint
+
+# Note: No test script currently configured
 # Add a test script (e.g., "test": "vitest run") before committing automated checks
 ```
 
 ## Architecture
 
 ### Project Structure
-- **Main app**: `src/app/` - Pages, layouts, and route handlers
-- **Components**: `src/components/` - Shared UI components
-- **Hooks**: `src/hooks/` - Custom React hooks
-- **Utils/Lib**: `src/lib/` - Reusable helpers and utilities
-- **Public**: `public/` - Static assets
+```
+src/
+├── app/                      # App Router pages and layouts
+│   ├── (marketing)/         # Marketing route group (home, products, contact, docs, services)
+│   ├── api/                 # API route handlers
+│   ├── product/[slug]/      # Individual product detail pages
+│   ├── globals.css          # Global styles with Tailwind v4 theme
+│   └── layout.tsx           # Root layout
+├── components/              # Shared UI components
+│   ├── ui/                  # shadcn/ui primitives (40+ components)
+│   └── interactive-shader-card/  # Custom Three.js WebGL component
+├── hooks/                   # Custom React hooks
+├── lib/                     # Utilities, product data, helpers
+└── styles/                  # Additional style sheets
+public/                      # Static assets (images, fonts, etc.)
+```
 
 ### Framework & Routing
 - **Next.js 15** with App Router (`src/app/` directory)
 - React Server Components by default (use `"use client"` for interactivity)
-- Routes:
-  - `/` - Home page (`src/app/page.tsx`)
-  - `/products` - Product listing (`src/app/products/page.tsx`)
-  - `/product/[slug]` - Dynamic product detail pages (`src/app/product/[slug]/page.tsx`)
-  - `/contact` - Contact form with product query param support (`src/app/contact/page.tsx`)
+- **Route Groups:** Marketing pages organized under `(marketing)` route group
+- **Routes:**
+  - `/` - Home page (`src/app/(marketing)/page.tsx`)
+  - `/products` - Product listing (`src/app/(marketing)/products/page.tsx`)
+  - `/products/[slug]` - Product detail (SSG) (`src/app/(marketing)/products/[slug]/page.tsx`)
+  - `/product/[slug]` - Alternative product detail with interactive shader (`src/app/product/[slug]/page.tsx`)
+  - `/contact` - Contact form with product query param support (`src/app/(marketing)/contact/page.tsx`)
+  - `/docs/*` - Documentation pages (`src/app/(marketing)/docs/`)
+  - `/services` - Services page (`src/app/(marketing)/services/page.tsx`)
+  - `/process` - Process page (`src/app/(marketing)/process/page.tsx`)
+  - `/api/request` - Contact form API endpoint (`src/app/api/request/route.ts`)
 - Product data managed in `src/lib/products.ts` with TypeScript interfaces
 
 ### Styling System
@@ -139,14 +159,17 @@ import { cn } from "@/lib/utils"
 ### Product Data Management
 Products are defined in `src/lib/products.ts`:
 ```typescript
-interface Product {
+export type Product = {
   slug: string;
   name: string;
+  short: string;           // Short description for cards
+  features: string[];
+  tech: string[];
+  heroImage?: string;
   expertise: string;
   use: string;
-  shortDescription: string; // Max 10 words for cards
-  fullDescription: string;  // Markdown for detail page
-}
+  fullDescription: string; // Markdown for detail page
+};
 
 // Access products via:
 import { products, getProductBySlug } from "@/lib/products"
@@ -183,11 +206,12 @@ Follow format: `feat: add billing summary`, `fix: resolve auth bug`
 ## Special Notes
 
 ### Interactive Shader Card
-`src/components/interactive-shader-card/` contains a Vite-based React app:
+`src/components/interactive-shader-card/` is a React Three Fiber WebGL component:
 - Requires `"use client"` directive when imported
-- Uses @react-three/fiber for WebGL rendering
+- Uses @react-three/fiber for WebGL rendering with Three.js
 - Handles mouse (desktop) and touch (mobile) interactions
-- Has its own `vite.config.ts`
+- Renders animated grainy gradient shaders
+- TypeScript types available via `@types/three`
 
 ### Tailwind v4 Migration
 This project uses Tailwind CSS v4:
@@ -198,9 +222,14 @@ This project uses Tailwind CSS v4:
 - Custom properties defined for light/dark modes
 
 ### Font Loading
-Geist Sans and Geist Mono loaded via `next/font/google` in `src/app/layout.tsx`:
+Inter font loaded via next/font in `src/app/layout.tsx`:
 ```typescript
-import { Geist, Geist_Mono } from "next/font/google";
-// Applied via CSS variables --font-geist-sans and --font-geist-mono
+import { Inter } from "next/font/google";
+// Applied globally to body element
 ```
+
+### API Routes
+Contact form submissions handled via Edge Runtime API route:
+- `src/app/api/request/route.ts` - Validates form data with Zod and returns JSON response
+- Uses `export const runtime = "edge"` for optimal performance
 

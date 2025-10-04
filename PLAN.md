@@ -1,3 +1,36 @@
+# Sprint 5 Plan
+
+## Item 1: Repository restructure and consolidation
+- **Description:** Merge nested repository structure into a single clean directory, consolidating duplicate files while preserving all unique functionality and git history.
+- **Acceptance Criteria:**
+  1. Repository path changed from nested `cumulus/cumulus/` to single `cumulus/` directory
+  2. All unique files from parent directory merged into nested repository
+  3. Duplicate files removed (keeping nested repo versions as priority)
+  4. All route conflicts resolved (duplicate products, contact, process pages)
+  5. Type errors fixed (Badge variant, Product interface)
+  6. Missing dependencies installed (@types/three)
+  7. Build succeeds without errors (`npm run build`)
+  8. Dev server runs successfully (`npm run dev`)
+  9. Git history preserved intact
+  10. Vercel configuration updated with correct paths
+  11. All documentation updated to reflect new structure
+- **Technical Changes:**
+  - Moved unique routes from parent: `/contact`, `/product/[slug]`, favicon, Vite shader component
+  - Kept nested routes: `/(marketing)` group with all pages, `/api`, `/products/[slug]`
+  - Resolved Badge component variant conflict (secondary → subtle)
+  - Fixed Product type interface (shortDescription → short)
+  - Updated `vercel.json` with correct `outputDirectory: ".next"`
+  - Installed `@types/three` for TypeScript support
+- **Documentation Updates:**
+  - Updated CLAUDE.md with new structure, routes, and Product interface
+  - Rewrote README.md with comprehensive project overview
+  - Updated AGENTS.md removing nested package references
+  - Verified BRAND_GUIDELINES.md (no changes needed)
+  - Added Sprint 5 to PLAN.md
+- **Status:** ✅ Completed — Repository restructured, all files merged, build passing, documentation updated
+
+---
+
 # Sprint 4 Plan
 
 ## Item 1: Consolidate marketing routes under the marketing group

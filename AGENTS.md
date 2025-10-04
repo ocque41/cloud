@@ -1,10 +1,26 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-Keep the main Next.js app under `src/app`; colocate pages, layouts, and handlers there. Share UI through `src/components`, hooks through `src/hooks`, and reusable helpers in `src/lib`. Place tests beside their targets as `*.test.ts(x)` or in a mirrored `__tests__/` directory. Load static assets from `public/`. The nested `cumulus/` package mirrors this layout—update both apps when touching shared patterns. Root configs (`next.config.ts`, `postcss.config.mjs`, `tsconfig.json`) define global behavior; do not fork them without aligning the sibling app.
+Keep the main Next.js app under `src/app`; colocate pages, layouts, and handlers there. Marketing pages are organized under the `(marketing)` route group for clean URL structure. Share UI through `src/components`, hooks through `src/hooks`, and reusable helpers in `src/lib`. Place tests beside their targets as `*.test.ts(x)` or in a mirrored `__tests__/` directory. Load static assets from `public/`. Root configs (`next.config.ts`, `postcss.config.mjs`, `tsconfig.json`, `vercel.json`) define global behavior.
+
+### Directory Structure
+```
+src/app/
+├── (marketing)/      # Route group for marketing pages
+│   ├── page.tsx      # Home (/)
+│   ├── products/     # Product catalog
+│   ├── contact/      # Contact form
+│   ├── docs/         # Documentation
+│   ├── services/     # Services
+│   └── process/      # Process
+├── product/[slug]/   # Alternative product detail with 3D shader
+├── api/              # API routes
+├── globals.css       # Tailwind theme
+└── layout.tsx        # Root layout
+```
 
 ## Build, Test, and Development Commands
-Use `npm run dev` to start local development at http://localhost:3000. Run `npm run build` to produce the production bundle and `npm run start` to serve it. Execute the same scripts from the `cumulus/` directory when working on that package. Add a `test` script (for example `"test": "vitest run"`) before committing automated checks, and document new tooling in the relevant README.
+Use `npm run dev` to start local development at http://localhost:3000. Run `npm run build` to produce the production bundle and `npm run start` to serve it. Use `npm run lint` to check code quality with ESLint. Add a `test` script (for example `"test": "vitest run"`) before committing automated checks, and document new tooling in the README.
 
 ## Coding Style & Naming Conventions
 Author code in TypeScript targeting React 19 and Next.js 15. Use 2-space indentation, single quotes, and named exports for shared modules. Components live in PascalCase; files use kebab-case (`user-card.tsx`). Styling runs through Tailwind CSS v4—keep class lists focused and rely on centralized theme helpers in `src/lib`. Lint via `eslint.config.mjs`; integrate additional formatters only if they respect existing rules.
