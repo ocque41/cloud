@@ -50,19 +50,19 @@ export default function Page() {
       </Section>
 
       <Section
-        title="Featured product you can tailor"
+        title="Featured products you can tailor"
         eyebrow="Focus"
-        copy="Interactive Shader Card — theme it, control parameters, or export as a static asset to meet your brand guidelines."
+        copy="Five AI-powered products designed for operations, teams, revenue, and document workflows."
       >
         <div className="space-y-6 text-lg text-[color:var(--muted)] lg:max-w-3xl">
           <p>
-            Our shader technology ships with configurable palettes, animation
-            controls, and accessibility fallbacks out of the box. It’s the same
-            visual engine powering this page’s hero.
+            Micro Agents automate small tasks without manual oversight, accelerating decision pipelines for operations teams. Blocks delivers an enterprise terminal organizing teams, analytics, security, and real-time collaboration workflows.
           </p>
           <p>
-            We’ll tune it to your stack—be that React, native, or embedded in a
-            rendering pipeline—then deliver it as a maintained, private package.
+            Operation Agents simulate missions and automate reports for transportation, energy, and security enterprises. Resuming handles AI-powered document analysis, editing, and formatting. DQuote manages configure-price-quote workflows to turn proposals into revenue.
+          </p>
+          <p>
+            Every product ships with full source access, integration support, and dedicated maintenance so your team controls every release.
           </p>
         </div>
       </Section>
