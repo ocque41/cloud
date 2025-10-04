@@ -10,14 +10,15 @@ export const metadata = buildMetadata({
   path: "/contact",
 });
 
-export default function ContactPage({
+export default async function ContactPage({
   searchParams,
 }: {
-  searchParams?: { product?: string | string[] };
+  searchParams?: Promise<{ product?: string | string[] }>;
 }) {
-  const selected = Array.isArray(searchParams?.product)
-    ? searchParams?.product[0]
-    : searchParams?.product;
+  const resolvedParams = searchParams ? await searchParams : undefined;
+  const selected = Array.isArray(resolvedParams?.product)
+    ? resolvedParams?.product[0]
+    : resolvedParams?.product;
   const catalogOptions = [
     ...products.map((product) => ({ value: product.slug, label: product.name })),
     ...services.map((service) => ({ value: service.slug, label: service.name })),

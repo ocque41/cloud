@@ -37,6 +37,14 @@ Run this command to verify the refreshed product and services catalog content al
 npm run lint
 ```
 
+### Verification
+
+Run through these checks after updating catalog content or contact routing:
+
+1. `npm run build`
+2. Visit `http://localhost:3000/contact?product=micro-agents` and `http://localhost:3000/contact?product=software-applications` to confirm the request form auto-selects the matching option.
+3. Review `/products` to ensure every card blurb remains ten words or fewer.
+
 ## ✨ Key Features
 
 - **Ultra-minimal Design**: Editorial layout with high-contrast palette (#171717 background, #deddd9 foreground)

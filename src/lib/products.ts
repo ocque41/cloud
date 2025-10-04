@@ -18,7 +18,7 @@ export const products: Product[] = [
     expertise: "SaaS & Operations",
     use: "Enterprise",
     short:
-      "Autonomous micro agents accelerate operations and pipeline decision workflows dramatically.",
+      "Autonomous micro agents accelerate decision pipelines for operations teams.",
     definition: "Auto AI micro agents automate small tasks without manual oversight.",
     fullDescription: `### Why teams choose Micro Agents
 - We specialize in automating micro work to speed pipeline efficiency in small business environments.
@@ -43,7 +43,7 @@ export const products: Product[] = [
     expertise: "Team management & Pipeline visualizer",
     use: "Small Business",
     short:
-      "Enterprise-grade blocks organize teams, analytics, security, and collaboration workflows seamlessly.",
+      "Enterprise terminal organizing teams, analytics, security, and collaboration workflows.",
     definition: "Blocks delivers an enterprise-grade organization terminal with a visual component editor.",
     fullDescription: `### Core workspaces
 - Visual component editor keeps every workflow modular and easy to reconfigure.
@@ -68,7 +68,7 @@ export const products: Product[] = [
     name: "Operation Agents",
     expertise: "AI & Operations",
     use: "Enterprise",
-    short: "Private AI operations platform simulates missions and automates reporting effortlessly.",
+    short: "Private AI operations platform simulating missions and automating reports.",
     definition:
       "Operation Agents is a private platform for transportation, energy, and security enterprises.",
     fullDescription: `### Pre-production clarity
@@ -93,7 +93,7 @@ export const products: Product[] = [
     name: "Resuming",
     expertise: "AI & Documents",
     use: "Small Business",
-    short: "AI document studio analyzes, edits, formats, and personalizes files instantly.",
+    short: "AI document studio analyzes, edits, formats, and personalizes instantly.",
     definition: "Resuming is an AI-powered document analysis and optimization platform.",
     fullDescription: `### Upload once, deliver anywhere
 - Drop in files and let the AI handle analysis, edits, and formatting.
@@ -117,7 +117,7 @@ export const products: Product[] = [
     name: "DQuote",
     expertise: "AI & Revenue Operations",
     use: "SMB to Enterprise",
-    short: "AI CPQ workspace builds, shares, tracks, optimizes every revenue quote.",
+    short: "AI CPQ workspace builds, shares, tracks, and optimizes revenue quotes.",
     definition: "DQuote is a configure-price-quote workspace that turns proposals into revenue.",
     fullDescription: `It turns accurate proposals around quickly so every quote is ready to convert into a sale.
 
