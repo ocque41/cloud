@@ -1,3 +1,19 @@
+# Sprint 10 Plan
+
+## Item 1: Restore contact page build stability and selection defaults
+- **Description:** Align the contact route with Next.js 15 search parameter typing while ensuring catalog selections still default correctly for both products and services.
+- **Acceptance Criteria:**
+  1. `npm run build` completes without the contact page raising a `searchParams` type error.
+  2. Loading `/contact?product=micro-agents` and `/contact?product=software-applications` pre-selects the matching option in the request form dropdown.
+- **Status:** ✅ Completed — Contact page now awaits typed search params and preserves selected catalog defaults for products and services.
+
+## Item 2: Constrain product listing blurbs to the ten-word limit
+- **Description:** Rewrite each product card summary so `/products` displays copy that is ten words or fewer per stakeholder direction while keeping metadata context accurate.
+- **Acceptance Criteria:**
+  1. Every `product.short` entry contains ten or fewer words and renders without truncation on `/products`.
+  2. Updated blurbs remain concise descriptors that still support the product detail metadata description requirements.
+- **Status:** ✅ Completed — All product blurbs now land at ten words or fewer while keeping metadata clarity intact.
+
 # Sprint 8 Plan
 
 ## Item 1: Reorder product hero shader card
@@ -95,3 +111,13 @@
   1. All binary assets (e.g., SVGs) previously committed under `public/` are removed from version control.
   2. Application routes and components build without referencing the deleted files, keeping `npm run build` passing.
 - **Status:** ✅ Completed — Binary files under `public/` removed and build verified via `npm run build`.
+# Sprint 9 Plan
+
+## Item 1: Expand product and services content architecture
+- **Description:** Refresh the catalog experience by introducing structured sections on each product detail view, constraining product card blurbs, and launching a parallel services catalog with dedicated detail routes and request flows.
+- **Acceptance Criteria:**
+  1. `/products/[slug]` renders Definition, Expertise, Use, and Description sections (with markdown formatting) above the existing "What we can customize" content for every product.
+  2. `/products` cards display new blurbs of ten words or fewer and the Personalize action deep-links to `/contact?product=<slug>`.
+  3. `/services` and `/services/[slug]` mirror the product listing and detail experience using the provided services portfolio content, including a TikTok advertising paragraph.
+- **Status:** ✅ Completed — Product and service catalog content restructured with contact deep links and mirrored service experience.
+

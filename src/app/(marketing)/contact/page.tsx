@@ -1,6 +1,8 @@
 import { RequestForm } from "@/components/site/request-form";
 import { Section } from "@/components/site/section";
 import { buildMetadata } from "@/lib/metadata";
+import { products } from "@/lib/products";
+import { services } from "@/lib/services";
 
 export const metadata = buildMetadata({
   title: "Contact",
@@ -8,7 +10,20 @@ export const metadata = buildMetadata({
   path: "/contact",
 });
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams?: Promise<{ product?: string | string[] }>;
+}) {
+  const resolvedParams = searchParams ? await searchParams : undefined;
+  const selected = Array.isArray(resolvedParams?.product)
+    ? resolvedParams?.product[0]
+    : resolvedParams?.product;
+  const catalogOptions = [
+    ...products.map((product) => ({ value: product.slug, label: product.name })),
+    ...services.map((service) => ({ value: service.slug, label: service.name })),
+  ];
+
   return (
     <Section
       title="Start your personalized build"
@@ -29,7 +44,7 @@ export default function ContactPage() {
           </p>
         </div>
         <div className="rounded-3xl border border-[color:var(--muted)]/30 bg-[#1f1f1f] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
-          <RequestForm />
+          <RequestForm defaultProduct={selected} options={catalogOptions} />
         </div>
       </div>
     </Section>

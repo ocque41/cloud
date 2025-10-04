@@ -31,17 +31,25 @@ npm start
 
 ### Linting
 
-Run this command to verify the interactive product hero layout adjustments alongside the existing lint rules.
+Run this command to verify the refreshed product and services catalog content alongside the existing lint rules.
 
 ```bash
 npm run lint
 ```
 
+### Verification
+
+Run through these checks after updating catalog content or contact routing:
+
+1. `npm run build`
+2. Visit `http://localhost:3000/contact?product=micro-agents` and `http://localhost:3000/contact?product=software-applications` to confirm the request form auto-selects the matching option.
+3. Review `/products` to ensure every card blurb remains ten words or fewer.
+
 ## ✨ Key Features
 
 - **Ultra-minimal Design**: Editorial layout with high-contrast palette (#171717 background, #deddd9 foreground)
 - **Interactive 3D Elements**: WebGL shader card powered by React Three Fiber and Three.js
-- **Product Showcase**: 5 AI-powered products (Micro Agents, Blocks, Operation Agents, Resuming, DQuote)
+- **Product & Services Showcase**: 5 AI-powered products plus 4 delivery services with detailed customization tracks
 - **Smart Routing**: Marketing pages organized under route groups for clean architecture
 - **Form Handling**: Contact forms with react-hook-form + Zod validation
 - **SEO Optimized**: Sitemap, robots.txt, and Open Graph image generation
@@ -63,7 +71,7 @@ cumulus/
 │   │   │   │   └── [slug]/       # Product details (/products/[slug])
 │   │   │   ├── contact/          # Contact form (/contact)
 │   │   │   ├── docs/             # Documentation pages
-│   │   │   ├── services/         # Services page
+│   │   │   ├── services/         # Services page and detail routes
 │   │   │   └── process/          # Process page
 │   │   ├── product/[slug]/       # Alternative product detail with 3D shader
 │   │   ├── api/                  # API routes

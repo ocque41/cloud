@@ -2,6 +2,7 @@ export type Product = {
   slug: string;
   name: string;
   short: string;
+  definition: string;
   features: string[];
   tech: string[];
   heroImage?: string;
@@ -16,12 +17,17 @@ export const products: Product[] = [
     name: "Micro Agents",
     expertise: "SaaS & Operations",
     use: "Enterprise",
-    short: "Auto AI automating small tasks without looking at it",
-    fullDescription: `Auto AI Micro Agent to automate small tasks without having to even look at it.
+    short:
+      "Autonomous micro agents accelerate decision pipelines for operations teams.",
+    definition: "Auto AI micro agents automate small tasks without manual oversight.",
+    fullDescription: `### Why teams choose Micro Agents
+- We specialize in automating micro work to speed pipeline efficiency in small business environments.
+- Faster decisions and healthier pilot metrics come from the autonomous monitoring each agent delivers.
 
-We have specialized in automating micro works for speeding pipeline efficiency in small business environments which have improved our clients decision making timeframe and pilots metrics.
-
-Just select your use case and build your micro agent by clicking agent requirements.`,
+### Build your agent
+- Select the use case that matches your workflow and launch the requirements builder.
+- Configure the inputs, outputs, and guardrails so the agent executes without human review.
+- Iterate on data capture and reporting templates to share progress with every stakeholder.`,
     features: [
       "Invisible automation - tasks complete autonomously without manual oversight",
       "Improved decision making with accelerated timeframes",
@@ -36,18 +42,18 @@ Just select your use case and build your micro agent by clicking agent requireme
     name: "Blocks",
     expertise: "Team management & Pipeline visualizer",
     use: "Small Business",
-    short: "Easy enterprise grade organization terminal for teams",
-    fullDescription: `Blocks is an easy enterprise grade organization terminal.
+    short:
+      "Enterprise terminal organizing teams, analytics, security, and collaboration workflows.",
+    definition: "Blocks delivers an enterprise-grade organization terminal with a visual component editor.",
+    fullDescription: `### Core workspaces
+- Visual component editor keeps every workflow modular and easy to reconfigure.
+- Enterprise security enforces advanced 8-digit authentication and active session management.
+- Analytics, historical snapshots, and intelligence tools preserve a complete operational trail.
 
-Visual Component Editor for intuitive workspace management.
-
-Enterprise Security & Authentication with advanced 8-digit codes and session management.
-
-Analytics, Historical Analytics & Intelligence with comprehensive tracking, automated snapshots and audit trails.
-
-Advanced Workforce Management to assign and track projects across your entire workforce.
-
-Live Collaboration with real-time editing and instant project updates across teams.`,
+### Team operations
+- Workforce management assigns, monitors, and forecasts projects across the entire company.
+- Live collaboration supports real-time editing with instant updates for every contributor.
+- Shared dashboards surface pipeline status and unblock decisions between teams.`,
     features: [
       "Visual component editor for intuitive workspace management",
       "Enterprise security with 8-digit authentication and session management",
@@ -62,12 +68,17 @@ Live Collaboration with real-time editing and instant project updates across tea
     name: "Operation Agents",
     expertise: "AI & Operations",
     use: "Enterprise",
-    short: "Private AI platform simulating operations for enterprise sectors",
-    fullDescription: `Operation Agents is a private platform for enterprises in the areas of transportation, energy and security.
+    short: "Private AI operations platform simulating missions and automating reports.",
+    definition:
+      "Operation Agents is a private platform for transportation, energy, and security enterprises.",
+    fullDescription: `### Pre-production clarity
+- Simulate real-world environments so teams validate every scenario before production.
+- Capture structured data from each run to power future analysis and training.
 
-Helps the team get tests and data right before the production stage, simulating real world environments. The agents show our clients how to perform complex operations and save the data for future tests.
-
-After testing and training is secured to start the real work, the agents will take care of writing reports and optimize the Business Process Model and Notation on each execution.`,
+### Operational readiness
+- Agents guide teams through complex procedures with repeatable steps and safety checks.
+- Automated reporting packages insights and recommendations immediately after every exercise.
+- BPMN optimization keeps workflows improving on each execution.`,
     features: [
       "Real-world simulation for complex operations before deployment",
       "Data preservation for all tests and future reference",
@@ -82,12 +93,16 @@ After testing and training is secured to start the real work, the agents will ta
     name: "Resuming",
     expertise: "AI & Documents",
     use: "Small Business",
-    short: "AI powered document analysis and optimization platform",
-    fullDescription: `Resuming is an AI powered Document analysis and optimization platform.
+    short: "AI document studio analyzes, edits, formats, and personalizes instantly.",
+    definition: "Resuming is an AI-powered document analysis and optimization platform.",
+    fullDescription: `### Upload once, deliver anywhere
+- Drop in files and let the AI handle analysis, edits, and formatting.
+- Generate export-ready documents that match your brand or compliance standards.
 
-With uploading a file and clicking a button the AI takes care of everything from analyzing and editing to changing the format and giving it to you ready to download.
-
-This product is able to be personalized for clients in different areas of use case, eg: enterprise environment where more than 50 documents have to be signed, the software would be trained and specified to put the according signature where it should be and giving the document updated.`,
+### Industry personalization
+- Train the system for high-volume signature placement and review cycles.
+- Configure domain-specific rules so documents ship complete every time.
+- Automate change tracking and approvals for distributed teams.`,
     features: [
       "One-click processing - upload, process, and download in seconds",
       "Intelligent AI document analysis and understanding",
@@ -102,10 +117,9 @@ This product is able to be personalized for clients in different areas of use ca
     name: "DQuote",
     expertise: "AI & Revenue Operations",
     use: "SMB to Enterprise",
-    short: "AI-assisted CPQ that builds, sends, and tracks polished sales quotes fast.",
-    fullDescription: `DQuote is a configure-price-quote platform that helps you make, send, and track price quotes without friction.
-
-It turns accurate proposals around quickly so every quote is ready to convert into a sale.
+    short: "AI CPQ workspace builds, shares, tracks, and optimizes revenue quotes.",
+    definition: "DQuote is a configure-price-quote workspace that turns proposals into revenue.",
+    fullDescription: `It turns accurate proposals around quickly so every quote is ready to convert into a sale.
 
 A sales quote is the document that tells a customer what something will cost. DQuote keeps that process organized, traceable, and measurable for every team involved.
 
