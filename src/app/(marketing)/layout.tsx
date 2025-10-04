@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 
-import { Footer } from "@/components/site/footer";
 import { Header } from "@/components/site/header";
 import { DesktopNav } from "@/components/site/nav";
 import { Toaster } from "@/components/ui/toaster";
@@ -40,7 +39,6 @@ export default function MarketingLayout({ children }: { children: ReactNode }) {
         </div>
         <main className="flex-1 min-w-0">{children}</main>
       </div>
-      <Footer />
       <Toaster />
     </div>
   );

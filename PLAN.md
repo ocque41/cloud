@@ -1,3 +1,33 @@
+# Sprint 8 Plan
+
+## Item 1: Reorder product hero shader card
+- **Description:** Move the interactive shader card below the product badge, title, and summary on every product hero while introducing rounded corners so the visual matches the refreshed layout guidance.
+- **Acceptance Criteria:**
+  1. The marketing product detail page (`/products/[slug]`) renders its badge, headline, and lead paragraph before the shader card, which immediately follows with consistent spacing.
+  2. The legacy product detail route (`/product/[slug]`) also shows its badge stack, headline, and summary copy ahead of the shader card, with the primary call-to-actions appearing beneath the card.
+  3. The interactive shader card surface uses rounded corners in each hero presentation.
+- **Status:** ✅ Completed — Product hero copy precedes the shader card on both routes and the card now renders with rounded corners.
+
+# Sprint 7 Plan
+
+## Item 1: Rework global footer alignment
+- **Description:** Adjust the full-height footer so navigation links remain vertically centered while the Cumulus branding and rights notice anchor to the bottom, all content aligned left per stakeholder request.
+- **Acceptance Criteria:**
+  1. Footer navigation displays as a vertical stack centered vertically within the viewport while left-aligned horizontally.
+  2. The Cumulus name and "All rights reserved" notice render at the bottom-left of the footer on all screen sizes.
+- **Status:** ✅ Completed — Navigation centers vertically with left alignment and branding locks to the bottom-left.
+
+# Sprint 6 Plan
+
+## Item 1: Expand global footer and add missing DQuote product
+- **Description:** Redesign the shared footer so it occupies the full viewport with vertically centered navigation links, and add the DQuote product with complete marketing copy to the catalog.
+- **Acceptance Criteria:**
+  1. Every rendered page displays the updated footer whose container fills the viewport height on all screen sizes.
+  2. Footer navigation renders as a single vertical stack that remains centered vertically and horizontally across responsive breakpoints.
+  3. The products listing and detail routes include the new DQuote entry with the provided positioning, feature summary, and target audiences.
+  4. README instructions reflect the expanded product lineup and the verification steps executed this sprint.
+- **Status:** ✅ Completed — Viewport-sized footer deployed globally, DQuote catalog entry added, and README updated with verification steps.
+
 # Sprint 5 Plan
 
 ## Item 1: Repository restructure and consolidation

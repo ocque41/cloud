@@ -10,26 +10,15 @@ const links = [
 export function Footer() {
   return (
     <footer className="border-t border-[color:var(--muted)]/20">
-      <div className="container py-12 sm:py-16">
-        <div className="flex flex-col gap-8 sm:gap-12 lg:flex-row lg:items-center lg:justify-between">
-          <div className="space-y-2 text-left">
-            <Link
-              href="/"
-              className="text-2xl font-semibold tracking-tight text-[color:var(--fg)]"
-            >
-              Cumulus
-            </Link>
-            <p className="text-[10px] text-[color:var(--muted)]/75">
-              © 2025 Cumulus. All rights reserved.
-            </p>
-          </div>
-          <nav aria-label="Footer" className="flex items-center">
-            <ul className="flex flex-col gap-4 sm:flex-row sm:gap-6 md:gap-8 text-sm text-[color:var(--fg)]/80">
+      <div className="container flex min-h-screen min-h-[100svh] flex-col justify-between px-4 py-16 text-left">
+        <div className="flex flex-1 flex-col justify-center">
+          <nav aria-label="Footer navigation" className="w-full">
+            <ul className="flex flex-col items-start gap-6 text-lg text-[color:var(--fg)]/80">
               {links.map((link) => (
-                <li key={link.href}>
+                <li key={link.href} className="w-full max-w-xs">
                   <Link
                     href={link.href}
-                    className="transition hover:text-[color:var(--fg)]"
+                    className="block rounded-full border border-transparent px-6 py-3 text-left transition hover:border-[color:var(--fg)]/40 hover:text-[color:var(--fg)]"
                   >
                     {link.label}
                   </Link>
@@ -37,6 +26,17 @@ export function Footer() {
               ))}
             </ul>
           </nav>
+        </div>
+        <div className="space-y-2 pt-10 text-[color:var(--fg)]">
+          <Link
+            href="/"
+            className="text-3xl font-semibold tracking-tight"
+          >
+            Cumulus
+          </Link>
+          <p className="text-sm text-[color:var(--muted)]/80">
+            © 2025 Cumulus. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

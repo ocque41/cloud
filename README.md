@@ -31,6 +31,8 @@ npm start
 
 ### Linting
 
+Run this command to verify the interactive product hero layout adjustments alongside the existing lint rules.
+
 ```bash
 npm run lint
 ```
@@ -39,7 +41,7 @@ npm run lint
 
 - **Ultra-minimal Design**: Editorial layout with high-contrast palette (#171717 background, #deddd9 foreground)
 - **Interactive 3D Elements**: WebGL shader card powered by React Three Fiber and Three.js
-- **Product Showcase**: 4 AI-powered products (Micro Agents, Blocks, Operation Agents, Resuming)
+- **Product Showcase**: 5 AI-powered products (Micro Agents, Blocks, Operation Agents, Resuming, DQuote)
 - **Smart Routing**: Marketing pages organized under route groups for clean architecture
 - **Form Handling**: Contact forms with react-hook-form + Zod validation
 - **SEO Optimized**: Sitemap, robots.txt, and Open Graph image generation
