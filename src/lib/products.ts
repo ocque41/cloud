@@ -97,6 +97,44 @@ This product is able to be personalized for clients in different areas of use ca
     ],
     tech: ["AI", "Documents", "Automation"],
   },
+  {
+    slug: "dquote",
+    name: "DQuote",
+    expertise: "AI & Revenue Operations",
+    use: "SMB to Enterprise",
+    short: "AI-assisted CPQ that builds, sends, and tracks polished sales quotes fast.",
+    fullDescription: `DQuote is a configure-price-quote platform that helps you make, send, and track price quotes without friction.
+
+It turns accurate proposals around quickly so every quote is ready to convert into a sale.
+
+A sales quote is the document that tells a customer what something will cost. DQuote keeps that process organized, traceable, and measurable for every team involved.
+
+## What it does
+- Create quotes fast with guided steps to pick items, set prices, and publish a clean package.
+- Share and present each proposal as a live link or PDF so clients can review and respond on their schedule.
+- Track engagement automatically, see when a quote is opened, and move buyers to the next stage.
+- Use AI to draft messaging, check details, and recommend follow-up so every rep sells more.
+
+## Our simple expertise (in plain words)
+- AI to write, review, and speed up the quoting workflow.
+- Management & operations discipline to keep products, prices, and approvals organized.
+- Execution support so teams can send quotes, track status, and close deals reliably.
+- Pipeline visibility to move each lead from quote to payment smoothly.
+- Consulting available for pricing strategy, automation flows, and reporting when extra help is needed.
+
+## Who it’s for
+- Small businesses and growing teams that need quick, accurate quotes without extra headcount.
+- Mid-market organizations preparing for scale and enterprises with complex approvals that demand structure.
+`,
+    features: [
+      "Guided configure-price-quote workflow for fast proposal creation",
+      "Instant sharing via secure links or polished PDFs",
+      "Engagement tracking with alerts for follow-up",
+      "AI assistance to draft copy and validate pricing details",
+      "Advisory support for pricing, process design, and reporting",
+    ],
+    tech: ["CPQ", "AI", "Sales Operations"],
+  },
 ];
 
 export function getProductBySlug(slug: string) {
