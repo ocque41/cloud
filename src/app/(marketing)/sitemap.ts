@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/lib/metadata";
 import { products } from "@/lib/products";
+import { services } from "@/lib/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
@@ -10,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes: MetadataRoute.Sitemap = [
     "/",
     "/products",
+    "/services",
     "/process",
     "/contact",
   ].map((path) => ({
@@ -26,5 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...productRoutes];
+  const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
+    url: new URL(`/services/${service.slug}`, base).toString(),
+    lastModified: now,
+    changeFrequency: "weekly",
+    priority: 0.6,
+  }));
+
+  return [...staticRoutes, ...productRoutes, ...serviceRoutes];
 }

@@ -9,10 +9,15 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { buildMetadata } from "@/lib/metadata";
-import { getProductBySlug, products } from "@/lib/products";
+import { getServiceBySlug, services } from "@/lib/services";
+
+const serviceOptions = services.map((service) => ({
+  value: service.slug,
+  label: service.name,
+}));
 
 export function generateStaticParams() {
-  return products.map((product) => ({ slug: product.slug }));
+  return services.map((service) => ({ slug: service.slug }));
 }
 
 export async function generateMetadata({
@@ -21,27 +26,28 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
-  if (!product) {
-    return buildMetadata({ title: "Product", path: `/products/${slug}` });
+  const service = getServiceBySlug(slug);
+
+  if (!service) {
+    return buildMetadata({ title: "Service", path: `/services/${slug}` });
   }
 
   return buildMetadata({
-    title: product.name,
-    description: product.short,
-    path: `/products/${product.slug}`,
+    title: service.name,
+    description: service.short,
+    path: `/services/${service.slug}`,
   });
 }
 
-export default async function ProductDetailPage({
+export default async function ServiceDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const product = getProductBySlug(slug);
+  const service = getServiceBySlug(slug);
 
-  if (!product) {
+  if (!service) {
     notFound();
   }
 
@@ -49,10 +55,10 @@ export default async function ProductDetailPage({
     <div className="container pb-24">
       <div className="space-y-6 text-center">
         <Badge variant="subtle" className="uppercase tracking-wide text-[10px]">
-          {product.tech.join(" • ")}
+          {service.focus.join(" • ")}
         </Badge>
-        <h1 className="display max-w-4xl mx-auto">{product.name}</h1>
-        <p className="lead max-w-2xl mx-auto">{product.short}</p>
+        <h1 className="display mx-auto max-w-4xl">{service.name}</h1>
+        <p className="lead mx-auto max-w-2xl">{service.short}</p>
       </div>
 
       <div className="mt-12 flex justify-center">
@@ -61,7 +67,7 @@ export default async function ProductDetailPage({
 
       <div className="mt-8 flex justify-center gap-4">
         <Button asChild size="lg">
-          <Link href={`/contact?product=${product.slug}`}>Personalize</Link>
+          <Link href={`/contact?product=${service.slug}`}>Personalize</Link>
         </Button>
         <Button asChild size="lg" variant="outline">
           <Link href="/contact">Contact us</Link>
@@ -73,30 +79,22 @@ export default async function ProductDetailPage({
       <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr]">
         <div className="space-y-10 text-left text-lg text-[color:var(--muted)]">
           <section className="space-y-3">
-            <h2 className="text-2xl font-semibold text-[color:var(--fg)]">
-              Definition
-            </h2>
-            <p>{product.definition}</p>
+            <h2 className="text-2xl font-semibold text-[color:var(--fg)]">Definition</h2>
+            <p>{service.definition}</p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-2xl font-semibold text-[color:var(--fg)]">
-              Expertise
-            </h2>
-            <p>{product.expertise}</p>
+            <h2 className="text-2xl font-semibold text-[color:var(--fg)]">Expertise</h2>
+            <p>{service.expertise}</p>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-2xl font-semibold text-[color:var(--fg)]">
-              Use
-            </h2>
-            <p>{product.use}</p>
+            <h2 className="text-2xl font-semibold text-[color:var(--fg)]">Use</h2>
+            <p>{service.use}</p>
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-2xl font-semibold text-[color:var(--fg)]">
-              Description
-            </h2>
+            <h2 className="text-2xl font-semibold text-[color:var(--fg)]">Description</h2>
             <ReactMarkdown
               components={{
                 h2: ({ children }) => (
@@ -110,16 +108,14 @@ export default async function ProductDetailPage({
                 li: ({ children }) => <li>{children}</li>,
               }}
             >
-              {product.fullDescription}
+              {service.fullDescription}
             </ReactMarkdown>
           </section>
 
           <section className="space-y-3">
-            <h2 className="text-2xl font-semibold text-[color:var(--fg)]">
-              What we can customize
-            </h2>
+            <h2 className="text-2xl font-semibold text-[color:var(--fg)]">What we can customize</h2>
             <ul className="space-y-3">
-              {product.features.map((feature) => (
+              {service.features.map((feature) => (
                 <li key={feature} className="flex gap-3">
                   <span className="mt-1 inline-block h-2 w-2 rounded-full bg-[color:var(--fg)]" aria-hidden />
                   <span>{feature}</span>
@@ -127,20 +123,18 @@ export default async function ProductDetailPage({
               ))}
             </ul>
             <p>
-              We work alongside your engineering, design, and security teams to tailor this product to your stack. Expect a
-              detailed spec, an integration plan, and regular build reviews.
+              We collaborate with your stakeholders to scope deliverables, integrations, and success metrics so the program
+              ships exactly how you operate.
             </p>
           </section>
         </div>
         <div className="rounded-3xl border border-[color:var(--muted)]/30 bg-[#1f1f1f] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
-          <h2 className="text-xl font-semibold text-[color:var(--fg)]">
-            Request customization
-          </h2>
+          <h2 className="text-xl font-semibold text-[color:var(--fg)]">Request customization</h2>
           <p className="mt-2 text-sm text-[color:var(--muted)]">
-            Share your requirements and we’ll respond with a tailored build plan.
+            Share your requirements and we’ll respond with a tailored delivery plan.
           </p>
           <div className="mt-6">
-            <RequestForm defaultProduct={product.slug} />
+            <RequestForm defaultProduct={service.slug} options={serviceOptions} />
           </div>
         </div>
       </div>

@@ -95,3 +95,13 @@
   1. All binary assets (e.g., SVGs) previously committed under `public/` are removed from version control.
   2. Application routes and components build without referencing the deleted files, keeping `npm run build` passing.
 - **Status:** ✅ Completed — Binary files under `public/` removed and build verified via `npm run build`.
+# Sprint 9 Plan
+
+## Item 1: Expand product and services content architecture
+- **Description:** Refresh the catalog experience by introducing structured sections on each product detail view, constraining product card blurbs, and launching a parallel services catalog with dedicated detail routes and request flows.
+- **Acceptance Criteria:**
+  1. `/products/[slug]` renders Definition, Expertise, Use, and Description sections (with markdown formatting) above the existing "What we can customize" content for every product.
+  2. `/products` cards display new blurbs of ten words or fewer and the Personalize action deep-links to `/contact?product=<slug>`.
+  3. `/services` and `/services/[slug]` mirror the product listing and detail experience using the provided services portfolio content, including a TikTok advertising paragraph.
+- **Status:** ✅ Completed — Product and service catalog content restructured with contact deep links and mirrored service experience.
+

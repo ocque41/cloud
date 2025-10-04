@@ -30,14 +30,14 @@ export default function ProductsPage() {
     >
       <div className="grid gap-6 md:grid-cols-2">
         {products.map((product) => (
-          <Link key={product.slug} href={`/products/${product.slug}`} className="block group">
-            <Card className="flex h-full flex-col justify-between transition-all duration-300 hover:shadow-lg hover:-translate-y-1 cursor-pointer border-2 hover:border-[color:var(--fg)]/30">
+          <div key={product.slug} className="group relative">
+            <Card className="relative flex h-full flex-col justify-between border-2 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--fg)]/30 hover:shadow-lg">
               <div>
                 <CardHeader>
                   <Badge variant="subtle" className="uppercase tracking-wide text-[10px]">
                     {product.tech.join(" • ")}
                   </Badge>
-                  <CardTitle className="mt-4 text-2xl font-semibold text-[color:var(--fg)] group-hover:text-[color:var(--fg)]/80 transition-colors">
+                  <CardTitle className="mt-4 text-2xl font-semibold text-[color:var(--fg)] transition-colors group-hover:text-[color:var(--fg)]/80">
                     {product.name}
                   </CardTitle>
                 </CardHeader>
@@ -51,12 +51,23 @@ export default function ProductsPage() {
                 <span className="text-sm text-[color:var(--muted)]">
                   {product.features[0]}
                 </span>
-                <Button asChild variant="muted">
-                  <span>Personalize</span>
+                <Button
+                  asChild
+                  variant="muted"
+                  className="relative z-20"
+                >
+                  <Link href={`/contact?product=${product.slug}`}>Personalize</Link>
                 </Button>
               </CardFooter>
             </Card>
-          </Link>
+            <Link
+              href={`/products/${product.slug}`}
+              className="absolute inset-0 z-10"
+              aria-label={`View ${product.name}`}
+            >
+              <span className="sr-only">View {product.name}</span>
+            </Link>
+          </div>
         ))}
       </div>
     </Section>

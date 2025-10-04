@@ -27,10 +27,15 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
 import { products } from "@/lib/products";
 
+type CatalogOption = {
+  value: string;
+  label: string;
+};
+
 const schema = z.object({
   company: z.string().min(2, "Company name is required"),
   email: z.string().email("Provide a valid email"),
-  product: z.string().min(1, "Choose a product"),
+  product: z.string().min(1, "Choose a product or service"),
   mustHaves: z.string().min(10, "Tell us about your must-haves"),
   niceToHaves: z.string().optional(),
   timeline: z.string().min(1, "Select a timeline"),
@@ -53,8 +58,17 @@ const budgetOptions = [
   { value: "100k-plus", label: "$100k+" },
 ];
 
-export function RequestForm({ defaultProduct }: { defaultProduct?: string }) {
+type RequestFormProps = {
+  defaultProduct?: string;
+  options?: CatalogOption[];
+};
+
+export function RequestForm({ defaultProduct, options }: RequestFormProps) {
   const [isSubmitting, setSubmitting] = useState(false);
+  const selectOptions = options ?? products.map((product) => ({
+    value: product.slug,
+    label: product.name,
+  }));
   const form = useForm<RequestFormValues>({
     resolver: zodResolver(schema),
     defaultValues: {
@@ -137,17 +151,17 @@ export function RequestForm({ defaultProduct }: { defaultProduct?: string }) {
           name="product"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Product</FormLabel>
+              <FormLabel>Product or service</FormLabel>
               <Select onValueChange={field.onChange} value={field.value}>
                 <FormControl>
                   <SelectTrigger>
-                    <SelectValue placeholder="Select a product" />
+                    <SelectValue placeholder="Select a product or service" />
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  {products.map((product) => (
-                    <SelectItem key={product.slug} value={product.slug}>
-                      {product.name}
+                  {selectOptions.map((option) => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
                     </SelectItem>
                   ))}
                 </SelectContent>
