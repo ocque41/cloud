@@ -1,23 +1,23 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-Source lives in `src/app` with marketing routes grouped under `src/app/(marketing)` to keep clean URLs. Feature-specific pages (for example `src/app/product/[slug]`) own their layout and data fetching. Share UI primitives via `src/components`, reusable hooks in `src/hooks`, and helpers in `src/lib`. Keep co-located tests beside their subjects as `component.test.tsx` or in a sibling `__tests__/` folder. Global styles flow from `src/app/globals.css`, while static assets and favicon variants belong in `public/`.
+Source code lives under `src/app`, with campaign-facing routes grouped in `src/app/(marketing)` so URLs stay clean. Feature areas such as `src/app/product/[slug]` own their layouts, data fetching, and local helpers. Share UI primitives from `src/components`, hooks from `src/hooks`, and utilities from `src/lib`. Keep tests either co-located as `component.test.tsx` or in sibling `__tests__/` folders. Global styles flow from `src/app/globals.css`, and static assets remain in `public/`.
 
 ## Build, Test, and Development Commands
-- `npm run dev` — start the Next.js dev server at http://localhost:3000 with hot reload.
-- `npm run lint` — run ESLint (per `eslint.config.mjs`) to enforce project style expectations.
-- `npm run build` — create the optimized production bundle.
-- `npm run start` — serve the built app locally for smoke testing.
-- Add `npm run test` (e.g. `vitest run`) once automated coverage lands; document any extra flags in `README.md`.
+- `npm run dev` – Start the Next.js dev server with hot reload at http://localhost:3000.
+- `npm run lint` – Run ESLint (configured in `eslint.config.mjs`) to enforce project conventions.
+- `npm run build` – Produce an optimized production bundle.
+- `npm run start` – Serve the built bundle locally for sanity checks.
+- `npm run test` – Reserved for Vitest once suite lands; document custom flags in `README.md`.
 
 ## Coding Style & Naming Conventions
-Author React 19 components in TypeScript with 2-space indentation and single quotes. Prefer functional components, PascalCase for components, and kebab-case for filenames such as `user-card.tsx`. Export shared modules with named exports. Tailwind CSS v4 provides styling—compose concise class lists and rely on utilities exposed in `src/lib` for theme tokens. Avoid ad-hoc formatters that conflict with ESLint or Prettier defaults already in use.
+Author React 19 components in TypeScript using 2-space indentation and single quotes. Prefer functional components and PascalCase names, while files stay kebab-case (for example `user-card.tsx`). Export shared modules with named exports. Compose Tailwind CSS v4 utility classes sparingly and pull theme tokens from helpers in `src/lib`. Avoid introducing formatters that conflict with the existing ESLint and Prettier setup.
 
 ## Testing Guidelines
-Adopt Vitest with React Testing Library for rendering and interaction coverage. Name tests after the feature under test, exercising stateful flows, accessibility behavior, and server actions. Run tests with `NODE_ENV=test`, mocking network or 3D shader dependencies as needed. Keep snapshots rare and focused on guaranteeing critical UI structure.
+Use Vitest with React Testing Library to cover rendering, accessibility, and interactive flows. Name specs after the feature they exercise, keep snapshots minimal, and mock external services when running under `NODE_ENV=test`. Run tests locally before pushing feature branches and ensure high-value server actions, hooks, and components are covered.
 
 ## Commit & Pull Request Guidelines
-Commits follow Conventional Commits (`feat: add billing summary`). Bundle related changes into reviewable units and note verification steps in the body. Pull requests should summarize scope, link issues (`Closes #123`), list tests executed, and attach screenshots or recordings for visible UI updates. Highlight follow-ups or open questions before requesting review.
+Follow Conventional Commits (for example `feat: add billing summary`) and bundle related updates per commit. Mention verification steps in the commit body when they add confidence. Pull requests should summarize scope, link issues with `Closes #123`, list tests executed, and attach screenshots or recordings for UI changes. Call out follow-up work or open questions before requesting review.
 
 ## Security & Configuration Tips
-Load secrets from `.env.local` through `process.env` and never commit credential files. Validate external input with `zod` or form resolvers, and keep sensitive logic inside server components or API routes. Audit bundle impact before adding dependencies, and rerun accessibility checks after major layout shifts.
+Store secrets in `.env.local` and access them via `process.env`; never commit credential files. Validate incoming data with `zod` or equivalent resolvers, and keep sensitive logic inside server components or API routes. Audit dependency weight and rerun accessibility checks after significant layout updates.
