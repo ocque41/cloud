@@ -1,4 +1,10 @@
 {
-  "buildCommand": "npm run build",
-  "installCommand": "npm ci --no-audit --progress=false"
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "installCommand": "npm ci --no-audit --progress=false",
+  "buildCommand": "npm run build"
 }
