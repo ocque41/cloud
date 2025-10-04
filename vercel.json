@@ -1,5 +1,4 @@
 {
   "buildCommand": "npm run build",
-  "installCommand": "npm ci --no-audit --progress=false",
-  "outputDirectory": ".next"
+  "installCommand": "npm ci --no-audit --progress=false"
 }

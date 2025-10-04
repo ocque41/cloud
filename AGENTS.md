@@ -1,35 +1,23 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-Keep the main Next.js app under `src/app`; colocate pages, layouts, and handlers there. Marketing pages are organized under the `(marketing)` route group for clean URL structure. Share UI through `src/components`, hooks through `src/hooks`, and reusable helpers in `src/lib`. Place tests beside their targets as `*.test.ts(x)` or in a mirrored `__tests__/` directory. Load static assets from `public/`. Root configs (`next.config.ts`, `postcss.config.mjs`, `tsconfig.json`, `vercel.json`) define global behavior.
-
-### Directory Structure
-```
-src/app/
-├── (marketing)/      # Route group for marketing pages
-│   ├── page.tsx      # Home (/)
-│   ├── products/     # Product catalog
-│   ├── contact/      # Contact form
-│   ├── docs/         # Documentation
-│   ├── services/     # Services
-│   └── process/      # Process
-├── product/[slug]/   # Alternative product detail with 3D shader
-├── api/              # API routes
-├── globals.css       # Tailwind theme
-└── layout.tsx        # Root layout
-```
+Source lives in `src/app` with marketing routes grouped under `src/app/(marketing)` to keep clean URLs. Feature-specific pages (for example `src/app/product/[slug]`) own their layout and data fetching. Share UI primitives via `src/components`, reusable hooks in `src/hooks`, and helpers in `src/lib`. Keep co-located tests beside their subjects as `component.test.tsx` or in a sibling `__tests__/` folder. Global styles flow from `src/app/globals.css`, while static assets and favicon variants belong in `public/`.
 
 ## Build, Test, and Development Commands
-Use `npm run dev` to start local development at http://localhost:3000. Run `npm run build` to produce the production bundle and `npm run start` to serve it. Use `npm run lint` to check code quality with ESLint. Add a `test` script (for example `"test": "vitest run"`) before committing automated checks, and document new tooling in the README.
+- `npm run dev` — start the Next.js dev server at http://localhost:3000 with hot reload.
+- `npm run lint` — run ESLint (per `eslint.config.mjs`) to enforce project style expectations.
+- `npm run build` — create the optimized production bundle.
+- `npm run start` — serve the built app locally for smoke testing.
+- Add `npm run test` (e.g. `vitest run`) once automated coverage lands; document any extra flags in `README.md`.
 
 ## Coding Style & Naming Conventions
-Author code in TypeScript targeting React 19 and Next.js 15. Use 2-space indentation, single quotes, and named exports for shared modules. Components live in PascalCase; files use kebab-case (`user-card.tsx`). Styling runs through Tailwind CSS v4—keep class lists focused and rely on centralized theme helpers in `src/lib`. Lint via `eslint.config.mjs`; integrate additional formatters only if they respect existing rules.
+Author React 19 components in TypeScript with 2-space indentation and single quotes. Prefer functional components, PascalCase for components, and kebab-case for filenames such as `user-card.tsx`. Export shared modules with named exports. Tailwind CSS v4 provides styling—compose concise class lists and rely on utilities exposed in `src/lib` for theme tokens. Avoid ad-hoc formatters that conflict with ESLint or Prettier defaults already in use.
 
 ## Testing Guidelines
-Prefer Vitest with React Testing Library for UI coverage. Name tests after the feature or component under test and ensure they pass with `NODE_ENV=test`. Capture edge cases from Radix primitives, server actions, and form validation. Keep snapshot usage minimal and exercise behaviors that affect accessibility or stateful flows.
+Adopt Vitest with React Testing Library for rendering and interaction coverage. Name tests after the feature under test, exercising stateful flows, accessibility behavior, and server actions. Run tests with `NODE_ENV=test`, mocking network or 3D shader dependencies as needed. Keep snapshots rare and focused on guaranteeing critical UI structure.
 
 ## Commit & Pull Request Guidelines
-Follow Conventional Commits (`feat: add billing summary`). Group changes into reviewable chunks and note verification steps—include screenshots or screen recordings for UI updates. Reference tickets using `Closes #123` where applicable. Pull requests should summarize scope, list testing performed, and flag any follow-up tasks.
+Commits follow Conventional Commits (`feat: add billing summary`). Bundle related changes into reviewable units and note verification steps in the body. Pull requests should summarize scope, link issues (`Closes #123`), list tests executed, and attach screenshots or recordings for visible UI updates. Highlight follow-ups or open questions before requesting review.
 
 ## Security & Configuration Tips
-Never commit secrets; load them from `.env.local` using `process.env`. Validate external inputs with `zod` or form resolvers, and keep sensitive logic inside server components or route handlers. Watch bundle size when introducing new libraries, and audit accessibility after major layout or theme changes.
+Load secrets from `.env.local` through `process.env` and never commit credential files. Validate external input with `zod` or form resolvers, and keep sensitive logic inside server components or API routes. Audit bundle impact before adding dependencies, and rerun accessibility checks after major layout shifts.
