@@ -76,7 +76,12 @@ export default function CaseStudiesPage() {
           and tools.
         </p>
         <div className="flex justify-center gap-4">
-          <Button asChild size="lg" variant="default" className="text-[#171717]">
+          <Button
+            asChild
+            size="lg"
+            variant="default"
+            className="!text-[#171717]"
+          >
             <Link href="/contact">Contact Sales</Link>
           </Button>
           <Button asChild size="lg" variant="outline">
@@ -211,8 +216,11 @@ export default function CaseStudiesPage() {
           </TabsContent>
 
           <TabsContent value="journey" className="mt-12">
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-start">
-              <ol className="space-y-6">
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.2fr)] lg:items-start">
+              <div className="order-2 overflow-hidden rounded-3xl border border-[color:var(--muted)]/20 bg-[#111] p-3 lg:order-1">
+                <InteractiveShaderCard className="h-[360px] w-full" />
+              </div>
+              <ol className="order-1 space-y-6 lg:order-2">
                 {integrationSteps.map((step, index) => (
                   <li
                     key={step.title}
@@ -230,9 +238,6 @@ export default function CaseStudiesPage() {
                   </li>
                 ))}
               </ol>
-              <div className="overflow-hidden rounded-3xl border border-[color:var(--muted)]/20 bg-[#111] p-3">
-                <InteractiveShaderCard className="h-[360px] w-full" />
-              </div>
             </div>
           </TabsContent>
         </Tabs>
@@ -252,23 +257,24 @@ export default function CaseStudiesPage() {
             }
 
             return (
-              <div
+              <Link
                 key={model.slug}
-                className="flex flex-col gap-6 rounded-3xl border border-[color:var(--muted)]/20 bg-[#1f1f1f] p-6 transition hover:border-[color:var(--muted)]/40 sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-8"
+                href={`/case-studies/${model.slug}`}
+                className="group flex flex-col gap-6 rounded-3xl border border-[color:var(--muted)]/20 bg-[#1f1f1f] p-6 transition hover:border-[color:var(--muted)]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--fg)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)] sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-8"
               >
                 <div className="flex-1 space-y-4">
                   <h3 className="text-2xl font-semibold">{model.name}</h3>
                   <p className="text-sm text-[color:var(--muted)] sm:text-base">
                     {model.definition}
                   </p>
-                  <Button asChild variant="ghost" size="sm" className="w-fit">
-                    <Link href={`/case-studies/${model.slug}`}>Learn more →</Link>
-                  </Button>
+                  <span className="inline-flex items-center gap-2 text-sm font-medium text-[color:var(--fg)] transition group-hover:text-[color:var(--fg)]/80">
+                    Learn more →
+                  </span>
                 </div>
                 <div className="overflow-hidden rounded-2xl border border-[color:var(--muted)]/20 bg-[#111] p-2 sm:w-64">
                   <InteractiveShaderCard className="h-48 w-full" />
                 </div>
-              </div>
+              </Link>
             );
           })}
         </div>

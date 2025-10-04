@@ -63,7 +63,7 @@ export default async function ModelDetailPage({
       </div>
 
       <div className="mt-8 flex justify-center gap-4">
-        <Button asChild size="lg" className="text-[#171717]">
+        <Button asChild size="lg" className="!text-[#171717]">
           <Link href={`/contact?product=${model.slug}`}>Personalize</Link>
         </Button>
         <Button asChild size="lg" variant="outline">

@@ -66,7 +66,7 @@ export default async function ServiceDetailPage({
       </div>
 
       <div className="mt-8 flex justify-center gap-4">
-        <Button asChild size="lg" className="text-[#171717]">
+        <Button asChild size="lg" className="!text-[#171717]">
           <Link href={`/contact?product=${service.slug}`}>Personalize</Link>
         </Button>
         <Button asChild size="lg" variant="outline">

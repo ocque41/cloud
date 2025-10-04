@@ -51,7 +51,11 @@ export default function ServicesPage() {
                 <span className="text-sm text-[color:var(--muted)]">
                   {service.features[0]}
                 </span>
-                <Button asChild variant="muted" className="relative z-20">
+                <Button
+                  asChild
+                  variant="muted"
+                  className="relative z-20 !text-[#171717]"
+                >
                   <Link href={`/contact?product=${service.slug}`}>Personalize</Link>
                 </Button>
               </CardFooter>

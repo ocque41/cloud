@@ -54,7 +54,7 @@ export default function ProductsPage() {
                 <Button
                   asChild
                   variant="muted"
-                  className="relative z-20"
+                  className="relative z-20 !text-[#171717]"
                 >
                   <Link href={`/contact?product=${product.slug}`}>Personalize</Link>
                 </Button>

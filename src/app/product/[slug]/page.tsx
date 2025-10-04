@@ -79,7 +79,11 @@ export default function ProductPage() {
           </div>
 
           <div className="mt-8 flex justify-center gap-4">
-            <Button size="lg" onClick={handlePersonalize}>
+            <Button
+              size="lg"
+              onClick={handlePersonalize}
+              className="!text-[#171717]"
+            >
               Personalize
             </Button>
             <Link href="/contact">
@@ -150,7 +154,11 @@ export default function ProductPage() {
               Let&apos;s discuss how we can customize this solution for your needs.
             </p>
             <div className="flex justify-center gap-4">
-              <Button size="lg" onClick={handlePersonalize}>
+              <Button
+                size="lg"
+                onClick={handlePersonalize}
+                className="!text-[#171717]"
+              >
                 Personalize This Solution
               </Button>
               <Link href="/products">
