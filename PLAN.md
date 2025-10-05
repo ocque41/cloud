@@ -1,3 +1,14 @@
+# Sprint 15 Plan
+
+## Item 1: Publish accurate operations copy and documentation
+- **Description:** Replace placeholder marketing copy on the homepage and case studies page with the provided operations messaging, and create a `what-how-why.md` reference that captures the offering with update guidelines.
+- **Acceptance Criteria:**
+  1. The homepage hero, process steps, and deliverables section display the supplied sentences without additional elaboration.
+  2. The case studies hero and tab content surface the same source information, including the four-step engagement journey, while preserving the mirrored tab structure.
+  3. `what-how-why.md` lists the What, How, and Why categories using the provided statements and includes clear "adding guidelines" for future edits.
+  4. README verification guidance explains how to confirm the new copy appears on `/` and `/case-studies`.
+- **Status:** ✅ Completed — Homepage and case studies copy now mirrors the provided operations messaging, the four-step journey appears across both pages, `what-how-why.md` captures the narrative with update guidelines, and README verification steps cover the new content checks.
+
 # Sprint 14 Plan
 
 ## Item 1: Polish case study card ambiance and structure

@@ -10,18 +10,21 @@ import {
 
 const steps = [
   {
-    title: "Pick a base",
-    description: "Choose the Cumulus product closest to your need.",
+    title: "Discover",
+    description: "Learn your business, pains, and goals.",
   },
   {
-    title: "We tailor it",
-    description:
-      "Specification, integrations, compliance reviews, and performance tuning handled end-to-end by our engineers.",
+    title: "Plan",
+    description: "Choose the fastest path to value, write the simple roadmap.",
   },
   {
-    title: "You own the build",
+    title: "Build & connect",
     description:
-      "Dedicated environment, support SLA, and versioned updates so your team stays in control of every release.",
+      "Set up tools, forms, automations, and dashboards.",
+  },
+  {
+    title: "Run & improve",
+    description: "Monitor, maintain, and keep removing friction.",
   },
 ];
 
@@ -30,8 +33,8 @@ export default function Page() {
     <div className="space-y-24">
       <Hero />
 
-      <Section title="How the customization works" eyebrow="Process">
-        <div className="grid gap-6 md:grid-cols-3">
+      <Section title="How we work" eyebrow="Process">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {steps.map((step) => (
             <Card key={step.title} className="h-full">
               <CardHeader>
@@ -50,20 +53,31 @@ export default function Page() {
       </Section>
 
       <Section
-        title="Featured products you can tailor"
+        title="What you get"
         eyebrow="Focus"
-        copy="Five AI-powered products designed for operations, teams, revenue, and document workflows."
+        copy="Clean setup of your tools (site, bookings, payments, CRM, email, chat)."
       >
         <div className="space-y-6 text-lg text-[color:var(--muted)] lg:max-w-3xl">
-          <p>
-            Micro Agents automate small tasks without manual oversight, accelerating decision pipelines for operations teams. Blocks delivers an enterprise terminal organizing teams, analytics, security, and real-time collaboration workflows.
-          </p>
-          <p>
-            Operation Agents simulate missions and automate reports for transportation, energy, and security enterprises. Resuming handles AI-powered document analysis, editing, and formatting. DQuote manages configure-price-quote workflows to turn proposals into revenue.
-          </p>
-          <p>
-            Every product ships with full source access, integration support, and dedicated maintenance so your team controls every release.
-          </p>
+          <ul className="space-y-3">
+            <li>Connected workflow so data moves smoothly between tools.</li>
+            <li>Dashboards with only the key numbers you care about.</li>
+            <li>Playbooks & checklists for your team.</li>
+            <li>Reliable execution: updates, support, and small improvements on a steady schedule.</li>
+          </ul>
+          <div className="space-y-3">
+            <p>
+              We build and execute: we create the pages, forms, dashboards, and automations you need, then keep them working.
+            </p>
+            <p>
+              We document everything: short guides and checklists so your team knows what to do, when, and how.
+            </p>
+            <p>
+              We create pipelines (step-by-step workflows): from “lead comes in” → “follow-up” → “sale” → “delivery” → “after-sale care.”
+            </p>
+            <p>
+              We improve every week: check results, fix bottlenecks, and remove extra clicks and waits.
+            </p>
+          </div>
         </div>
       </Section>
     </div>

@@ -27,29 +27,20 @@ const clients = [
 
 const integrationSteps = [
   {
-    title: "Initial Consultation",
-    description:
-      "Kick off with our strategists to clarify objectives, success metrics, and the data sources we will activate.",
+    title: "Discover",
+    description: "Learn your business, pains, and goals.",
   },
   {
-    title: "Solution Blueprint",
-    description:
-      "Architect the ideal model mix, governance plan, and integration approach tailored to your stack.",
+    title: "Plan",
+    description: "Choose the fastest path to value, write the simple roadmap.",
   },
   {
-    title: "Pilot Build",
-    description:
-      "Prototype priority workflows, fine-tune models on your data, and validate with your stakeholders.",
+    title: "Build & connect",
+    description: "Set up tools, forms, automations, and dashboards.",
   },
   {
-    title: "Production Launch",
-    description:
-      "Harden the deployment, connect environments, and enable your teams with documentation and training.",
-  },
-  {
-    title: "Measure & Optimize",
-    description:
-      "Track usage, surface insights, and iterate until the outcomes exceed your targets.",
+    title: "Run & improve",
+    description: "Monitor, maintain, and keep removing friction.",
   },
 ];
 
@@ -69,12 +60,19 @@ export default function CaseStudiesPage() {
           Case Studies
         </Badge>
         <h1 className="display mx-auto max-w-5xl">
-          The fastest and most powerful platform for building AI products
+          We build and execute: we create the pages, forms, dashboards, and automations you need, then keep them working.
         </h1>
-        <p className="lead mx-auto max-w-3xl">
-          Build transformative AI experiences powered by industry-leading models
-          and tools.
-        </p>
+        <div className="mx-auto max-w-3xl space-y-4 text-lg text-[color:var(--muted)]">
+          <p>
+            We document everything: short guides and checklists so your team knows what to do, when, and how.
+          </p>
+          <p>
+            We create pipelines (step-by-step workflows): from “lead comes in” → “follow-up” → “sale” → “delivery” → “after-sale care.”
+          </p>
+          <p>
+            We improve every week: check results, fix bottlenecks, and remove extra clicks and waits.
+          </p>
+        </div>
         <div className="flex justify-center gap-4">
           <Button
             asChild
@@ -191,7 +189,7 @@ export default function CaseStudiesPage() {
                   {apiModels[0]?.name}
                 </h3>
                 <p className="text-lg text-[color:var(--muted)]">
-                  {apiModels[0]?.definition}
+                  Clean setup of your tools (site, bookings, payments, CRM, email, chat).
                 </p>
                 <div className="space-y-3">
                   <span className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]/80">
@@ -205,6 +203,12 @@ export default function CaseStudiesPage() {
                       </li>
                     ))}
                   </ul>
+                  <div className="space-y-2 text-sm text-[color:var(--muted)]">
+                    <p>Connected workflow so data moves smoothly between tools.</p>
+                    <p>Dashboards with only the key numbers you care about.</p>
+                    <p>Playbooks & checklists for your team.</p>
+                    <p>Reliable execution: updates, support, and small improvements on a steady schedule.</p>
+                  </div>
                 </div>
                 <Button asChild variant="ghost">
                   <Link href={`/case-studies/${apiModels[0]?.slug}`}>
@@ -222,8 +226,7 @@ export default function CaseStudiesPage() {
               <div className="space-y-6">
                 <h3 className="text-3xl font-semibold">Integration Journey</h3>
                 <p className="text-lg text-[color:var(--muted)]">
-                  Partner with our team from discovery through launch with a
-                  guided rollout tailored to your stack.
+                  We set up, connect, and run your business tools so your day-to-day work is simpler and faster.
                 </p>
                 <div className="space-y-3">
                   <span className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]/80">
