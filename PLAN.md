@@ -1,3 +1,25 @@
+# Sprint 18 Plan
+
+## Item 1: Distill marketing copy with the newest positioning
+- **Description:** Refresh the homepage and case studies routes with the latest minimal messaging that explains the offer instantly, update the quick business examples, and record revised verification guidance.
+- **Acceptance Criteria:**
+  1. The homepage hero and immediate supporting lines communicate "We build and run software for small businesses" and "We connect your customer path from first click to paid" with clear primary and secondary CTAs.
+  2. Homepage sections for services, proof, case tiles, pricing, FAQ, and contact are rewritten with concise language from the newest brief while keeping the structure intact.
+  3. `/case-studies` showcases the updated hero, services summary, and quick examples using the newly supplied copy and trims deprecated content.
+  4. README verification steps outline how to confirm the refreshed homepage and case studies content.
+- **Status:** ✅ Completed — Homepage and case studies now use the newest concise copy with updated verification steps.
+
+# Sprint 17 Plan
+
+## Item 1: Reframe marketing pages with concise service storyline
+- **Description:** Refresh the homepage and case studies page to explain our work with simple, fast-to-grasp language, add the required educational sections (services bullets, proof, examples, pricing, FAQ, contact), and capture verification updates in the README.
+- **Acceptance Criteria:**
+  1. The homepage hero states the key promise "Set up, connect, and run your tools—so customers buy faster." with clear primary and secondary CTAs.
+  2. The homepage adds sections for "What we do" services bullets, proof strip, mini case tiles, pricing snapshot, FAQ, and a contact bar that follow the provided copy guidance.
+  3. `/case-studies` mirrors the new messaging by updating its hero, services summary, and quick business-type examples using the supplied statements.
+  4. README verification steps explain how to confirm the refreshed homepage and case studies content plus the new educational blocks.
+- **Status:** ✅ Completed — Homepage and case studies now surface the concise storyline with the new sections, and README verification steps document the checks.
+
 # Sprint 16 Plan
 
 ## Item 1: Refresh case studies and homepage messaging

@@ -1,4 +1,7 @@
+import Link from "next/link";
+
 import InteractiveShaderCard from "@/components/interactive-shader-card";
+import { Button } from "@/components/ui/button";
 
 export function Hero() {
   const now = new Date();
@@ -19,18 +22,21 @@ export function Hero() {
       </div>
 
       <h1 className="display max-w-5xl">
-        We design, integrate, and maintain the products your teams rely on.
+        We build and run software for small businesses.
       </h1>
 
       <div className="mt-6 max-w-3xl space-y-4 text-lg text-[color:var(--muted)]">
-        <p>
-          We work with your teams to build the product you requested, connect it to
-          your existing systems, and keep every release dependable.
-        </p>
-        <p>
-          When a product is customer-facing, we can drive qualified traffic, review
-          performance, and maintain the experience long after launch.
-        </p>
+        <p>We connect your customer path from first click to paid.</p>
+        <p>Book us to link your site, bookings, payments, and follow-up in one flow.</p>
+      </div>
+
+      <div className="mt-10 flex flex-wrap gap-4">
+        <Button asChild size="lg" variant="default" className="!text-[#171717]">
+          <Link href="/contact">Book a 15-min check</Link>
+        </Button>
+        <Button asChild size="lg" variant="outline">
+          <Link href="/case-studies">See examples</Link>
+        </Button>
       </div>
 
       <div className="mt-12 overflow-hidden rounded-2xl">
