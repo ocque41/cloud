@@ -29,7 +29,10 @@ export function Hero() {
 
       <div className="mt-12 overflow-hidden rounded-2xl">
         <div className="aspect-[16/9]">
-          <InteractiveShaderCard aria-label="Cumulus interactive hero" />
+          <InteractiveShaderCard
+            mode="interactive"
+            aria-label="Cumulus interactive hero"
+          />
         </div>
       </div>
     </section>

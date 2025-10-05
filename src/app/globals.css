@@ -24,10 +24,19 @@ a {
   text-decoration: none;
 }
 
-a:hover,
-a:focus-visible {
+a:hover:not(.no-underline):not(.card-link),
+a:focus-visible:not(.no-underline):not(.card-link) {
   text-decoration: underline;
   text-decoration-thickness: 0.5px;
+}
+
+.card-link {
+  text-decoration: none;
+}
+
+.card-link:hover,
+.card-link:focus-visible {
+  text-decoration: none;
 }
 
 button a,
@@ -55,6 +64,78 @@ a[class*="inline-flex"] {
   max-width: 1200px;
   margin-inline: auto;
   padding-inline: 1rem;
+}
+
+@keyframes ambientGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  25% {
+    background-position: 50% 100%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  75% {
+    background-position: 50% 0%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes ambientGradientReverse {
+  0% {
+    background-position: 100% 50%;
+  }
+  25% {
+    background-position: 50% 0%;
+  }
+  50% {
+    background-position: 0% 50%;
+  }
+  75% {
+    background-position: 50% 100%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes ambientGradientTilt {
+  0% {
+    background-position: 30% 0%;
+  }
+  20% {
+    background-position: 70% 40%;
+  }
+  50% {
+    background-position: 100% 80%;
+  }
+  80% {
+    background-position: 40% 100%;
+  }
+  100% {
+    background-position: 0% 60%;
+  }
+}
+
+@keyframes ambientGradientWave {
+  0% {
+    background-position: 50% 100%;
+  }
+  30% {
+    background-position: 70% 30%;
+  }
+  60% {
+    background-position: 30% 0%;
+  }
+  85% {
+    background-position: 0% 70%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

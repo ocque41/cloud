@@ -117,15 +117,18 @@ export default function CaseStudiesPage() {
           </p>
         </div>
         <div className="grid gap-6 md:grid-cols-2">
-          {flagshipModels.slice(0, 2).map((model) => (
+          {flagshipModels.slice(0, 2).map((model, index) => (
             <Link
               key={model.slug}
               href={`/case-studies/${model.slug}`}
-              className="group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--fg)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)]"
+              className="card-link group block focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--fg)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)]"
             >
-              <Card className="relative flex h-full flex-col overflow-hidden transition hover:border-[color:var(--muted)]/50">
+              <Card className="relative flex h-full flex-col overflow-hidden border-0 bg-[#1f1f1f]/90 shadow-[0_30px_80px_rgba(0,0,0,0.45)] transition-all duration-500 group-hover:shadow-[0_45px_110px_rgba(0,0,0,0.6)]">
                 <div className="absolute inset-0 -z-10">
-                  <InteractiveShaderCard className="h-full w-full opacity-25 transition group-hover:opacity-40" />
+                  <InteractiveShaderCard
+                    className="h-full w-full opacity-25 transition group-hover:opacity-40"
+                    ambientIndex={index}
+                  />
                 </div>
                 <CardHeader className="relative z-10 gap-4 p-8 pb-0">
                   <CardTitle className="text-2xl font-semibold">{model.name}</CardTitle>
@@ -209,35 +212,46 @@ export default function CaseStudiesPage() {
                   </Link>
                 </Button>
               </div>
-              <div className="overflow-hidden rounded-3xl border border-[color:var(--muted)]/20 bg-[#111] p-3">
-                <InteractiveShaderCard className="h-[360px] w-full" />
+              <div className="overflow-hidden rounded-3xl bg-[#111] p-3 shadow-[0_35px_100px_rgba(0,0,0,0.55)]">
+                <InteractiveShaderCard className="h-[360px] w-full" ambientIndex={2} />
               </div>
             </div>
           </TabsContent>
-
           <TabsContent value="journey" className="mt-12">
-            <div className="grid gap-10 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.2fr)] lg:items-start">
-              <div className="order-2 overflow-hidden rounded-3xl border border-[color:var(--muted)]/20 bg-[#111] p-3 lg:order-1">
-                <InteractiveShaderCard className="h-[360px] w-full" />
+            <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:items-start">
+              <div className="space-y-6">
+                <h3 className="text-3xl font-semibold">Integration Journey</h3>
+                <p className="text-lg text-[color:var(--muted)]">
+                  Partner with our team from discovery through launch with a
+                  guided rollout tailored to your stack.
+                </p>
+                <div className="space-y-3">
+                  <span className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]/80">
+                    Step-by-step guidance
+                  </span>
+                  <ol className="space-y-3 text-sm text-[color:var(--muted)]">
+                    {integrationSteps.map((step, index) => (
+                      <li key={step.title} className="flex items-start gap-3">
+                        <span className="mt-0.5 flex h-7 w-7 items-center justify-center rounded-full bg-[color:var(--fg)] text-xs font-semibold text-[#171717]">
+                          {index + 1}
+                        </span>
+                        <div className="space-y-1">
+                          <h4 className="text-base font-semibold text-[color:var(--fg)]">
+                            {step.title}
+                          </h4>
+                          <p className="leading-relaxed">{step.description}</p>
+                        </div>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+                <Button asChild variant="ghost">
+                  <Link href="/contact">Plan your integration →</Link>
+                </Button>
               </div>
-              <ol className="order-1 space-y-6 lg:order-2">
-                {integrationSteps.map((step, index) => (
-                  <li
-                    key={step.title}
-                    className="rounded-3xl border border-[color:var(--muted)]/20 bg-[#1f1f1f] p-6 transition hover:border-[color:var(--muted)]/40"
-                  >
-                    <div className="mb-4 flex items-center gap-3">
-                      <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--fg)] text-sm font-semibold text-[#171717]">
-                        {index + 1}
-                      </span>
-                      <h3 className="text-lg font-semibold text-[color:var(--fg)]">
-                        {step.title}
-                      </h3>
-                    </div>
-                    <p className="text-sm text-[color:var(--muted)]">{step.description}</p>
-                  </li>
-                ))}
-              </ol>
+              <div className="overflow-hidden rounded-3xl bg-[#111] p-3 shadow-[0_35px_100px_rgba(0,0,0,0.55)]">
+                <InteractiveShaderCard className="h-[360px] w-full" ambientIndex={3} />
+              </div>
             </div>
           </TabsContent>
         </Tabs>
@@ -251,7 +265,7 @@ export default function CaseStudiesPage() {
           </h2>
         </div>
         <div className="flex flex-col gap-6">
-          {[apiModels[0], toolModels[0], agentModels[0]].map((model) => {
+          {[apiModels[0], toolModels[0], agentModels[0]].map((model, index) => {
             if (!model) {
               return null;
             }
@@ -260,7 +274,7 @@ export default function CaseStudiesPage() {
               <Link
                 key={model.slug}
                 href={`/case-studies/${model.slug}`}
-                className="group flex flex-col gap-6 rounded-3xl border border-[color:var(--muted)]/20 bg-[#1f1f1f] p-6 transition hover:border-[color:var(--muted)]/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--fg)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)] sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-8"
+                className="card-link group flex flex-col gap-6 rounded-3xl bg-[#1f1f1f]/95 p-6 shadow-[0_30px_80px_rgba(0,0,0,0.45)] transition-all duration-500 hover:shadow-[0_45px_110px_rgba(0,0,0,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--fg)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)] sm:flex-row sm:items-center sm:justify-between sm:gap-8 sm:p-8"
               >
                 <div className="flex-1 space-y-4">
                   <h3 className="text-2xl font-semibold">{model.name}</h3>
@@ -271,8 +285,8 @@ export default function CaseStudiesPage() {
                     Learn more →
                   </span>
                 </div>
-                <div className="overflow-hidden rounded-2xl border border-[color:var(--muted)]/20 bg-[#111] p-2 sm:w-64">
-                  <InteractiveShaderCard className="h-48 w-full" />
+                <div className="overflow-hidden rounded-2xl bg-[#111] p-2 shadow-[0_30px_80px_rgba(0,0,0,0.45)] sm:w-64">
+                  <InteractiveShaderCard className="h-48 w-full" ambientIndex={index + 4} />
                 </div>
               </Link>
             );
@@ -288,14 +302,14 @@ export default function CaseStudiesPage() {
           </h2>
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-          {useCases.map((useCase) => (
+          {useCases.map((useCase, index) => (
             <Link
               key={useCase.slug}
               href={`/use-cases/${useCase.slug}`}
-              className="group space-y-4 rounded-2xl border border-[color:var(--muted)]/20 bg-[#1f1f1f] p-6 transition hover:border-[color:var(--muted)]/40"
+              className="card-link group space-y-4 rounded-2xl bg-[#1f1f1f]/95 p-6 shadow-[0_25px_70px_rgba(0,0,0,0.45)] transition-all duration-500 hover:shadow-[0_40px_100px_rgba(0,0,0,0.6)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--fg)] focus-visible:ring-offset-2 focus-visible:ring-offset-[color:var(--bg)]"
             >
-              <div className="aspect-square w-full overflow-hidden rounded-xl border border-[color:var(--muted)]/20">
-                <InteractiveShaderCard className="h-full w-full" />
+              <div className="aspect-square w-full overflow-hidden rounded-xl bg-[#111] shadow-[0_25px_70px_rgba(0,0,0,0.45)]">
+                <InteractiveShaderCard className="h-full w-full" ambientIndex={index + 7} />
               </div>
               <div className="space-y-2">
                 <h3 className="font-semibold group-hover:text-[color:var(--fg)]">
