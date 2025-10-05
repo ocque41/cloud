@@ -59,20 +59,10 @@ export default function CaseStudiesPage() {
         <Badge variant="subtle" className="uppercase tracking-wide">
           Case Studies
         </Badge>
-        <h1 className="display mx-auto max-w-5xl">
-          We build and execute: we create the pages, forms, dashboards, and automations you need, then keep them working.
-        </h1>
-        <div className="mx-auto max-w-3xl space-y-4 text-lg text-[color:var(--muted)]">
-          <p>
-            We document everything: short guides and checklists so your team knows what to do, when, and how.
-          </p>
-          <p>
-            We create pipelines (step-by-step workflows): from “lead comes in” → “follow-up” → “sale” → “delivery” → “after-sale care.”
-          </p>
-          <p>
-            We improve every week: check results, fix bottlenecks, and remove extra clicks and waits.
-          </p>
-        </div>
+        <h1 className="display mx-auto max-w-5xl">Tailoring Models</h1>
+        <p className="mx-auto max-w-3xl text-lg text-[color:var(--muted)]">
+          we tailor the pages, forms, dashboards, and automations you need, then keep them working.
+        </p>
         <div className="flex justify-center gap-4">
           <Button
             asChild

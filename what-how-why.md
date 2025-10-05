@@ -7,9 +7,6 @@
 - We manage operations: calendars, orders, bookings, stock, payments, customer messages—organized in one clear flow.
 - We consult and plan: we listen to your goals, map your steps, and set simple numbers to track progress.
 - We build and execute: we create the pages, forms, dashboards, and automations you need, then keep them working.
-- We document everything: short guides and checklists so your team knows what to do, when, and how.
-- We create pipelines (step-by-step workflows): from “lead comes in” → “follow-up” → “sale” → “delivery” → “after-sale care.”
-- We improve every week: check results, fix bottlenecks, and remove extra clicks and waits.
 - Clean setup of your tools (site, bookings, payments, CRM, email, chat).
 - Connected workflow so data moves smoothly between tools.
 - Dashboards with only the key numbers you care about.
