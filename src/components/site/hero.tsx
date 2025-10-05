@@ -27,15 +27,15 @@ export function Hero() {
 
       <div className="mt-6 max-w-3xl space-y-4 text-lg text-[color:var(--muted)]">
         <p>We connect your customer path from first click to paid.</p>
-        <p>Book us to link your site, bookings, payments, and follow-up in one flow.</p>
+        <p></p>
       </div>
 
       <div className="mt-10 flex flex-wrap gap-4">
         <Button asChild size="lg" variant="default" className="!text-[#171717]">
-          <Link href="/contact">Book a 15-min check</Link>
+          <Link href="/contact">Get Started</Link>
         </Button>
         <Button asChild size="lg" variant="outline">
-          <Link href="/case-studies">See examples</Link>
+          <Link href="/case-studies">Case Studies</Link>
         </Button>
       </div>
 
