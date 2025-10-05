@@ -39,13 +39,11 @@ npm run lint
 
 ### Verification
 
-Run through these checks after updating catalog content, case studies, or contact routing:
+Run these checks after updating marketing messaging or layouts:
 
-1. `npm run build`
-2. Visit `http://localhost:3000/contact?product=micro-agents` and `http://localhost:3000/contact?product=software-applications` to confirm the request form auto-selects the matching option.
-3. Review `/products` to ensure every card blurb remains ten words or fewer.
-4. Visit `/case-studies` to confirm the sidebar link works, the hero and tab copy reflects the provided operations messaging (including the four-step journey), flagship and specialized cards stay fully clickable without visible border strokes, the API section shows the mirrored API Platform and Integration Journey tabs with matching layouts and CTAs, ambient shader cards surface varied gradient palettes that stay out of sync, and all card text remains underline-free on hover or focus.
-5. Preview `/` and ensure the hero and supporting sections display the supplied operations copy while only the hero shader card responds to pointer input and other shader cards across the site display staggered, slow-moving brand gradients without interaction.
+1. `npm run lint`
+2. Visit `/` and confirm the hero states “We build and run software for small businesses.” with the supporting line “We connect your customer path from first click to paid.” and the “Book a 15-min check” primary CTA beside “See examples.” Scroll to verify the updated “How we work” cards, “What we do” bullets, Services grid, Proof strip, quick case tiles, pricing snapshot, FAQ, and contact bar reflect the newest concise copy.
+3. Visit `/case-studies` and confirm the hero highlights the same promise with the refreshed bullets and CTAs, the services summary mirrors the new statements, the API tabs reference the minimal step copy, and the quick examples list the five business types using the latest descriptions.
 
 ## ✨ Key Features
 

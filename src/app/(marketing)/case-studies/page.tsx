@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 
 import InteractiveShaderCard from "@/components/interactive-shader-card";
 import { Badge } from "@/components/ui/badge";
@@ -28,19 +28,55 @@ const clients = [
 const integrationSteps = [
   {
     title: "Discover",
-    description: "Learn your business, pains, and goals.",
+    description: "Mini audit of tools and goals.",
   },
   {
     title: "Plan",
-    description: "Choose the fastest path to value, write the simple roadmap.",
+    description: "Short plan with the must-do work.",
   },
   {
-    title: "Build & connect",
-    description: "Set up tools, forms, automations, and dashboards.",
+    title: "Build & Connect",
+    description: "Quick wins live and data flowing end to end.",
   },
   {
-    title: "Run & improve",
-    description: "Monitor, maintain, and keep removing friction.",
+    title: "Run & Improve",
+    description: "Weekly maintenance so the flow stays fast.",
+  },
+];
+
+const services = [
+  "Site, bookings, catalog, payments, CRM, and chat connected.",
+  "Campaigns, pixels, product feeds, landing pages, and quick offers.",
+  "See → choose → pay made fast with clear info and buttons.",
+  "Sales content that answers doubts and drives action.",
+  "Dashboards, checklists, and weekly maintenance so nothing breaks.",
+];
+
+const quickExamples = [
+  {
+    label: "Hotels & Spas",
+    detail:
+      "Iberik — ad → hotel page → obvious date/room picker; seasonal packages and gift cards; booking events tracked right.",
+  },
+  {
+    label: "Fashion / Showrooms",
+    detail:
+      "Martina Maletti — drops & pre-orders, size help, “DM to reserve,” appointment slotter, clean checkout + accurate pixels.",
+  },
+  {
+    label: "Salons / Clinics",
+    detail:
+      "Vaness — service menu that sells, 1-tap appointment, retail at checkout, after-care reminders.",
+  },
+  {
+    label: "Events & DJs",
+    detail:
+      "Pompeo — availability calendar, package selector, fast quote form that captures essentials.",
+  },
+  {
+    label: "Coffee / DTC",
+    detail:
+      "AROS — product pages that explain taste/gear/grind, simple subscription, reviews near “Buy.”",
   },
 ];
 
@@ -51,6 +87,13 @@ export default function CaseStudiesPage() {
   const agentModels = getCaseStudyModelsByCategory("agent");
 
   const [activeTab, setActiveTab] = useState("platform");
+  const heroPoints = useMemo(
+    () => [
+      "We connect your customer path from first click to paid.",
+      "See the flows we maintain each week to keep sales steady.",
+    ],
+    [],
+  );
 
   return (
     <div className="space-y-32 pb-24">
@@ -59,19 +102,12 @@ export default function CaseStudiesPage() {
         <Badge variant="subtle" className="uppercase tracking-wide">
           Case Studies
         </Badge>
-        <h1 className="display mx-auto max-w-5xl">
-          We build and execute: we create the pages, forms, dashboards, and automations you need, then keep them working.
-        </h1>
-        <div className="mx-auto max-w-3xl space-y-4 text-lg text-[color:var(--muted)]">
-          <p>
-            We document everything: short guides and checklists so your team knows what to do, when, and how.
-          </p>
-          <p>
-            We create pipelines (step-by-step workflows): from “lead comes in” → “follow-up” → “sale” → “delivery” → “after-sale care.”
-          </p>
-          <p>
-            We improve every week: check results, fix bottlenecks, and remove extra clicks and waits.
-          </p>
+        <h1 className="display mx-auto max-w-5xl">Tailoring Models</h1>
+        <div className="mx-auto max-w-3xl space-y-3 text-lg text-[color:var(--muted)]">
+          <p>We build and run software for small businesses.</p>
+          {heroPoints.map((point) => (
+            <p key={point}>{point}</p>
+          ))}
         </div>
         <div className="flex justify-center gap-4">
           <Button
@@ -80,12 +116,30 @@ export default function CaseStudiesPage() {
             variant="default"
             className="!text-[#171717]"
           >
-            <Link href="/contact">Contact Sales</Link>
+            <Link href="/contact">Book a 15-min check</Link>
           </Button>
           <Button asChild size="lg" variant="outline">
-            <Link href="/products">Start building</Link>
+            <Link href="/">See services</Link>
           </Button>
         </div>
+      </section>
+
+      {/* Services Summary */}
+      <section className="container max-w-5xl space-y-6 text-center">
+        <h2 className="text-3xl font-semibold">What we do, in one glance</h2>
+        <p className="text-lg text-[color:var(--muted)]">
+          We connect your website, bookings, payments, and follow-up so customers move fast.
+        </p>
+        <ul className="grid gap-4 text-left text-sm text-[color:var(--muted)] sm:grid-cols-2">
+          {services.map((service) => (
+            <li
+              key={service}
+              className="rounded-2xl border border-white/5 bg-[#181818e6] p-4 shadow-[0_20px_60px_rgba(0,0,0,0.35)]"
+            >
+              {service}
+            </li>
+          ))}
+        </ul>
       </section>
 
       {/* Client Logos */}
@@ -189,7 +243,7 @@ export default function CaseStudiesPage() {
                   {apiModels[0]?.name}
                 </h3>
                 <p className="text-lg text-[color:var(--muted)]">
-                  Clean setup of your tools (site, bookings, payments, CRM, email, chat).
+                  Setup & connect: site, bookings, payments, CRM, chat—data moving in one flow.
                 </p>
                 <div className="space-y-3">
                   <span className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]/80">
@@ -204,10 +258,10 @@ export default function CaseStudiesPage() {
                     ))}
                   </ul>
                   <div className="space-y-2 text-sm text-[color:var(--muted)]">
-                    <p>Connected workflow so data moves smoothly between tools.</p>
+                    <p>Connected workflows so data moves smoothly between tools.</p>
                     <p>Dashboards with only the key numbers you care about.</p>
-                    <p>Playbooks & checklists for your team.</p>
-                    <p>Reliable execution: updates, support, and small improvements on a steady schedule.</p>
+                    <p>Playbooks & checklists so your team knows what to do.</p>
+                    <p>Reliable execution with updates, support, and steady improvements.</p>
                   </div>
                 </div>
                 <Button asChild variant="ghost">
@@ -226,7 +280,7 @@ export default function CaseStudiesPage() {
               <div className="space-y-6">
                 <h3 className="text-3xl font-semibold">Integration Journey</h3>
                 <p className="text-lg text-[color:var(--muted)]">
-                  We set up, connect, and run your business tools so your day-to-day work is simpler and faster.
+                  Discover → Plan → Build & Connect → Run & Improve. We keep the loop tight so the system keeps selling.
                 </p>
                 <div className="space-y-3">
                   <span className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]/80">
@@ -249,7 +303,7 @@ export default function CaseStudiesPage() {
                   </ol>
                 </div>
                 <Button asChild variant="ghost">
-                  <Link href="/contact">Plan your integration →</Link>
+                  <Link href="/contact">Book a 15-min check →</Link>
                 </Button>
               </div>
               <div className="overflow-hidden rounded-3xl bg-[#111] p-3 shadow-[0_35px_100px_rgba(0,0,0,0.55)]">
@@ -258,6 +312,43 @@ export default function CaseStudiesPage() {
             </div>
           </TabsContent>
         </Tabs>
+      </section>
+
+      {/* Quick Examples */}
+      <section className="container space-y-10">
+        <div className="space-y-4 text-center">
+          <h2 className="text-4xl font-semibold">Quick examples by business type</h2>
+          <p className="text-lg text-[color:var(--muted)]">
+            Scan how different teams use the same playbook.
+          </p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {quickExamples.map((example) => (
+            <Card
+              key={example.label}
+              className="flex h-full flex-col justify-between border border-white/5 bg-[#181818e6] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.4)]"
+            >
+              <div className="space-y-2">
+                <span className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]/80">
+                  {example.label}
+                </span>
+                <CardTitle className="text-xl text-[color:var(--fg)]">
+                  Case highlight
+                </CardTitle>
+              </div>
+              <CardDescription className="mt-4 text-sm leading-relaxed text-[color:var(--muted)]">
+                {example.detail}
+              </CardDescription>
+              <Button
+                asChild
+                variant="ghost"
+                className="mt-6 justify-start px-0 text-sm text-[color:var(--fg)] hover:text-[color:var(--fg)]/80"
+              >
+                <Link href="/case-studies">See details →</Link>
+              </Button>
+            </Card>
+          ))}
+        </div>
       </section>
 
       {/* Additional Specialized Models */}
@@ -300,10 +391,8 @@ export default function CaseStudiesPage() {
       {/* Use Cases */}
       <section className="container space-y-12">
         <div className="space-y-4 text-center">
-          <h2 className="text-4xl font-semibold">
-            Trusted by the world&apos;s most innovative organizations
-          </h2>
-        </div>
+          <h2 className="text-4xl font-semibold">Trusted by teams shipping fast</h2>
+          </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {useCases.map((useCase, index) => (
             <Link
