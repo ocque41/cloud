@@ -1,3 +1,45 @@
+# Sprint 15 Plan
+
+## Item 1: Publish accurate operations copy and documentation
+- **Description:** Replace placeholder marketing copy on the homepage and case studies page with the provided operations messaging, and create a `what-how-why.md` reference that captures the offering with update guidelines.
+- **Acceptance Criteria:**
+  1. The homepage hero, process steps, and deliverables section display the supplied sentences without additional elaboration.
+  2. The case studies hero and tab content surface the same source information, including the four-step engagement journey, while preserving the mirrored tab structure.
+  3. `what-how-why.md` lists the What, How, and Why categories using the provided statements and includes clear "adding guidelines" for future edits.
+  4. README verification guidance explains how to confirm the new copy appears on `/` and `/case-studies`.
+- **Status:** ✅ Completed — Homepage and case studies copy now mirrors the provided operations messaging, the four-step journey appears across both pages, `what-how-why.md` captures the narrative with update guidelines, and README verification steps cover the new content checks.
+
+# Sprint 14 Plan
+
+## Item 1: Polish case study card ambiance and structure
+- **Description:** Diversify ambient shader animations, remove harsh card borders, and keep the API Platform and Integration Journey tabs mirrored while ensuring hover states leave the full-card links clean.
+- **Acceptance Criteria:**
+  1. Ambient shader cards across the case studies page cycle through offset gradient palettes and timings so adjacent cards never display the same colors in sync.
+  2. Case study card treatments eliminate the visible black border stroke while retaining depth via shadows and clear focus outlines.
+  3. API Platform and Integration Journey tabs keep matching layouts, spacing, and CTA placement.
+  4. Hovering or focusing a case study card no longer underlines the textual content while the entire card remains clickable.
+- **Status:** ✅ Completed — Ambient shader cards cycle through offset palettes and timings, case study cards trade borders for soft shadows with intact focus rings, the API Platform and Integration Journey tabs stay mirrored, and hover/focus states keep full-card links underline-free.
+
+# Sprint 13 Plan
+
+## Item 1: Align case studies tabs and hover affordances
+- **Description:** Align the API Platform and Integration Journey tabs so they share identical structural layouts while removing underline decoration from card links to keep the cards as the interactive element.
+- **Acceptance Criteria:**
+  1. Both tabs render with the same two-column grid and shader card framing, ensuring the card sits in a bordered container with matching padding on each tab.
+  2. The Integration Journey tab presents its step list within the same text column pattern as the API Platform tab, including a heading, supporting copy, and consistent spacing.
+  3. Hovering any card link on the case studies page no longer underlines the content while the entire card remains the clickable target.
+- **Status:** ✅ Completed — Tabs now share a mirrored two-column layout with consistent shader framing, the journey steps flow through the same text column pattern, and card links stay underline-free while remaining fully clickable.
+
+# Sprint 12 Plan
+
+## Item 1: Focus interactive shader on homepage hero
+- **Description:** Keep the pointer-responsive shader reserved for the homepage hero while giving every other shader card a slow, brand-color gradient animation with staggered timing so adjacent cards never match frames.
+- **Acceptance Criteria:**
+  1. The homepage hero card retains the interactive shader behavior when motion preferences allow, with reduced-motion fallback intact.
+  2. All other shader cards render an autonomous gradient animation that cycles through brand colors without pointer interaction.
+  3. Shader cards shown side-by-side or stacked share the animation but use varied timing so neighboring cards never display the same gradient state simultaneously.
+- **Status:** ✅ Completed — Hero shader stays pointer-responsive and every other card now runs staggered ambient brand gradients that honor reduced motion preferences.
+
 # Sprint 11 Plan
 
 ## Item 1: Refresh case studies page layout and navigation

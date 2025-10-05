@@ -19,17 +19,27 @@ export function Hero() {
       </div>
 
       <h1 className="display max-w-5xl">
-        We tailor one product into your company’s perfect fit.
+        We set up, connect, and run your business tools so your day-to-day work is
+        simpler and faster.
       </h1>
 
-      <p className="lead mt-6 max-w-2xl">
-        Pick a product. Tell us your constraints. We customize it to your stack,
-        workflow, and compliance—then ship it as a dedicated, supported build.
-      </p>
+      <div className="mt-6 max-w-3xl space-y-4 text-lg text-[color:var(--muted)]">
+        <p>
+          We manage operations: calendars, orders, bookings, stock, payments,
+          customer messages—organized in one clear flow.
+        </p>
+        <p>
+          We consult and plan: we listen to your goals, map your steps, and set
+          simple numbers to track progress.
+        </p>
+      </div>
 
       <div className="mt-12 overflow-hidden rounded-2xl">
         <div className="aspect-[16/9]">
-          <InteractiveShaderCard aria-label="Cumulus interactive hero" />
+          <InteractiveShaderCard
+            mode="interactive"
+            aria-label="Cumulus interactive hero"
+          />
         </div>
       </div>
     </section>
