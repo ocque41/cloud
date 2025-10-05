@@ -1,3 +1,14 @@
+# Sprint 16 Plan
+
+## Item 1: Refresh case studies and homepage messaging
+- **Description:** Update the /case-studies headline and hero description, adjust the homepage hero copy to match the new positioning, simplify the what-how-why reference, and restyle the homepage workflow cards per the latest direction.
+- **Acceptance Criteria:**
+  1. `/case-studies` displays the "Tailoring Models" title and the supplied description without the leading colon.
+  2. `what-how-why.md` removes the three deprecated operational statements while keeping remaining guidance intact.
+  3. The homepage hero copy speaks to product development and integration services with professional tone, highlighting traffic-driving support when relevant.
+  4. The homepage “How we work” cards present vertically stacked shells that fit the existing content while matching the brand styling guidance.
+- **Status:** ✅ Completed — Case studies now open with the “Tailoring Models” hero and updated description, homepage messaging focuses on product integration with vertical process cards, and the reference doc drops the deprecated operations bullets.
+
 # Sprint 15 Plan
 
 ## Item 1: Publish accurate operations copy and documentation

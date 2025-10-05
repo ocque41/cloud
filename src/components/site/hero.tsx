@@ -19,18 +19,17 @@ export function Hero() {
       </div>
 
       <h1 className="display max-w-5xl">
-        We set up, connect, and run your business tools so your day-to-day work is
-        simpler and faster.
+        We design, integrate, and maintain the products your teams rely on.
       </h1>
 
       <div className="mt-6 max-w-3xl space-y-4 text-lg text-[color:var(--muted)]">
         <p>
-          We manage operations: calendars, orders, bookings, stock, payments,
-          customer messages—organized in one clear flow.
+          We work with your teams to build the product you requested, connect it to
+          your existing systems, and keep every release dependable.
         </p>
         <p>
-          We consult and plan: we listen to your goals, map your steps, and set
-          simple numbers to track progress.
+          When a product is customer-facing, we can drive qualified traffic, review
+          performance, and maintain the experience long after launch.
         </p>
       </div>
 
