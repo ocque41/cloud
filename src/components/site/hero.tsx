@@ -26,7 +26,7 @@ export function Hero() {
       </h1>
 
       <div className="mt-6 max-w-3xl space-y-4 text-lg text-[color:var(--muted)]">
-        <p>We connect your customer path from first click to paid.</p>
+        <p>In house-quality software without the overhead. Managed for you.</p>
         <p></p>
       </div>
 
