@@ -11,6 +11,9 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
+const SHOW_SIGNALS_SECTION = false;
+const SHOW_CASE_SNAPSHOTS_SECTION = false;
+
 const steps = [
   {
     title: "Discover",
@@ -276,61 +279,65 @@ export default function Page() {
         </div>
       </Section>
 
-      <Section
-        title="Proof strip"
-        eyebrow="Signals"
-        copy="Weekly maintenance keeps links working and leads in the pipeline."
-      >
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-          {proof.map((item) => (
-            <div
-              key={item.name}
-              className="rounded-2xl border border-white/5 bg-[#151515e6] p-6 text-sm text-[color:var(--muted)] shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
-            >
-              <p className="text-base font-semibold text-[color:var(--fg)]">
-                {item.name}
-              </p>
-              <p className="mt-3 leading-relaxed">{item.result}</p>
-            </div>
-          ))}
-        </div>
-      </Section>
-
-      <Section
-        title="Quick examples by business type"
-        eyebrow="Case snapshots"
-        copy="Scan quick wins by business type."
-      >
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
-          {miniCases.map((miniCase) => (
-            <Card
-              key={miniCase.category}
-              className="flex h-full flex-col justify-between border border-white/5 bg-[#191919d9] p-6"
-            >
-              <div className="space-y-2">
-                <span className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]/80">
-                  {miniCase.category}
-                </span>
-                <CardTitle className="text-xl text-[color:var(--fg)]">
-                  {miniCase.title}
-                </CardTitle>
-                <ul className="mt-4 space-y-2 text-sm text-[color:var(--muted)]">
-                  {miniCase.lines.map((line) => (
-                    <li key={line}>{line}</li>
-                  ))}
-                </ul>
-              </div>
-              <Button
-                asChild
-                variant="ghost"
-                className="mt-6 justify-start px-0 text-sm text-[color:var(--fg)] hover:text-[color:var(--fg)]/80"
+      {SHOW_SIGNALS_SECTION && (
+        <Section
+          title="Proof strip"
+          eyebrow="Signals"
+          copy="Weekly maintenance keeps links working and leads in the pipeline."
+        >
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
+            {proof.map((item) => (
+              <div
+                key={item.name}
+                className="rounded-2xl border border-white/5 bg-[#151515e6] p-6 text-sm text-[color:var(--muted)] shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
               >
-                <Link href="/case-studies">See details →</Link>
-              </Button>
-            </Card>
-          ))}
-        </div>
-      </Section>
+                <p className="text-base font-semibold text-[color:var(--fg)]">
+                  {item.name}
+                </p>
+                <p className="mt-3 leading-relaxed">{item.result}</p>
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {SHOW_CASE_SNAPSHOTS_SECTION && (
+        <Section
+          title="Quick examples by business type"
+          eyebrow="Case snapshots"
+          copy="Scan quick wins by business type."
+        >
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+            {miniCases.map((miniCase) => (
+              <Card
+                key={miniCase.category}
+                className="flex h-full flex-col justify-between border border-white/5 bg-[#191919d9] p-6"
+              >
+                <div className="space-y-2">
+                  <span className="text-xs uppercase tracking-[0.3em] text-[color:var(--muted)]/80">
+                    {miniCase.category}
+                  </span>
+                  <CardTitle className="text-xl text-[color:var(--fg)]">
+                    {miniCase.title}
+                  </CardTitle>
+                  <ul className="mt-4 space-y-2 text-sm text-[color:var(--muted)]">
+                    {miniCase.lines.map((line) => (
+                      <li key={line}>{line}</li>
+                    ))}
+                  </ul>
+                </div>
+                <Button
+                  asChild
+                  variant="ghost"
+                  className="mt-6 justify-start px-0 text-sm text-[color:var(--fg)] hover:text-[color:var(--fg)]/80"
+                >
+                  <Link href="/case-studies">See details →</Link>
+                </Button>
+              </Card>
+            ))}
+          </div>
+        </Section>
+      )}
 
       <Section
         title="Pricing snapshot"
