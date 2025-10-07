@@ -1,37 +1,19 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- Feature surfaces live in `src/app`; marketing routes stay under `src/app/(marketing)` to keep friendly campaign URLs.
-- Product experiences such as `src/app/product/[slug]` own their layouts, server actions, and helpers locally.
-- Share UI primitives from `src/components`, hooks from `src/hooks`, and cross-cutting utilities from `src/lib`.
-- Co-locate component tests as `component.test.tsx` or place them in sibling `__tests__/` folders.
-- Global styles flow through `src/app/globals.css`, and static assets always belong in `public/`.
+Keep feature work inside `src/app`, pairing each route with its layout, server actions, and helpers (for example `src/app/product/[slug]`). Marketing surfaces belong in `src/app/(marketing)` to keep customer-facing URLs clean. Reusable UI lives in `src/components`, hooks in `src/hooks`, and utilities in `src/lib`; mirror their specs alongside the implementation as `component.test.tsx` files or in sibling `__tests__/` folders. Global styles stay in `src/app/globals.css`, while static assets such as logos or favicons sit under `public/` for Next.js to serve directly.
 
 ## Build, Test, and Development Commands
-- `npm run dev` spins up the Next.js dev server with hot reload at http://localhost:3000.
-- `npm run lint` checks TypeScript, React, and Tailwind rules defined in `eslint.config.mjs`.
-- `npm run build` creates the production bundle; run `npm run start` afterward for a local smoke test.
-- `npm run test` executes the Vitest suite once implemented—document temporary flags in `README.md`.
+Use `npm run dev` to boot the Next.js dev server at http://localhost:3000 and iterate with hot reloading. Run `npm run lint` before committing to enforce the shared ESLint, TypeScript, and Tailwind standards defined in `eslint.config.mjs`. Execute `npm run test` for the Vitest suite, and rely on `npm run build` followed by `npm run start` whenever you need a production smoke test prior to deployment.
 
 ## Coding Style & Naming Conventions
-- Write React 19 components in TypeScript with 2-space indentation and single quotes.
-- Favor functional components, use kebab-case filenames (for example `user-card.tsx`), and export shared modules with named exports.
-- Keep Tailwind CSS v4 utility chains concise and prefer tokens configured in `src/lib` theme helpers.
-- Respect the existing ESLint and Prettier configuration; do not introduce competing formatters.
+Write React 19 components in TypeScript using two-space indentation, single quotes, and functional components by default. Prefer kebab-case filenames (e.g. `user-card.tsx`) for shared modules and stick to named exports. Tailwind v4 utility chains should stay succinct and draw from tokens exposed in `src/lib`. Let Prettier and ESLint formatting stand as the source of truth; avoid alternative formatters or ad-hoc overrides.
 
 ## Testing Guidelines
-- Use Vitest with React Testing Library for rendering, interaction, and accessibility coverage.
-- Name specs after the feature under test and keep snapshots minimal.
-- Mock network or service calls under `NODE_ENV=test`, then run `npm run test` before pushing.
-- Prioritize targeted coverage for server actions, custom hooks, and interactive components.
+Vitest with React Testing Library is the baseline for component, interaction, and accessibility coverage. Name suites after the feature under test (`profile-card.test.tsx`) and keep snapshots minimal. Mock outbound network or service calls when `NODE_ENV=test`, and ensure `npm run test` passes before opening a pull request.
 
 ## Commit & Pull Request Guidelines
-- Follow Conventional Commits (for example `feat: add billing summary`) and group related changes per commit.
-- Note validation steps in commit bodies when they add confidence.
-- PRs should summarize scope, link issues with `Closes #123`, enumerate tests executed, and attach relevant UI screenshots or recordings.
-- Call out follow-up work or open questions before requesting review.
+Follow Conventional Commits (`feat: add billing summary`) and keep each commit focused. PR descriptions should summarize scope, list executed validations, link issues using `Closes #123`, and attach any relevant UI screenshots or recordings. Call out follow-up work explicitly so reviewers can track outstanding items.
 
 ## Security & Configuration Tips
-- Store secrets in `.env.local` and access them with `process.env`.
-- Validate inbound data with `zod` or equivalent schema resolvers.
-- Keep sensitive logic in server components or API routes and rerun linting plus accessibility checks after major layout changes.
+Never commit secrets—store them in `.env.local` and reference them through `process.env`. Validate inbound data with `zod` or equivalent helpers, and keep sensitive logic confined to server components or API routes. After significant layout or accessibility updates, rerun linting and manual accessibility checks to confirm compliance.
