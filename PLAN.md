@@ -1,3 +1,23 @@
+# Sprint 20 Plan
+
+## Item 1: Launch localized legal hub
+- **Description:** Deliver production-ready privacy policy and terms of service experiences with shared metadata, localized MDX content, structured processors catalog, automated navigation, and compliance scaffolding per counsel placeholders.
+- **Acceptance Criteria:**
+  1. Localized privacy policy and terms routes (`/privacy-policy`, `/terms-of-service`) serve Spanish and English MDX with shared ToC, last-updated banner, processors table, and product/service sections fed from centralized JSON config.
+  2. Legal layout, SEO metadata (including JSON-LD, canonical, noindex toggles), sitemap entries, and footer links load correctly for each locale while MDX renders consent and contact sections referencing configuration values.
+  3. Automation covers schema validation, external link checks, unit tests, and Playwright coverage verifying status codes, ToC presence, processors table contents, and robots meta when approval is pending.
+- **Status:** 🆕 Not Started — Preparing implementation steps this sprint.
+
+# Sprint 19 Plan
+
+## Item 1: Stand up legal documentation system with localized policies
+- **Description:** Introduce a structured legal content pipeline with bilingual privacy policy and terms pages, shared metadata, processors catalog, automated navigation, and compliance-focused automation per counsel placeholders.
+- **Acceptance Criteria:**
+  1. Legal content directory delivers localized MDX for Privacy Policy and Terms of Service that load through dedicated routes with SEO, ToC, last-updated, processors, and product/service sections wired to shared metadata.
+  2. Supporting components, layouts, and i18n-aware routes render the legal pages in Spanish and English with canonical tags, sitemap entries, robots handling, cookie notice reference, and global footer links.
+  3. Automated quality gates cover schema validation, link checking, and Playwright tests for all legal routes, ensuring processors table entries and noindex behavior reflect configuration.
+- **Status:** 🚧 In Progress — Implementation underway this sprint.
+
 # Sprint 18 Plan
 
 ## Item 1: Distill marketing copy with the newest positioning

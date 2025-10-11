@@ -1,0 +1,38 @@
+[
+  {
+    "name": "Stripe",
+    "category": "Payments",
+    "role": "Processor",
+    "dataTypes": ["payment method details", "payer metadata", "fraud signals"],
+    "purpose": "Process payments, prevent fraud",
+    "docsUrl": "https://docs.stripe.com/security",
+    "privacyUrl": "https://stripe.com/privacy"
+  },
+  {
+    "name": "Neon (Postgres)",
+    "category": "Database",
+    "role": "Processor",
+    "dataTypes": ["application data", "user records"],
+    "purpose": "Managed Postgres database",
+    "docsUrl": "https://neon.com/security",
+    "privacyUrl": "https://neon.com/security"
+  },
+  {
+    "name": "Vercel Blob",
+    "category": "Object Storage",
+    "role": "Processor",
+    "dataTypes": ["file uploads", "assets", "logs (metadata)"],
+    "purpose": "Store and serve user/application files",
+    "docsUrl": "https://vercel.com/docs/vercel-blob",
+    "privacyUrl": "https://vercel.com/docs/security/access-control"
+  },
+  {
+    "name": "Supabase",
+    "category": "Backend Services",
+    "role": "Processor",
+    "dataTypes": ["auth data", "app data", "backups"],
+    "purpose": "Auth/DB/Edge functions (where applicable)",
+    "docsUrl": "https://supabase.com/security",
+    "privacyUrl": "https://supabase.com/downloads/docs/Supabase%2BDPA%2B250314.pdf"
+  }
+]

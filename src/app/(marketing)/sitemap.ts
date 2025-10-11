@@ -1,6 +1,8 @@
 import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/lib/metadata";
+import { legalMeta } from "@/lib/legal/data";
+import { supportedLocales } from "@/lib/legal/schema";
 import { products } from "@/lib/products";
 import { services } from "@/lib/services";
 
@@ -35,5 +37,23 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...productRoutes, ...serviceRoutes];
+  const legalRoutes: MetadataRoute.Sitemap = supportedLocales.flatMap((locale) => {
+    const documents = ["privacy-policy", "terms-of-service"];
+
+    return documents.map((doc) => ({
+      url: new URL(`/${locale}/${doc}`, base).toString(),
+      lastModified: new Date(legalMeta.legal.lastUpdated),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    }));
+  });
+
+  const defaultRedirects: MetadataRoute.Sitemap = ["privacy-policy", "terms-of-service"].map((doc) => ({
+    url: new URL(`/${doc}`, base).toString(),
+    lastModified: new Date(legalMeta.legal.lastUpdated),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  return [...staticRoutes, ...productRoutes, ...serviceRoutes, ...legalRoutes, ...defaultRedirects];
 }

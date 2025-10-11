@@ -5,7 +5,7 @@ import { Footer } from "@/components/site/footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://cumulus.example"),
+  metadataBase: new URL("https://cumulush.com"),
 };
 
 export const viewport: Viewport = {
