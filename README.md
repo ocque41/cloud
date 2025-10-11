@@ -44,6 +44,9 @@ Run these checks after updating marketing messaging or layouts:
 1. `npm run lint`
 2. Visit `/` and confirm the hero states “We build and run software for small businesses.” with the supporting line “We connect your customer path from first click to paid.” and the “Book a 15-min check” primary CTA beside “See examples.” Scroll to verify the updated “How we work” cards, “What we do” bullets, Services grid, Proof strip, quick case tiles, pricing snapshot, FAQ, and contact bar reflect the newest concise copy.
 3. Visit `/case-studies` and confirm the hero highlights the same promise with the refreshed bullets and CTAs, the services summary mirrors the new statements, the API tabs reference the minimal step copy, and the quick examples list the five business types using the latest descriptions.
+4. Run `npm run legal:lint` to validate legal JSON configuration for metadata, processors, products, and services.
+5. Execute `npm run test` for unit coverage on legal schemas and `npm run test:e2e` for Playwright checks across `/es|/en` privacy and terms pages.
+6. Build the site (`npm run build` + `npm start`) or start the dev server, then run `npm run legal:links` in another terminal to ensure external legal links stay healthy.
 
 ## ✨ Key Features
 

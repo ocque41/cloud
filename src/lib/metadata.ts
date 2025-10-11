@@ -4,7 +4,7 @@ const siteConfig = {
   name: "Cumulus",
   title: "Cumulus — Personalized Product Builds",
   description: "We customize one product from our portfolio to your exact needs.",
-  url: "https://cumulus.example",
+  url: "https://cumulush.com",
 };
 
 type BuildMetadataOptions = {
