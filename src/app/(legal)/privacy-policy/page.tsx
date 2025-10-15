@@ -1,9 +1,17 @@
+import { headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-import { legalMeta } from "@/lib/legal/data";
+import { resolveLocaleForCountry } from "@/lib/legal/location";
 
-export const dynamic = "force-static";
+export const dynamic = "force-dynamic";
 
 export default function PrivacyPolicyRedirect() {
-  return redirect(`/${legalMeta.legal.defaultLanguage}/privacy-policy`);
+  const requestHeaders = headers();
+  const country =
+    requestHeaders.get("x-vercel-ip-country") ??
+    requestHeaders.get("x-vercel-edge-country") ??
+    requestHeaders.get("cf-ipcountry");
+  const locale = resolveLocaleForCountry(country);
+
+  return redirect(`/${locale}/privacy-policy`);
 }
