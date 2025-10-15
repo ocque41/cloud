@@ -48,6 +48,22 @@ Run these checks after updating marketing messaging or layouts:
 5. Execute `npm run test` for unit coverage on legal schemas and `npm run test:e2e` for Playwright checks across `/es|/en` privacy and terms pages.
 6. Build the site (`npm run build` + `npm start`) or start the dev server, then run `npm run legal:links` in another terminal to ensure external legal links stay healthy.
 
+### Legal localization
+
+- Legal routes live under `/[locale]/privacy-policy` and `/[locale]/terms-of-service`. The locale segment must match the entries exported from `supportedLocales` in [`src/lib/legal/schema.ts`](./src/lib/legal/schema.ts). Each locale requires an MDX file named `<slug>.<locale>.mdx` inside [`src/content/legal`](./src/content/legal).
+- Visiting `/privacy-policy` (or `/terms-of-service`) now inspects the incoming country header to choose the redirect locale. Spain (`ES`) and every Latin American ISO country code (Argentina, Bolivia, Brazil, Chile, Colombia, Costa Rica, Cuba, Dominican Republic, Ecuador, El Salvador, Guatemala, Honduras, Haiti, Mexico, Nicaragua, Panama, Paraguay, Peru, Puerto Rico, Uruguay, Venezuela) redirect to the Spanish documents. All other countries go to the English versions. Missing or unrecognized headers keep the default Spanish experience.
+- Supported locales and their intent today:
+  - `es` (Spanish — Spain & Latin America): Primary experience served to Spain and the Latin American country codes listed above.
+  - `en` (English — United States): Secondary experience. Reach it explicitly via `/en/privacy-policy` or `/en/terms-of-service`. Unsupported locale segments (for example `/fr/terms-of-service`) automatically reuse the Spanish content instead of English.
+- Update `legal.defaultLanguage`, `company.country`, and the `noindexUntilApproved` toggle in `legal-meta.json` to change the default experience. Setting `noindexUntilApproved` to `false` allows search engines to index the legal pages once the content receives counsel approval.
+
+#### Verifying the country-based redirect locally
+
+1. Start the dev server with `npm run dev`.
+2. From another terminal, hit `curl -I -H "x-vercel-ip-country: MX" http://localhost:3000/privacy-policy` and confirm the `Location` header points to `/es/privacy-policy`.
+3. Repeat with `curl -I -H "x-vercel-ip-country: US" http://localhost:3000/privacy-policy` (or `/terms-of-service`) and confirm the redirect points to `/en/...`.
+4. Omit the header entirely (for example `curl -I http://localhost:3000/terms-of-service`) to verify the response falls back to the Spanish default.
+
 ## ✨ Key Features
 
 - **Ultra-minimal Design**: Editorial layout with high-contrast palette (#171717 background, #deddd9 foreground)

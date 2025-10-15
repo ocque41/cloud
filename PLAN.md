@@ -1,3 +1,30 @@
+# Sprint 23 Plan
+
+## Item 1: Route legal entry pages by visitor country
+- **Description:** Detect the visitor's country on `/privacy-policy` and `/terms-of-service`, routing Spanish-speaking regions across Latin America plus Spain to the Spanish documents while defaulting every other country to the English copies. Update docs with verification guidance for the geo-aware behavior.
+- **Acceptance Criteria:**
+  1. Root privacy and terms routes inspect the request country header, redirecting requests from Spain or any Latin American country code to `/es/<slug>` and routing all other recognized countries to `/en/<slug>`.
+  2. README outlines the new country-to-language rules and records how to verify them locally using request header overrides.
+- **Status:** ✅ Completed — Entry routes now map request country codes to Spanish or English with README verification steps.
+
+# Sprint 22 Plan
+
+## Item 1: Document legal language coverage by locale
+- **Description:** Explain which locales the privacy policy and terms pages serve, how the default Spanish experience maps to Spain, and when the English fallback appears so stakeholders can answer location-based questions without diving into the codebase.
+- **Acceptance Criteria:**
+  1. Repository documentation lists every supported locale for legal pages and clarifies that Spanish (`es-ES`) is the default experience for visitors hitting the root privacy or terms URLs.
+  2. Documentation outlines the English (`en-US`) fallback path, including which URL paths surface it and how unsupported locale segments redirect or reuse Spanish content.
+- **Status:** ✅ Completed — README now enumerates Spanish and English coverage plus the URL-driven fallback rules.
+
+# Sprint 21 Plan
+
+## Item 1: Document privacy policy locale behavior
+- **Description:** Capture how the privacy policy routing chooses locales, explain the default language redirect, and note how to configure the legal metadata so stakeholders can change the behavior without reading the source code.
+- **Acceptance Criteria:**
+  1. README (or equivalent developer documentation) describes the `/[locale]/privacy-policy` routing structure, locale fallback rules, and the dependency on `supportedLocales` and the MDX file naming convention.
+  2. Documentation outlines how to change the default legal language and company country metadata via `src/content/legal/legal-meta.json`, including the implications of toggling `noindexUntilApproved`.
+- **Status:** ✅ Completed — README now documents legal routing, locale fallback, and configuration switches.
+
 # Sprint 20 Plan
 
 ## Item 1: Launch localized legal hub
