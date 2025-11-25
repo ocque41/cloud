@@ -51,7 +51,7 @@ export function Header() {
           </Sheet>
           <Button
             asChild
-            variant="brand"
+            variant="default"
             className="hidden text-sm uppercase tracking-wide xl:inline-flex"
           >
             <Link href="/contact">Get Started</Link>
@@ -59,7 +59,7 @@ export function Header() {
           <Button
             asChild
             size="sm"
-            variant="brand"
+            variant="default"
             className="text-xs tracking-wide xl:hidden"
           >
             <Link href="/contact">Get Started</Link>
