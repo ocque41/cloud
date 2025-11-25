@@ -18,5 +18,7 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "registries": {}
+  "registries": {
+    "@cumulus": "https://ui.cumulush.com/r/{name}.json"
+  }
 }
