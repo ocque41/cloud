@@ -42,7 +42,7 @@ export function Header() {
               <div className="mt-6 flex flex-col gap-6">
                 <NavSheetContent />
                 <SheetClose asChild>
-                  <Button variant="muted" className="justify-center" onClick={() => setOpen(false)}>
+                  <Button variant="secondary" className="justify-center" onClick={() => setOpen(false)}>
                     Close
                   </Button>
                 </SheetClose>
