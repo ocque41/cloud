@@ -53,7 +53,7 @@ export default function ServicesPage() {
                 </span>
                 <Button
                   asChild
-                  variant="muted"
+                  variant="secondary"
                   className="relative z-20 !text-[#171717]"
                 >
                   <Link href={`/contact?product=${service.slug}`}>Personalize</Link>
