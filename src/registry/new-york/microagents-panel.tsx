@@ -7,14 +7,14 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MicroagentsLink } from "@/registry/new-york/microagents-link/microagents-link";
-import { MicroagentsOrchestrationLeft } from "@/registry/new-york/microagents-orchestration-left/microagents-orchestration-left";
-import { MicroagentsOrchestrationRight } from "@/registry/new-york/microagents-orchestration-right/microagents-orchestration-right";
-import { MicroagentsSend } from "@/registry/new-york/microagents-send/microagents-send";
+import { MicroagentsLink } from "@/registry/new-york/microagents-link";
+import { MicroagentsOrchestrationLeft } from "@/registry/new-york/microagents-orchestration-left";
+import { MicroagentsOrchestrationRight } from "@/registry/new-york/microagents-orchestration-right";
+import { MicroagentsSend } from "@/registry/new-york/microagents-send";
 
 export function MicroagentsPanel() {
   return (
-    <Card className="max-w-3xl border-[color:var(--muted)]/30 bg-[#0d0d0f]">
+    <Card className="w-full max-w-3xl border-[color:var(--muted)]/30 bg-[#0d0d0f]">
       <CardHeader className="flex flex-row items-start justify-between gap-4">
         <div className="space-y-2">
           <CardTitle className="text-2xl">Microagents</CardTitle>

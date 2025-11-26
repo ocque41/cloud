@@ -1,0 +1,19 @@
+{
+  "name": "microagents-button",
+  "title": "Microagents Button",
+  "description": "Primary microagents call-to-action with gradient treatment.",
+  "type": "registry:ui",
+  "registryDependencies": [
+    "button"
+  ],
+  "dependencies": [
+    "lucide-react"
+  ],
+  "files": [
+    {
+      "path": "registry/new-york/microagents-button.tsx",
+      "type": "registry:ui",
+      "content": "\"use client\";\n\nimport { ArrowUpRight } from \"lucide-react\";\n\nimport { Button } from \"@/components/ui/button\";\nimport { cn } from \"@/lib/utils\";\n\ntype MicroagentsButtonProps = {\n  label?: string;\n  eyebrow?: string;\n  className?: string;\n  onClick?: () => void;\n};\n\nexport function MicroagentsButton({\n  label = \"Deploy microagent\",\n  eyebrow = \"Orchestration\",\n  className,\n  onClick,\n}: MicroagentsButtonProps) {\n  return (\n    <Button\n      type=\"button\"\n      variant=\"secondary\"\n      onClick={onClick}\n      className={cn(\n        \"group relative inline-flex h-auto items-center justify-between gap-4 rounded-2xl border border-[color:var(--muted)]/30 bg-gradient-to-r from-[#15151b] via-[#20202a] to-[#0f0f14] px-5 py-4 text-left shadow-[0_18px_40px_rgba(0,0,0,0.35)]\",\n        \"hover:from-[#1d1d26] hover:via-[#2b2b36] hover:to-[#12121a]\",\n        className\n      )}\n    >\n      <div className=\"space-y-1\">\n        <p className=\"text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted)]\">\n          {eyebrow}\n        </p>\n        <p className=\"text-sm font-semibold text-[color:var(--fg)]\">{label}</p>\n      </div>\n      <span className=\"inline-flex h-10 w-10 items-center justify-center rounded-xl bg-[color:var(--fg)]/10 text-[color:var(--fg)] transition duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:bg-[color:var(--fg)]/15\">\n        <ArrowUpRight className=\"h-4 w-4\" aria-hidden />\n      </span>\n    </Button>\n  );\n}\n"
+    }
+  ]
+}
