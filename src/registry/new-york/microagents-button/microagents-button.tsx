@@ -42,8 +42,10 @@ export function MicroagentsButton({
       asChild={Boolean(href)}
       onClick={href ? undefined : onClick}
       className={cn(
-        "group relative inline-flex h-auto items-center justify-between gap-4 rounded-2xl border border-[color:var(--muted)]/30 bg-gradient-to-r from-[#15151b] via-[#20202a] to-[#0f0f14] px-5 py-4 text-left shadow-[0_18px_40px_rgba(0,0,0,0.35)]",
-        "hover:from-[#1d1d26] hover:via-[#2b2b36] hover:to-[#12121a]",
+        "group relative inline-flex h-auto items-center justify-between gap-4 rounded-2xl border border-white/12",
+        "bg-[radial-gradient(circle_at_25%_20%,rgba(255,255,255,0.08),rgba(255,255,255,0)),#0f0f14] px-5 py-4 text-left",
+        "shadow-[0_22px_60px_rgba(0,0,0,0.45)] backdrop-blur",
+        "transition-transform duration-200 hover:-translate-y-0.5 hover:shadow-[0_28px_70px_rgba(0,0,0,0.5)]",
         className
       )}
     >

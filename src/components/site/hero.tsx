@@ -32,7 +32,7 @@ export function Hero() {
       </div>
 
       <div className="mt-10 flex flex-wrap gap-4">
-        <MicroagentsButton label="Get started" eyebrow="Contact" href="/contact" className="!rounded-xl" />
+        <MicroagentsButton label="Get started" eyebrow="Contact" href="/contact" />
         <Button asChild size="lg" variant="outline">
           <Link href="/case-studies">Case Studies</Link>
         </Button>
