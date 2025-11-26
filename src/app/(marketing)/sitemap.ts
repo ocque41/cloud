@@ -1,59 +1,17 @@
 import type { MetadataRoute } from "next";
 
 import { siteConfig } from "@/lib/metadata";
-import { legalMeta } from "@/lib/legal/data";
-import { supportedLocales } from "@/lib/legal/schema";
-import { products } from "@/lib/products";
-import { services } from "@/lib/services";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.url;
   const now = new Date();
 
-  const staticRoutes: MetadataRoute.Sitemap = [
-    "/",
-    "/products",
-    "/services",
-    "/process",
-    "/contact",
-  ].map((path) => ({
+  const routes = ["/", "/contact"] as const;
+
+  return routes.map((path) => ({
     url: new URL(path, base).toString(),
     lastModified: now,
     changeFrequency: "weekly",
-    priority: path === "/" ? 1 : 0.7,
+    priority: path === "/" ? 1 : 0.9,
   }));
-
-  const productRoutes: MetadataRoute.Sitemap = products.map((product) => ({
-    url: new URL(`/products/${product.slug}`, base).toString(),
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.6,
-  }));
-
-  const serviceRoutes: MetadataRoute.Sitemap = services.map((service) => ({
-    url: new URL(`/services/${service.slug}`, base).toString(),
-    lastModified: now,
-    changeFrequency: "weekly",
-    priority: 0.6,
-  }));
-
-  const legalRoutes: MetadataRoute.Sitemap = supportedLocales.flatMap((locale) => {
-    const documents = ["privacy-policy", "terms-of-service"];
-
-    return documents.map((doc) => ({
-      url: new URL(`/${locale}/${doc}`, base).toString(),
-      lastModified: new Date(legalMeta.legal.lastUpdated),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    }));
-  });
-
-  const defaultRedirects: MetadataRoute.Sitemap = ["privacy-policy", "terms-of-service"].map((doc) => ({
-    url: new URL(`/${doc}`, base).toString(),
-    lastModified: new Date(legalMeta.legal.lastUpdated),
-    changeFrequency: "monthly",
-    priority: 0.8,
-  }));
-
-  return [...staticRoutes, ...productRoutes, ...serviceRoutes, ...legalRoutes, ...defaultRedirects];
 }

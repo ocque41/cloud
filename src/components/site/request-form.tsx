@@ -16,69 +16,28 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "@/components/ui/use-toast";
-import { products } from "@/lib/products";
-
-type CatalogOption = {
-  value: string;
-  label: string;
-};
 
 const schema = z.object({
-  company: z.string().min(2, "Company name is required"),
+  name: z.string().min(2, "Name is required"),
   email: z.string().email("Provide a valid email"),
-  product: z.string().min(1, "Choose a product or service"),
-  mustHaves: z.string().min(10, "Tell us about your must-haves"),
-  niceToHaves: z.string().optional(),
-  timeline: z.string().min(1, "Select a timeline"),
-  budget: z.string().min(1, "Select a budget range"),
+  company: z.string().optional(),
+  projectDetails: z.string().min(10, "Tell us what you need"),
+  timeline: z.string().optional(),
 });
 
 type RequestFormValues = z.infer<typeof schema>;
-
-const timelineOptions = [
-  { value: "4-weeks", label: "4 weeks" },
-  { value: "6-weeks", label: "6 weeks" },
-  { value: "quarter", label: "Quarter" },
-  { value: "flexible", label: "Flexible" },
-];
-
-const budgetOptions = [
-  { value: "under-25k", label: "Under $25k" },
-  { value: "25-50k", label: "$25k – $50k" },
-  { value: "50-100k", label: "$50k – $100k" },
-  { value: "100k-plus", label: "$100k+" },
-];
-
-type RequestFormProps = {
-  defaultProduct?: string;
-  options?: CatalogOption[];
-};
-
-export function RequestForm({ defaultProduct, options }: RequestFormProps) {
+export function RequestForm() {
   const [isSubmitting, setSubmitting] = useState(false);
-  const selectOptions = options ?? products.map((product) => ({
-    value: product.slug,
-    label: product.name,
-  }));
   const form = useForm<RequestFormValues>({
     resolver: zodResolver(schema),
     defaultValues: {
+      name: "",
       company: "",
       email: "",
-      product: defaultProduct ?? "",
-      mustHaves: "",
-      niceToHaves: "",
       timeline: "",
-      budget: "",
+      projectDetails: "",
     },
   });
 
@@ -97,7 +56,7 @@ export function RequestForm({ defaultProduct, options }: RequestFormProps) {
         throw new Error("Request failed");
       }
 
-      form.reset({ ...form.getValues(), mustHaves: "", niceToHaves: "" });
+      form.reset({ ...form.getValues(), projectDetails: "" });
       toast({
         title: "Request sent",
         description: "We’ll follow up within one business day.",
@@ -120,12 +79,12 @@ export function RequestForm({ defaultProduct, options }: RequestFormProps) {
         <div className="grid gap-6 md:grid-cols-2">
           <FormField
             control={form.control}
-            name="company"
+            name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Company</FormLabel>
+                <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Acme Corp" {...field} />
+                  <Input placeholder="Your name" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -148,88 +107,41 @@ export function RequestForm({ defaultProduct, options }: RequestFormProps) {
 
         <FormField
           control={form.control}
-          name="product"
+          name="company"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Product or service</FormLabel>
-              <Select onValueChange={field.onChange} value={field.value}>
-                <FormControl>
-                  <SelectTrigger>
-                    <SelectValue placeholder="Select a product or service" />
-                  </SelectTrigger>
-                </FormControl>
-                <SelectContent>
-                  {selectOptions.map((option) => (
-                    <SelectItem key={option.value} value={option.value}>
-                      {option.label}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              <FormLabel>Company (optional)</FormLabel>
+              <FormControl>
+                <Input placeholder="Acme Corp" {...field} />
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
 
-        <div className="grid gap-6 md:grid-cols-2">
-          <FormField
-            control={form.control}
-            name="timeline"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Timeline</FormLabel>
-                <Select onValueChange={field.onChange} value={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {timelineOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <FormField
-            control={form.control}
-            name="budget"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Budget range</FormLabel>
-                <Select onValueChange={field.onChange} value={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Select" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {budgetOptions.map((option) => (
-                      <SelectItem key={option.value} value={option.value}>
-                        {option.label}
-                      </SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
+        <FormField
+          control={form.control}
+          name="timeline"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Timeline (optional)</FormLabel>
+              <FormDescription>Share any key dates or deadlines.</FormDescription>
+              <FormControl>
+                <Input placeholder="e.g., Launching in May" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
         <FormField
           control={form.control}
-          name="mustHaves"
+          name="projectDetails"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Must-haves</FormLabel>
+              <FormLabel>Project details</FormLabel>
               <FormDescription>
-                Tell us what success looks like and which integrations are required.
+                Tell us what you need help with, current tools, and goals.
               </FormDescription>
               <FormControl>
                 <Textarea rows={5} {...field} />
@@ -239,22 +151,8 @@ export function RequestForm({ defaultProduct, options }: RequestFormProps) {
           )}
         />
 
-        <FormField
-          control={form.control}
-          name="niceToHaves"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Nice-to-haves</FormLabel>
-              <FormControl>
-                <Textarea rows={4} {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
         <Button type="submit" disabled={isSubmitting} className="w-full md:w-auto">
-          {isSubmitting ? "Sending…" : "Request customization"}
+          {isSubmitting ? "Sending…" : "Send message"}
         </Button>
       </form>
     </Form>

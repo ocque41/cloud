@@ -331,7 +331,7 @@ export default function Page() {
                   variant="ghost"
                   className="mt-6 justify-start px-0 text-sm text-[color:var(--fg)] hover:text-[color:var(--fg)]/80"
                 >
-                  <Link href="/case-studies">See details →</Link>
+                  <Link href="/contact">See details →</Link>
                 </Button>
               </Card>
             ))}

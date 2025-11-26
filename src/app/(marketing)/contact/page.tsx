@@ -1,8 +1,6 @@
 import { RequestForm } from "@/components/site/request-form";
 import { Section } from "@/components/site/section";
 import { buildMetadata } from "@/lib/metadata";
-import { products } from "@/lib/products";
-import { services } from "@/lib/services";
 
 export const metadata = buildMetadata({
   title: "Contact",
@@ -10,33 +8,20 @@ export const metadata = buildMetadata({
   path: "/contact",
 });
 
-export default async function ContactPage({
-  searchParams,
-}: {
-  searchParams?: Promise<{ product?: string | string[] }>;
-}) {
-  const resolvedParams = searchParams ? await searchParams : undefined;
-  const selected = Array.isArray(resolvedParams?.product)
-    ? resolvedParams?.product[0]
-    : resolvedParams?.product;
-  const catalogOptions = [
-    ...products.map((product) => ({ value: product.slug, label: product.name })),
-    ...services.map((service) => ({ value: service.slug, label: service.name })),
-  ];
-
+export default function ContactPage() {
   return (
     <Section
-      title="Start your personalized build"
+      title="Start your next build"
       eyebrow="Contact"
-      copy="Tell us about your team, your stack, and the outcomes you’re aiming for. We’ll respond with next steps."
+      copy="We’re rethinking Cumulus and would love to hear what you need next. Share a bit about your team, tools, and goals, and we’ll respond with a plan."
       className="pb-32"
     >
       <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr]">
         <div className="space-y-6 text-lg text-[color:var(--muted)]">
           <p>
-            We collaborate with product leaders, CTOs, and platform teams that
-            need a custom-fit version of our portfolio. Every engagement begins
-            with a technical discovery call.
+            We’re simplifying the site to focus on what matters: clear outcomes
+            for your business. Tell us what you’re building, migrating, or
+            fixing, and we’ll line up the right next steps.
           </p>
           <p>
             Prefer direct outreach? Email <a href="mailto:hello@cumulus.example" className="underline">hello@cumulus.example</a>
@@ -44,7 +29,7 @@ export default async function ContactPage({
           </p>
         </div>
         <div className="rounded-3xl border border-[color:var(--muted)]/30 bg-[#1f1f1f] p-6 shadow-[0_30px_80px_rgba(0,0,0,0.35)]">
-          <RequestForm defaultProduct={selected} options={catalogOptions} />
+          <RequestForm />
         </div>
       </div>
     </Section>

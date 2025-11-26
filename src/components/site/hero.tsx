@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import InteractiveShaderCard from "@/components/interactive-shader-card";
 import { Button } from "@/components/ui/button";
-import { MicroagentsButton } from "@/registry/new-york/microagents-button/microagents-button";
 
 export function Hero() {
   const now = new Date();
@@ -32,9 +31,11 @@ export function Hero() {
       </div>
 
       <div className="mt-10 flex flex-wrap gap-4">
-        <MicroagentsButton label="Get started" eyebrow="Contact" href="/contact" />
+        <Button asChild size="lg">
+          <Link href="/contact">Get started</Link>
+        </Button>
         <Button asChild size="lg" variant="outline">
-          <Link href="/case-studies">Case Studies</Link>
+          <Link href="mailto:hello@cumulus.example">Email us</Link>
         </Button>
       </div>
 
