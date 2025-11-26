@@ -7,10 +7,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { MicroagentsLink } from "@/registry/new-york/microagents-link";
-import { MicroagentsOrchestrationLeft } from "@/registry/new-york/microagents-orchestration-left";
-import { MicroagentsOrchestrationRight } from "@/registry/new-york/microagents-orchestration-right";
-import { MicroagentsSend } from "@/registry/new-york/microagents-send";
+import { MicroagentsLink } from "@/registry/new-york/microagents-link/microagents-link";
+import { MicroagentsOrchestrationLeft } from "@/registry/new-york/microagents-orchestration-left/microagents-orchestration-left";
+import { MicroagentsOrchestrationRight } from "@/registry/new-york/microagents-orchestration-right/microagents-orchestration-right";
+import { MicroagentsSend } from "@/registry/new-york/microagents-send/microagents-send";
 
 export function MicroagentsPanel() {
   return (

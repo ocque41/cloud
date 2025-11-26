@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import InteractiveShaderCard from "@/components/interactive-shader-card";
 import { Button } from "@/components/ui/button";
-import { MicroagentsButton } from "@/registry/new-york/microagents-button";
+import { MicroagentsButton } from "@/registry/new-york/microagents-button/microagents-button";
 
 export function Hero() {
   const now = new Date();

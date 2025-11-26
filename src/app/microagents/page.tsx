@@ -1,12 +1,12 @@
-import { MicroagentsAgentCurve } from "@/registry/new-york/microagents-agent-curve";
-import { MicroagentsArrow } from "@/registry/new-york/microagents-arrow";
-import { MicroagentsButton } from "@/registry/new-york/microagents-button";
-import { MicroagentsButtonAlt } from "@/registry/new-york/microagents-button-alt";
-import { MicroagentsCircle } from "@/registry/new-york/microagents-circle";
-import { MicroagentsLink } from "@/registry/new-york/microagents-link";
-import { MicroagentsPanel } from "@/registry/new-york/microagents-panel";
-import { MicroagentsSend } from "@/registry/new-york/microagents-send";
-import { MicroagentsUserCurve } from "@/registry/new-york/microagents-user-curve";
+import { MicroagentsAgentCurve } from "@/registry/new-york/microagents-agent-curve/microagents-agent-curve";
+import { MicroagentsArrow } from "@/registry/new-york/microagents-arrow/microagents-arrow";
+import { MicroagentsButton } from "@/registry/new-york/microagents-button/microagents-button";
+import { MicroagentsButtonAlt } from "@/registry/new-york/microagents-button-alt/microagents-button-alt";
+import { MicroagentsCircle } from "@/registry/new-york/microagents-circle/microagents-circle";
+import { MicroagentsLink } from "@/registry/new-york/microagents-link/microagents-link";
+import { MicroagentsPanel } from "@/registry/new-york/microagents-panel/microagents-panel";
+import { MicroagentsSend } from "@/registry/new-york/microagents-send/microagents-send";
+import { MicroagentsUserCurve } from "@/registry/new-york/microagents-user-curve/microagents-user-curve";
 
 export default function Page() {
   return (
