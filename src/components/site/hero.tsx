@@ -2,7 +2,6 @@ import Link from "next/link";
 
 import InteractiveShaderCard from "@/components/interactive-shader-card";
 import { Button } from "@/components/ui/button";
-import { SvgButton } from "@/components/ui/svg-button";
 
 export function Hero() {
   const now = new Date();
@@ -32,7 +31,9 @@ export function Hero() {
       </div>
 
       <div className="mt-10 flex flex-wrap gap-4">
-        <SvgButton label="Get started with Cumulus" />
+        <Button asChild size="hero" variant="plain" leadingGlyph>
+          <Link href="/contact">Get started</Link>
+        </Button>
         <Button asChild size="lg" variant="outline">
           <Link href="mailto:hello@cumulus.example">Email us</Link>
         </Button>
