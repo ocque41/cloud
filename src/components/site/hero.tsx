@@ -45,11 +45,17 @@ export function Hero() {
           asChild
           size="lg"
           variant="plain"
-          leadingGlyph
-          className="gap-[2px] text-[#aaaaaa] font-normal leading-none"
-          glyphClassName="h-10 w-10 -translate-y-[2px] text-[#999999]"
+          className="gap-2 text-[#aaaaaa] text-xl font-normal leading-none"
         >
-          <Link href="mailto:hello@cumulus.example">Email us</Link>
+          <Link
+            href="mailto:hello@cumulus.example"
+            className="inline-flex items-end gap-2 leading-none"
+          >
+            <span className="relative inline-block h-7 w-7 shrink-0" aria-hidden>
+              <span className="absolute bottom-0 left-0 h-full w-full rounded-bl-md border-b-2 border-l-2 border-[#999999]" />
+            </span>
+            <span>Email us</span>
+          </Link>
         </Button>
       </div>
 
