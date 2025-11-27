@@ -44,17 +44,18 @@ export function Hero() {
         <Button
           asChild
           size="lg"
-          variant="plain"
-          className="gap-2 text-[#aaaaaa] text-xl font-normal leading-none"
+          variant="outline"
+          className="relative overflow-visible border-transparent bg-transparent text-[#aaaaaa] text-lg font-normal leading-none shadow-none"
         >
           <Link
             href="mailto:hello@cumulus.example"
-            className="inline-flex items-end gap-2 leading-none"
+            className="relative flex h-full w-full items-center justify-center gap-0"
           >
-            <span className="relative inline-block h-7 w-7 shrink-0" aria-hidden>
-              <span className="absolute bottom-0 left-0 h-full w-full rounded-bl-md border-b-2 border-l-2 border-[#999999]" />
-            </span>
             <span>Email us</span>
+            <span
+              aria-hidden
+              className="pointer-events-none absolute bottom-0 left-0 h-4 w-4 rounded-bl-md border-b-2 border-l-2 border-[#999999]"
+            />
           </Link>
         </Button>
       </div>
