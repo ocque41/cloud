@@ -35,9 +35,7 @@ export function Hero() {
           asChild
           size="hero"
           variant="plain"
-          leadingGlyph
-          className="gap-[2px] text-[#aaaaaa] text-3xl font-normal leading-none tracking-tight"
-          glyphClassName="h-[70px] w-[70px] -translate-y-[6px] text-[#999999]"
+          className="px-6 py-3 text-[#aaaaaa] text-3xl font-normal leading-none tracking-tight"
         >
           <Link href="/contact">Get Started</Link>
         </Button>
