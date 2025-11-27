@@ -64,7 +64,7 @@ function Button({
     const glyphContent = (
       <span className="inline-flex items-end gap-[2px] leading-none">
         <BracketGlyph
-          className="h-14 w-14 -translate-y-[2px] text-[#999999]"
+          className="h-[70px] w-[70px] -translate-y-[6px] text-[#999999]"
           aria-hidden
         />
         <span className="leading-none">{childContent}</span>
