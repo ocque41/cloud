@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -20,8 +21,19 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-[color:var(--muted)]/20 bg-[#171717]/90 backdrop-blur">
       <div className="container flex items-center justify-between py-6">
-        <Link href="/" className="text-xl font-semibold tracking-tight">
-          Cumulus
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-xl font-semibold tracking-tight"
+          aria-label="Cumulus home"
+        >
+          <Image
+            src="/Logo-64.png"
+            alt="Cumulus logo"
+            width={40}
+            height={40}
+            className="h-10 w-10"
+            priority
+          />
         </Link>
         <div className="flex items-center gap-4">
           <Sheet open={open} onOpenChange={setOpen}>

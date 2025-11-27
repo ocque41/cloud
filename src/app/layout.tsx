@@ -6,6 +6,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cumulush.com"),
+  icons: {
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/Logo-180.png",
+  },
 };
 
 export const viewport: Viewport = {
