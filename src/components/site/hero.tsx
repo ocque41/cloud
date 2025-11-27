@@ -35,7 +35,7 @@ export function Hero() {
           asChild
           size="hero"
           variant="plain"
-          className="px-6 py-3 text-[#aaaaaa] text-3xl font-normal leading-none tracking-tight"
+          className="text-[#aaaaaa] text-xl font-normal leading-none"
         >
           <Link href="/contact">Get Started</Link>
         </Button>
