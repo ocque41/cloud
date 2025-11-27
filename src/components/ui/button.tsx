@@ -62,8 +62,8 @@ function Button({
       : children
 
     const glyphContent = (
-      <span className="inline-flex items-center gap-1">
-        <BracketGlyph className="h-10 w-10 text-[#aaaaaa]" aria-hidden />
+      <span className="inline-flex items-center gap-[2px]">
+        <BracketGlyph className="h-12 w-12 text-[#999999]" aria-hidden />
         <span className="leading-none">{childContent}</span>
       </span>
     )
@@ -81,7 +81,7 @@ function Button({
       data-slot="button"
       className={cn(
         buttonVariants({ variant, size, className }),
-        leadingGlyph && "gap-1 bg-transparent px-3 py-2 text-[color:var(--fg)] shadow-none"
+        leadingGlyph && "gap-[2px] bg-transparent px-3 py-2 text-[color:var(--fg)] shadow-none"
       )}
       {...props}
     >

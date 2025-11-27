@@ -31,8 +31,14 @@ export function Hero() {
       </div>
 
       <div className="mt-10 flex flex-wrap gap-4">
-        <Button asChild size="hero" variant="plain" leadingGlyph>
-          <Link href="/contact">Get started</Link>
+        <Button
+          asChild
+          size="hero"
+          variant="plain"
+          leadingGlyph
+          className="gap-[2px] text-[#aaaaaa] text-3xl font-normal leading-none tracking-tight"
+        >
+          <Link href="/contact">Get Started</Link>
         </Button>
         <Button asChild size="lg" variant="outline">
           <Link href="mailto:hello@cumulus.example">Email us</Link>
