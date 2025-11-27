@@ -57,12 +57,14 @@ function Button({
   let renderedChildren = children
 
   if (leadingGlyph) {
+    const childContent = React.isValidElement(children)
+      ? (children.props as { children?: React.ReactNode }).children
+      : children
+
     const glyphContent = (
       <span className="inline-flex items-center gap-1">
         <BracketGlyph className="h-10 w-10 text-[#aaaaaa]" aria-hidden />
-        <span className="leading-none">
-          {React.isValidElement(children) ? children.props.children : children}
-        </span>
+        <span className="leading-none">{childContent}</span>
       </span>
     )
 
