@@ -69,7 +69,8 @@ function Button({
     )
 
     if (asChild && React.isValidElement(children)) {
-      renderedChildren = React.cloneElement(children, children.props, glyphContent)
+      const childElement = children as React.ReactElement
+      renderedChildren = React.cloneElement(childElement, undefined, glyphContent)
     } else {
       renderedChildren = glyphContent
     }
