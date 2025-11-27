@@ -45,13 +45,9 @@ export function Hero() {
           asChild
           size="lg"
           variant="plain"
-          className="group relative h-auto items-center gap-3 rounded-md px-5 py-3 text-[#aaaaaa] text-xl font-normal leading-none"
+          className="h-auto items-center gap-3 px-5 py-3 text-[#aaaaaa] text-xl font-normal leading-none"
         >
-          <Link href="mailto:hello@cumulus.example" className="relative inline-flex items-center gap-3 leading-none">
-            <span aria-hidden className="pointer-events-none absolute inset-0">
-              <span className="absolute bottom-0 left-0 h-[70%] w-[2px] bg-[#999999] transition-all duration-300 ease-out group-hover:h-full group-focus-visible:h-full" />
-              <span className="absolute bottom-0 left-0 h-[2px] w-[75%] bg-[#999999] transition-all duration-300 ease-out group-hover:w-full group-focus-visible:w-full" />
-            </span>
+          <Link href="mailto:hello@cumulus.example" className="inline-flex items-center gap-3 leading-none">
             <span>Email us</span>
           </Link>
         </Button>
