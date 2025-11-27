@@ -89,7 +89,7 @@ function Button({
       data-slot="button"
       className={cn(
         buttonVariants({ variant, size, className }),
-        leadingGlyph && "gap-[2px] bg-transparent px-3 py-2 text-[color:var(--fg)] shadow-none"
+        leadingGlyph && "gap-[2px] bg-transparent px-3 py-2 shadow-none"
       )}
       {...props}
     >
