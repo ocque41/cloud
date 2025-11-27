@@ -37,10 +37,18 @@ export function Hero() {
           variant="plain"
           leadingGlyph
           className="gap-[2px] text-[#aaaaaa] text-3xl font-normal leading-none tracking-tight"
+          glyphClassName="h-[70px] w-[70px] -translate-y-[6px] text-[#999999]"
         >
           <Link href="/contact">Get Started</Link>
         </Button>
-        <Button asChild size="lg" variant="outline">
+        <Button
+          asChild
+          size="lg"
+          variant="plain"
+          leadingGlyph
+          className="gap-[2px] text-[#aaaaaa] font-normal leading-none"
+          glyphClassName="h-10 w-10 -translate-y-[2px] text-[#999999]"
+        >
           <Link href="mailto:hello@cumulus.example">Email us</Link>
         </Button>
       </div>

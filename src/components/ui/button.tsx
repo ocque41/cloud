@@ -45,12 +45,14 @@ function Button({
   size,
   asChild = false,
   leadingGlyph = false,
+  glyphClassName,
   children,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean
     leadingGlyph?: boolean
+    glyphClassName?: string
   }) {
   const Comp = asChild ? Slot : "button"
 
@@ -64,7 +66,10 @@ function Button({
     const glyphContent = (
       <span className="inline-flex items-end gap-[2px] leading-none">
         <BracketGlyph
-          className="h-[70px] w-[70px] -translate-y-[6px] text-[#999999]"
+          className={cn(
+            "h-[70px] w-[70px] -translate-y-[6px] text-[#999999]",
+            glyphClassName
+          )}
           aria-hidden
         />
         <span className="leading-none">{childContent}</span>
