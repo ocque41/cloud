@@ -41,9 +41,9 @@ export function Footer() {
             <Image
               src="/Logo-256.png"
               alt="Cumulus logo"
-              width={56}
-              height={56}
-              className="h-14 w-14 object-contain brightness-125 contrast-125 drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]"
+              width={64}
+              height={64}
+              className="h-16 w-16 object-contain brightness-150 contrast-140 drop-shadow-[0_0_10px_rgba(255,255,255,0.2)]"
               priority={false}
             />
           </Link>
