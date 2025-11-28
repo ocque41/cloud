@@ -1,7 +1,7 @@
 import Link from "next/link";
 
-import InteractiveShaderCard from "@/components/interactive-shader-card";
 import { Button } from "@/components/ui/button";
+import { VoxelBackground } from "@/components/site/voxel-background";
 
 export function Hero() {
   const now = new Date();
@@ -12,7 +12,8 @@ export function Hero() {
   }).format(now);
 
   return (
-    <section className="container pt-20 pb-12">
+    <section className="container relative isolate overflow-hidden pt-20 pb-12">
+      <VoxelBackground className="absolute inset-x-[-12vw] inset-y-[-14vh] opacity-40" />
       <div className="mb-6 flex flex-wrap items-center gap-3 text-sm text-[color:var(--muted)]">
         <time dateTime={now.toISOString()}>{formatted}</time>
         <span aria-hidden>•</span>
@@ -49,15 +50,6 @@ export function Hero() {
             <span>Email us</span>
           </Link>
         </Button>
-      </div>
-
-      <div className="mt-12 overflow-hidden rounded-2xl">
-        <div className="aspect-[16/9]">
-          <InteractiveShaderCard
-            mode="interactive"
-            aria-label="Cumulus interactive hero"
-          />
-        </div>
       </div>
     </section>
   );

@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { VoxelBackground } from "@/components/site/voxel-background";
+
 const links = [
   { href: "/", label: "Home" },
   { href: "/contact", label: "Contact" },
@@ -8,7 +10,8 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-[color:var(--muted)]/20">
+    <footer className="relative isolate overflow-hidden border-t border-[color:var(--muted)]/20">
+      <VoxelBackground className="absolute inset-x-[-12vw] inset-y-[-20vh] -z-20 opacity-35" />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 -z-10 opacity-5"
