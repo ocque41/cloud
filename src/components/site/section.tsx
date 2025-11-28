@@ -8,8 +8,10 @@ interface SectionProps {
   copy?: string;
   children?: ReactNode;
   className?: string;
-  as?: keyof JSX.IntrinsicElements;
+  as?: SectionTag;
 }
+
+type SectionTag = "section" | "div" | "article" | "aside" | "main" | "header" | "footer" | "nav";
 
 export function Section({
   title,
