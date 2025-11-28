@@ -39,11 +39,11 @@ export function Footer() {
             aria-label="Cumulus home"
           >
             <Image
-              src="/Logo-128.png"
+              src="/Logo-256.png"
               alt="Cumulus logo"
-              width={48}
-              height={48}
-              className="h-12 w-12"
+              width={56}
+              height={56}
+              className="h-14 w-14 object-contain brightness-125 contrast-125 drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]"
               priority={false}
             />
           </Link>

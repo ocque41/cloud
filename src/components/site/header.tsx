@@ -27,11 +27,11 @@ export function Header() {
           aria-label="Cumulus home"
         >
           <Image
-            src="/Logo-64.png"
+            src="/Logo-256.png"
             alt="Cumulus logo"
-            width={40}
-            height={40}
-            className="h-10 w-10"
+            width={56}
+            height={56}
+            className="h-14 w-14 object-contain brightness-125 contrast-125 drop-shadow-[0_0_8px_rgba(255,255,255,0.15)]"
             priority
           />
         </Link>
