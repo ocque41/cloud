@@ -6,14 +6,14 @@ import { createClient } from '@/lib/supabase/client'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
-import { Icons } from '@/components/icons' // Assuming we might need an Icons component, or I'll just use Lucide directly if simple
-import { Loader2, Mail } from 'lucide-react'
+import { Loader2 } from 'lucide-react'
 import { toast } from 'sonner'
 
 export function AuthForm() {
     const [isLoading, setIsLoading] = useState(false)
+    const [activeTab, setActiveTab] = useState<'login' | 'signup' | 'forgot-password'>('login')
     const router = useRouter()
     const supabase = createClient()
 
@@ -103,7 +103,7 @@ export function AuthForm() {
 
     return (
         <div className="w-full max-w-md mx-auto">
-            <Tabs defaultValue="login" className="w-full">
+            <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as typeof activeTab)} className="w-full">
                 <TabsList className="grid w-full grid-cols-2">
                     <TabsTrigger value="login">Login</TabsTrigger>
                     <TabsTrigger value="signup">Sign Up</TabsTrigger>
@@ -127,20 +127,8 @@ export function AuthForm() {
                                     <div className="flex items-center justify-between">
                                         <Label htmlFor="password">Password</Label>
                                         <Button variant="link" className="p-0 h-auto text-xs" onClick={(e) => {
-                                            e.preventDefault();
-                                            const form = e.currentTarget.closest('form');
-                                            if (form) {
-                                                // This is a bit hacky, ideally we'd switch to a "forgot-password" view
-                                                // For now let's just show a toast or handle it differently.
-                                                // Actually, let's make a separate view or modal for forgot password.
-                                                // For simplicity in this step, I'll just change the tab or show a dialog.
-                                                // Let's use a simple prompt for now or better, a separate route.
-                                                // But the user asked for "forgot password link".
-                                                // I'll implement a simple toggle or just a link to a separate page if it was a full app.
-                                                // Here I'll just toggle a state if I were using state, but I'm using Tabs.
-                                                // Let's add a "forgot-password" tab content or just handle it.
-                                                toast.info("Please use the Forgot Password tab if implemented, or I will add it now.")
-                                            }
+                                            e.preventDefault()
+                                            setActiveTab('forgot-password')
                                         }}>
                                             Forgot your password?
                                         </Button>
@@ -253,10 +241,7 @@ export function AuthForm() {
                                     {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
                                     Send Reset Link
                                 </Button>
-                                <Button variant="link" className="w-full" onClick={() => {
-                                    // This is a bit hacky, but I can't easily switch tabs programmatically without controlling the value state.
-                                    // I'll refactor to control state.
-                                }}>
+                                <Button variant="link" className="w-full" onClick={() => setActiveTab('login')}>
                                     Back to Login
                                 </Button>
                             </form>
