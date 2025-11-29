@@ -12,7 +12,6 @@ const ensureKeyframesInjected = () => {
   style.id = id;
   style.textContent = `
     @keyframes cardFloat { 0% { transform: translate3d(0, 0, 0) rotate(-0.15deg); } 35% { transform: translate3d(0, -3px, 0) rotate(0.2deg); } 70% { transform: translate3d(0, 2px, 0) rotate(-0.1deg); } 100% { transform: translate3d(0, 0, 0) rotate(-0.15deg); } }
-    @keyframes cardSideGlow { 0% { opacity: 0.4; } 50% { opacity: 0.7; } 100% { opacity: 0.4; } }
   `;
   document.head.appendChild(style);
 };
@@ -50,16 +49,6 @@ const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElemen
         style={{ ...baseStyle, ...style }}
         {...props}
       >
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0"
-          style={{
-            backgroundImage:
-              "linear-gradient(90deg, rgba(255,255,255,0.18) 0%, rgba(255,255,255,0.08) 14%, rgba(255,255,255,0) 38%)",
-            mixBlendMode: "screen",
-            animation: prefersReducedMotion ? undefined : "cardSideGlow 9s ease-in-out infinite",
-          }}
-        />
         <div className="relative z-[1]">{children}</div>
       </div>
     );
