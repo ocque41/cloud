@@ -12,7 +12,7 @@ export function Hero() {
   }).format(now);
 
   return (
-    <section className="container relative isolate overflow-hidden pt-20 pb-12">
+    <section className="container relative isolate flex min-h-screen flex-col justify-center overflow-hidden py-20">
       <VoxelBackground className="absolute inset-x-[-12vw] inset-y-[-14vh] opacity-40" />
       <div className="mb-6 flex flex-wrap items-center gap-3 text-sm text-[color:var(--muted)]">
         <time dateTime={now.toISOString()}>{formatted}</time>
@@ -39,16 +39,6 @@ export function Hero() {
           className="text-[#aaaaaa] text-xl font-normal leading-none"
         >
           <Link href="/contact">Get Started</Link>
-        </Button>
-        <Button
-          asChild
-          size="lg"
-          variant="plain"
-          className="h-auto items-center gap-3 px-5 py-3 text-[#aaaaaa] text-xl font-normal leading-none"
-        >
-          <Link href="mailto:hello@cumulus.example" className="inline-flex items-center gap-3 leading-none">
-            <span>Email us</span>
-          </Link>
         </Button>
       </div>
     </section>
