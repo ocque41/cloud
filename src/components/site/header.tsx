@@ -66,7 +66,7 @@ export function Header() {
             variant="default"
             className="hidden text-sm uppercase tracking-wide xl:inline-flex"
           >
-            <Link href="/contact">Get Started</Link>
+            <Link href="/login">Get Started</Link>
           </Button>
           <Button
             asChild
@@ -74,7 +74,7 @@ export function Header() {
             variant="default"
             className="text-xs tracking-wide xl:hidden"
           >
-            <Link href="/contact">Get Started</Link>
+            <Link href="/login">Get Started</Link>
           </Button>
         </div>
       </div>

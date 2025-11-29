@@ -22,7 +22,7 @@ export function Hero() {
         </span>
       </div>
 
-      <h1 className="display max-w-5xl">
+      <h1 className="display max-w-5xl text-[#aaaaaa]">
         We build and run software for small businesses.
       </h1>
 
@@ -38,7 +38,7 @@ export function Hero() {
           variant="plain"
           className="text-[#aaaaaa] text-xl font-normal leading-none"
         >
-          <Link href="/contact">Get Started</Link>
+          <Link href="/login">Get Started</Link>
         </Button>
       </div>
     </section>
