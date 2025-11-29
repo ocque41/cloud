@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 
 import { Footer } from "@/components/site/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 import "./globals.css";
 
@@ -30,6 +31,7 @@ export default function RootLayout({
           <div className="flex flex-1 flex-col">{children}</div>
           <Footer />
         </div>
+        <Toaster />
       </body>
     </html>
   );
