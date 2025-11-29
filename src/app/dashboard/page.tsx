@@ -64,7 +64,6 @@ export default async function DashboardPage() {
             <CardContent className="space-y-2 text-sm text-muted-foreground">
               <p>Use this area as a starting point for your app experience.</p>
               <ul className="list-disc space-y-1 pl-4">
-                <li>Connect Google or Apple via the social buttons on login.</li>
                 <li>Manage your profile data in Supabase auth settings.</li>
                 <li>Extend this dashboard with product-specific metrics.</li>
               </ul>
