@@ -64,11 +64,13 @@ export function AuthForm({ initialTab = 'login', redirectPath = '/dashboard' }: 
       const email = formData.get('email') as string
       const password = formData.get('password') as string
 
+      const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? location.origin).replace(/\/$/, '')
+
       const { data, error } = await supabase.auth.signUp({
         email,
         password,
         options: {
-          emailRedirectTo: `${location.origin}/auth/callback`,
+          emailRedirectTo: `${siteUrl}/auth/callback`,
         },
       })
 
