@@ -24,6 +24,11 @@ export function AuthForm({ initialTab = 'login', redirectPath = '/dashboard' }: 
   const router = useRouter()
   const supabase = createClient()
 
+  const getSiteUrl = () => {
+    const origin = process.env.NEXT_PUBLIC_SITE_URL ?? (typeof window !== 'undefined' ? window.location.origin : '')
+    return origin.replace(/\/$/, '')
+  }
+
   useEffect(() => {
     setActiveTab(initialTab)
   }, [initialTab])
@@ -64,7 +69,7 @@ export function AuthForm({ initialTab = 'login', redirectPath = '/dashboard' }: 
       const email = formData.get('email') as string
       const password = formData.get('password') as string
 
-      const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? location.origin).replace(/\/$/, '')
+      const siteUrl = getSiteUrl()
 
       const { data, error } = await supabase.auth.signUp({
         email,
@@ -101,8 +106,10 @@ export function AuthForm({ initialTab = 'login', redirectPath = '/dashboard' }: 
       const formData = new FormData(event.currentTarget)
       const email = formData.get('email') as string
 
+      const siteUrl = getSiteUrl()
+
       const { error } = await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${location.origin}/auth/callback?next=/update-password`,
+        redirectTo: `${siteUrl}/auth/callback?next=/update-password`,
       })
 
       if (error) {
@@ -117,15 +124,25 @@ export function AuthForm({ initialTab = 'login', redirectPath = '/dashboard' }: 
   }
 
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full max-w-md mx-auto space-y-4">
+      <div className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-xs uppercase tracking-[0.2em] text-muted-foreground shadow-[0_12px_50px_rgba(0,0,0,0.35)] backdrop-blur">
+        <div className="flex items-center justify-between gap-3 text-[11px]">
+          <span className="font-semibold text-foreground">Email & password only</span>
+          <span className="rounded-md bg-white/10 px-2 py-1 text-[10px] font-semibold text-foreground">Secure</span>
+        </div>
+        <p className="mt-2 text-[12px] leading-relaxed text-muted-foreground">
+          No social sign-ins. Use your work email and reset your password anytime.
+        </p>
+      </div>
+
       <Tabs value={activeTab} onValueChange={(value) => setActiveTab(value as AuthTab)} className="w-full">
-        <TabsList className="grid w-full grid-cols-2">
+        <TabsList className="grid w-full grid-cols-2 bg-white/5 p-1 shadow-[0_8px_30px_rgba(0,0,0,0.4)]">
           <TabsTrigger value="login">Login</TabsTrigger>
           <TabsTrigger value="signup">Sign Up</TabsTrigger>
         </TabsList>
 
         <TabsContent value="login">
-          <Card>
+          <Card className="bg-[#0f0f11]/85 backdrop-blur-xl">
             <CardHeader>
               <CardTitle>Login</CardTitle>
               <CardDescription>Enter your email below to login to your account</CardDescription>
@@ -134,7 +151,14 @@ export function AuthForm({ initialTab = 'login', redirectPath = '/dashboard' }: 
               <form onSubmit={onLogin} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="email">Email</Label>
-                  <Input id="email" name="email" type="email" placeholder="m@example.com" required />
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="you@company.com"
+                    required
+                  />
                 </div>
                 <div className="space-y-2">
                   <div className="flex items-center justify-between">
@@ -150,7 +174,7 @@ export function AuthForm({ initialTab = 'login', redirectPath = '/dashboard' }: 
                       Forgot your password?
                     </Button>
                   </div>
-                  <Input id="password" name="password" type="password" required />
+                  <Input id="password" name="password" type="password" autoComplete="current-password" required />
                 </div>
                 <Button type="submit" className="w-full" disabled={isLoading}>
                   {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
@@ -171,7 +195,7 @@ export function AuthForm({ initialTab = 'login', redirectPath = '/dashboard' }: 
         </TabsContent>
 
         <TabsContent value="signup">
-          <Card>
+          <Card className="bg-[#0f0f11]/85 backdrop-blur-xl">
             <CardHeader>
               <CardTitle>Sign Up</CardTitle>
               <CardDescription>Create an account to get started</CardDescription>
@@ -180,11 +204,24 @@ export function AuthForm({ initialTab = 'login', redirectPath = '/dashboard' }: 
               <form onSubmit={onSignUp} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="signup-email">Email</Label>
-                  <Input id="signup-email" name="email" type="email" placeholder="m@example.com" required />
+                  <Input
+                    id="signup-email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="you@company.com"
+                    required
+                  />
                 </div>
                 <div className="space-y-2">
                   <Label htmlFor="signup-password">Password</Label>
-                  <Input id="signup-password" name="password" type="password" required />
+                  <Input
+                    id="signup-password"
+                    name="password"
+                    type="password"
+                    autoComplete="new-password"
+                    required
+                  />
                 </div>
                 <Button type="submit" className="w-full" disabled={isLoading}>
                   {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
@@ -205,7 +242,7 @@ export function AuthForm({ initialTab = 'login', redirectPath = '/dashboard' }: 
         </TabsContent>
 
         <TabsContent value="forgot-password">
-          <Card>
+          <Card className="bg-[#0f0f11]/85 backdrop-blur-xl">
             <CardHeader>
               <CardTitle>Forgot Password</CardTitle>
               <CardDescription>Enter your email to reset your password</CardDescription>
@@ -214,7 +251,14 @@ export function AuthForm({ initialTab = 'login', redirectPath = '/dashboard' }: 
               <form onSubmit={onForgotPassword} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="reset-email">Email</Label>
-                  <Input id="reset-email" name="email" type="email" placeholder="m@example.com" required />
+                  <Input
+                    id="reset-email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    placeholder="you@company.com"
+                    required
+                  />
                 </div>
                 <Button type="submit" className="w-full" disabled={isLoading}>
                   {isLoading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
